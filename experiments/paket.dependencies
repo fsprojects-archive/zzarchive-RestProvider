@@ -1,0 +1,5 @@
+source https://www.nuget.org/api/v2
+nuget FSharp.Data
+nuget FsPickler
+nuget Newtonsoft.Json
+nuget Suave

@@ -1,0 +1,11 @@
+NUGET
+  remote: https://www.nuget.org/api/v2
+  specs:
+    FSharp.Data (2.3.0)
+      Zlib.Portable (>= 1.11.0) - framework: portable-net45+sl5+win8, portable-net45+win8, portable-net45+win8+wp8+wpa81
+    Zlib.Portable (1.11.0) - framework: portable-net45+sl5+win8, portable-net45+win8, portable-net45+win8+wp8+wpa81
+GITHUB
+  remote: fsprojects/FSharp.TypeProviders.StarterPack
+  specs:
+    src/ProvidedTypes.fs (0a5fd0caa73df304062c8965e61850789d9f39e7)
+    src/ProvidedTypes.fsi (0a5fd0caa73df304062c8965e61850789d9f39e7)

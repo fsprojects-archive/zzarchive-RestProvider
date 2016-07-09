@@ -1,0 +1,10 @@
+*.suo
+paket-files
+paket.exe
+experiments/packages
+provider/packages
+provider/bin
+provider/obj
+experiments/worldbank/data
+experiments/worldbank/data.zip
+experiments/worldbank/cache
