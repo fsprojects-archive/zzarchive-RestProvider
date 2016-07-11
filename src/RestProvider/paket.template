@@ -1,0 +1,25 @@
+type project
+title
+    RestProvider
+owners
+    Tomas Petricek
+authors 
+    Tomas Petricek
+projectUrl
+    http://github.com/fsprojects/RestProvider
+iconUrl
+    https://raw.githubusercontent.com/fsprojects/RestProvider/master/docs/files/img/logo.png
+licenseUrl
+    http://github.com/fsprojects/RestProvider/blob/master/LICENSE.txt
+requireLicenseAcceptance
+    false
+copyright
+    Copyright 2015
+tags
+    fsharp type providers rest data
+summary
+    F# type provider that lets you create type providers just by implementing a simple REST service
+description
+    Type provider that lets you create type providers just by implementing a simple REST service. RestProvider takes a URL of the service and provides types based on schema returned by the service in a simple JSON format, making building type providers easy!
+
+

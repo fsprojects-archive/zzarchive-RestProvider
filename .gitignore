@@ -1,8 +1,9 @@
 *.suo
 paket-files
 paket.exe
-experiments/packages
-provider/packages
-provider/bin
-provider/obj
-experiments/worldbank/data
+packages
+
+bin
+obj
+
+src/SuaveSources/worldbank/data
