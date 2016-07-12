@@ -7,3 +7,4 @@ bin
 obj
 
 src/SuaveSources/worldbank/data
+src/SuaveSources/AssemblyInfo.fs

@@ -10,8 +10,12 @@ open System.Threading.Tasks
 open ProviderImplementation.QuotationBuilder
 
 type MemberQuery = JsonProvider<"""
-  [ { "name":"United Kingdom", "returns":{"kind":"nested", "endpoint":"/country"}, "trace":["country", "UK"] }, 
+  [ { "name":"United Kingdom", "returns":{"kind":"nested", "endpoint":"/country"}, "trace":["country", "UK"],
+      "documentation":"can be a plain string" }, 
+    { "name":"United Kingdom", "returns":{"kind":"nested", "endpoint":"/country"}, "trace":["country", "UK"],
+      "documentation":{"endpoint":"/or-a-url-to-call"} }, 
     { "name":"Population", "returns":{"kind":"primitive", "type":null, "endpoint":"/data"}, "trace":["indicator", "POP"] } ] """>
+
 type TypeInfo = JsonProvider<"""
   [ "float",
     { "name":"record", "fields":[ {"name":"A","type":null} ] },
@@ -192,7 +196,7 @@ type public RestProvider() =
     let rec provideMembers source statc (members:Task<MemberQuery.Root[]>) =
       [ for membr in members.Result ->
           let trace = membr.Trace |> String.concat "&"
-          let typ, doc, getter = 
+          let typ, altdoc, getter = 
             match membr.Returns.Kind with
             | "nested" -> 
                 provideType source membr.Returns.Endpoint, 
@@ -201,7 +205,7 @@ type public RestProvider() =
             | "primitive" -> 
                 let endpoint = membr.Returns.Endpoint
                 let typ, erasedTyp, parser = ResultType.getTypeAndParser { DomainType = types; Records = records } (ResultType.fromJson membr.Returns.Type.JsonValue)
-                typ, "primitive...", fun ctx -> parser (runtimeContext?GetValue () (ctx, endpoint))
+                typ, "primitive", fun ctx -> parser (runtimeContext?GetValue () (ctx, endpoint))
             | t -> failwithf "Unknown type: %s" t
           let p = 
             ProvidedProperty
@@ -209,7 +213,12 @@ type public RestProvider() =
                 GetterCode = (fun args -> 
                   if statc then getter <@ RuntimeContext(source, "").AddTrace(trace) @>
                   else getter <@ (unbox<RuntimeContext> %%(List.head args)).AddTrace(trace) @> ))
-          p.AddXmlDoc(doc)
+          match membr.Documentation.Record, membr.Documentation.String with
+          | Some recd, _ -> 
+              let doc = Http.AsyncRequestString(recd.Endpoint) |> Async.StartAsTask
+              p.AddXmlDocDelayed(fun _ -> doc.Result)
+          | _, Some str -> p.AddXmlDoc(str)
+          | _ -> p.AddXmlDoc(altdoc)
           p ]
 
     and provideType (source:string) (endpoint:string) =

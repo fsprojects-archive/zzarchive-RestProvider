@@ -1,10 +1,15 @@
+#if INTERACTIVE
+#r "../../bin/TheGamma.RestProvider.dll"
+#r "../../packages/test/NUnit/lib/nunit.framework.dll"
+#else
 module RestProvider.Tests
-
-open RestProvider
+#endif
+open TheGamma
 open NUnit.Framework
 
+type Minimal = RestProvider<"http://localhost:10042/minimal">
+
 [<Test>]
-let ``hello returns 42`` () =
-  let result = Library.hello 42
-  printfn "%i" result
-  Assert.AreEqual(42,result)
+let ``Minimal sample returns population of London`` () =
+  let population = Minimal.London.Population
+  Assert.AreEqual(538689, population)

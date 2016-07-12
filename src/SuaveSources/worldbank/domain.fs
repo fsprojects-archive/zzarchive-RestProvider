@@ -1,4 +1,5 @@
-﻿module WorldBank.Domain
+﻿namespace WorldBank.Domain
+
 open System.Collections.Generic
 open Newtonsoft.Json
 open System.IO
@@ -50,53 +51,53 @@ type Data =
     Data : IReadOnlyCollection<DataPoint> 
     Topics : IDictionary<string, Topic> }
 
+module Serializer = 
+  let readCache folder = 
+    let serializer = JsonSerializer.Create()
 
-let readCache folder = 
-  let serializer = JsonSerializer.Create()
+    let fromJson json : 'T = 
+      use tr = new System.IO.StringReader(json)
+      serializer.Deserialize<'T>(new JsonTextReader(tr))
 
-  let fromJson json : 'T = 
-    use tr = new System.IO.StringReader(json)
-    serializer.Deserialize<'T>(new JsonTextReader(tr))
+    let readData file = seq {
+      use fs = new FileStream(file, FileMode.Open)
+      let block = Array.zeroCreate 14
+      let finished = ref false
+      fs.Read(block, 0, 14) |> ignore
+      while not finished.Value do
+        yield 
+          DataPoint
+            ( System.BitConverter.ToUInt16(block, 0),
+              System.BitConverter.ToUInt16(block, 2),
+              System.BitConverter.ToUInt16(block, 4),
+              System.BitConverter.ToDouble(block, 6) )
+        finished := (fs.Read(block, 0, 14) = 0) }
 
-  let readData file = seq {
-    use fs = new FileStream(file, FileMode.Open)
-    let block = Array.zeroCreate 14
-    let finished = ref false
-    fs.Read(block, 0, 14) |> ignore
-    while not finished.Value do
-      yield 
-        DataPoint
-          ( System.BitConverter.ToUInt16(block, 0),
-            System.BitConverter.ToUInt16(block, 2),
-            System.BitConverter.ToUInt16(block, 4),
-            System.BitConverter.ToDouble(block, 6) )
-      finished := (fs.Read(block, 0, 14) = 0) }
-
-  let countries = File.ReadAllText(folder + "/countries.json") |> fromJson |> dict 
-  let indicators = File.ReadAllText(folder + "/indicators.json") |> fromJson |> dict 
-  let years = File.ReadAllText(folder + "/years.json") |> fromJson |> dict 
-  let data = readData (folder + "/worldbank.dat") |> Array.ofSeq 
+    let countries = File.ReadAllText(folder + "/countries.json") |> fromJson |> dict 
+    let indicators = File.ReadAllText(folder + "/indicators.json") |> fromJson |> dict 
+    let years = File.ReadAllText(folder + "/years.json") |> fromJson |> dict 
+    let data = readData (folder + "/worldbank.dat") |> Array.ofSeq 
   
-  let indicatorsForTopic topic = 
-    indicators 
-    |> Seq.filter (fun (KeyValue(k, { Indicator.Topics = t })) -> 
-        t |> Seq.exists (fun topic' -> topic = topic'))
-    |> Seq.map (fun (KeyValue(k, _)) -> k)
+    let indicatorsForTopic topic = 
+      indicators 
+      |> Seq.filter (fun (KeyValue(k, { Indicator.Topics = t })) -> 
+          t |> Seq.exists (fun topic' -> topic = topic'))
+      |> Seq.map (fun (KeyValue(k, _)) -> k)
 
-  let topics =
-    indicators.Values 
-    |> Seq.collect (fun { Indicator.Topics = t } -> t) 
-    |> Seq.distinct
-    |> Seq.mapi (fun i t ->
-        sprintf "topic_%d" i, 
-        { Name = t.Trim(); Indicators = indicatorsForTopic t })
-  let topics = 
-    Seq.append [ "all", { Name = "All Indicators"; Indicators = indicators.Keys } ] topics
+    let topics =
+      indicators.Values 
+      |> Seq.collect (fun { Indicator.Topics = t } -> t) 
+      |> Seq.distinct
+      |> Seq.mapi (fun i t ->
+          sprintf "topic_%d" i, 
+          { Name = t.Trim(); Indicators = indicatorsForTopic t })
+    let topics = 
+      Seq.append [ "all", { Name = "All Indicators"; Indicators = indicators.Keys } ] topics
 
-  let countriesByIdx = dict [ for c:Country in countries.Values -> c.Index, c ]
-  let indicatorsByIdx = dict [ for c:Indicator in indicators.Values -> c.Index, c ]
-  let yearsByIdx = dict [ for c:Year in years.Values -> c.Index, c ]
+    let countriesByIdx = dict [ for c:Country in countries.Values -> c.Index, c ]
+    let indicatorsByIdx = dict [ for c:Indicator in indicators.Values -> c.Index, c ]
+    let yearsByIdx = dict [ for c:Year in years.Values -> c.Index, c ]
             
-  { Countries = countries; Indicators = indicators; CountriesByIndex = countriesByIdx; 
-    IndicatorsByIndex = indicatorsByIdx; YearsByIndex = yearsByIdx    
-    Years = years; Topics = dict topics; Data = data }
+    { Countries = countries; Indicators = indicators; CountriesByIndex = countriesByIdx; 
+      IndicatorsByIndex = indicatorsByIdx; YearsByIndex = yearsByIdx    
+      Years = years; Topics = dict topics; Data = data }

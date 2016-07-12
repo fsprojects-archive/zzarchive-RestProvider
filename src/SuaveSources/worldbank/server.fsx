@@ -12,7 +12,7 @@ open WorldBank
 open WorldBank.Domain
 open Newtonsoft.Json
 
-let worldBank = Domain.readCache (__SOURCE_DIRECTORY__ + "/cache")
+let worldBank = Serializer.readCache (__SOURCE_DIRECTORY__ + "/cache")
 
 // ----------------------------------------------------------------------------
 // Helpers

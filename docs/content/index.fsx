@@ -2,23 +2,10 @@
 // This block of code is omitted in the generated HTML documentation. Use 
 // it to define helpers that you do not want to show in the documentation.
 #I "../../bin"
-
+//#r "FSharp.Data.dll"
 (**
 RestProvider
 ======================
-
-Documentation
-
-<div class="row">
-  <div class="span1"></div>
-  <div class="span6">
-    <div class="well well-small" id="nuget">
-      The RestProvider library can be <a href="https://nuget.org/packages/RestProvider">installed from NuGet</a>:
-      <pre>PM> Install-Package RestProvider</pre>
-    </div>
-  </div>
-  <div class="span1"></div>
-</div>
 
 Example
 -------
@@ -26,10 +13,12 @@ Example
 This example demonstrates using a function defined in this sample library.
 
 *)
-#r "RestProvider.dll"
-open RestProvider
+#r "TheGamma.RestProvider.dll"
+open TheGamma
 
-printfn "hello = %i" <| Library.hello 0
+type Adventure = RestProvider<"http://localhost:10042/adventure">
+Adventure.``Start the adventure...``.
+
 
 (**
 Some more info

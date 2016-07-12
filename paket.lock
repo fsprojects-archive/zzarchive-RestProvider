@@ -15,26 +15,17 @@ NUGET
       FSharpVSPowerTools.Core (>= 2.3 < 2.4)
     FSharpVSPowerTools.Core (2.3)
       FSharp.Compiler.Service (>= 2.0.0.3)
-    Microsoft.Bcl (1.1.10) - framework: net40, net40-full
-      Microsoft.Bcl.Build (>= 1.0.14)
-    Microsoft.Bcl.Build (1.0.21) - import_targets: false
-    Microsoft.Net.Http (2.2.29) - framework: net40, net40-full
-      Microsoft.Bcl (>= 1.1.10)
-      Microsoft.Bcl.Build (>= 1.0.14)
-    Octokit (0.20)
-      Microsoft.Net.Http  - framework: net40, net40-full
     SourceLink.Fake (1.1)
 GITHUB
   remote: fsprojects/FSharp.TypeProviders.StarterPack
     src/ProvidedTypes.fs (dfbca9b83fb70067e85abddcb8b89332aae4c28d)
     src/ProvidedTypes.fsi (dfbca9b83fb70067e85abddcb8b89332aae4c28d)
-  remote: fsharp/FAKE
-    modules/Octokit/Octokit.fsx (c56456abac6b744c3bb95b217687db19fd19b367)
-      Octokit (>= 0.20)
 GROUP Samples
 FRAMEWORK: >= NET40
 NUGET
   remote: https://www.nuget.org/api/v2
+    FSharp.Compiler.Service (5.0)
+    FSharp.Compiler.Tools (4.0.0.1)
     FSharp.Core (4.0.0.1)
     FSharp.Data (2.3.1)
     FsPickler (2.3)

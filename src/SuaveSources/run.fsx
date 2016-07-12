@@ -1,14 +1,13 @@
 // --------------------------------------------------------------------------------------
-// A simple FAKE build script that:
-//  1) Hosts Suave server locally & reloads web part that is defined in 'app.fsx'
-//  2) Deploys the web application to Azure web sites when called with 'build deploy'
+// FAKE build script that hosts Suave servers defined in the various script files
 // --------------------------------------------------------------------------------------
 
-#r "packages/FSharp.Compiler.Service/lib/net45/FSharp.Compiler.Service.dll"
-#r "packages/Suave/lib/net40/Suave.dll"
-#r "packages/FAKE/tools/FakeLib.dll"
-open Fake
+#r "../../packages/build/FAKE/tools/FakeLib.dll"
+#I "../../packages/samples"
+#r "FSharp.Compiler.Service/lib/net45/FSharp.Compiler.Service.dll"
+#r "Suave/lib/net40/Suave.dll"
 
+open Fake
 open System
 open System.IO
 open Suave
@@ -30,7 +29,7 @@ let fsiSession =
   let outStream = new StringWriter(sbOut)
   let errStream = new StringWriter(sbErr)
   let fsiConfig = FsiEvaluationSession.GetDefaultConfiguration()
-  let argv = Array.append [|"/fake/fsi.exe"; "--quiet"; "--noninteractive"; "-d:DO_NOT_START_SERVER"|] [||]
+  let argv = Array.append [|"/fake/fsi.exe"; "--quiet"; "--noninteractive" |] [||]
   FsiEvaluationSession.Create(fsiConfig, argv, inStream, outStream, errStream)
 
 let reportFsiError (e:exn) =
@@ -38,22 +37,18 @@ let reportFsiError (e:exn) =
   traceError (sprintf "Message: %s\nError: %s" e.Message (sbErr.ToString().Trim()))
   sbErr.Clear() |> ignore
 
-let reloadScript () =
+let reloadScript dir serverFsx =
   try
-    traceImportant "Reloading app.fsx script..."
-    let appFsx = __SOURCE_DIRECTORY__ @@ "app.fsx"
-    fsiSession.EvalInteraction(sprintf "#load @\"%s\"" appFsx)
-    fsiSession.EvalInteraction("open App")
-    match fsiSession.EvalExpression("app") with
+    traceImportant <| sprintf "Reloading '%s/server.fsx' script..." dir
+    fsiSession.EvalInteraction(sprintf "#load @\"%s\"" serverFsx)
+    match fsiSession.EvalExpression("Server.app") with
     | Some app -> Some(app.ReflectionValue :?> WebPart)
-    | None -> failwith "Couldn't get 'app' value"
+    | None -> failwithf "Couldn't get 'app' value for sample '%s'" dir
   with e -> reportFsiError e; None
 
 // --------------------------------------------------------------------------------------
 // Suave server that redirects all request to currently loaded version
 // --------------------------------------------------------------------------------------
-
-let currentApp = ref (fun _ -> async { return None })
 
 let getLocalServerConfig port =
   { defaultConfig with
@@ -61,98 +56,45 @@ let getLocalServerConfig port =
       logger = Logging.Loggers.saneDefaultsFor Logging.LogLevel.Debug
       bindings = [ HttpBinding.mkSimple HTTP  "127.0.0.1" port ] }
 
+let servers = System.Collections.Generic.Dictionary<string, WebPart>()
+
 let reloadAppServer (changedFiles: string seq) =
-  traceImportant <| sprintf "Changes in %s" (String.Join(",",changedFiles))
-  reloadScript() |> Option.iter (fun app ->
-    currentApp.Value <- app
-    traceImportant "Refreshed app." )
+  for file in changedFiles do
+    let dir = Path.GetFileName(Path.GetDirectoryName(file))
+    traceImportant <| sprintf "Changes in '%s'" dir
+    reloadScript dir file |> Option.iter (fun app -> 
+      servers.[dir] <- app
+      traceImportant "Refreshed server." )
 
-Target "run" (fun _ ->
-  let app ctx = currentApp.Value ctx
-  let port = 8083
-  let _, server = startWebServerAsync (getLocalServerConfig port) app
+/// Drop the <s> part from http://localhost:123/<s>/something
+let dropPrefix part ctx = 
+  let u = ctx.request.url
+  let local = 
+    match List.ofArray (u.LocalPath.Substring(1).Split('/')) with
+    | _::rest -> String.concat "/" rest
+    | [] -> ""
+  let url = System.Uri(u.Scheme + "://" + u.Authority + "/" + local)
+  { ctx with request = { ctx.request with url = url }} |> part
 
-  // Start Suave to host it on localhost
-  reloadAppServer ["app.fsx"]
-  Async.Start(server)
-  // Open web browser with the loaded file
-  System.Diagnostics.Process.Start(sprintf "http://localhost:%d" port) |> ignore
-  
-  // Watch for changes & reload when app.fsx changes
-  let sources = 
-    { BaseDirectory = __SOURCE_DIRECTORY__
-      Includes = [ "**/*.fsx"; "**/*.fs" ; "**/*.fsproj" ]; 
-      Excludes = [] }
-      
-  use watcher = sources |> WatchChanges (Seq.map (fun x -> x.FullPath) >> reloadAppServer)
-  traceImportant "Waiting for app.fsx edits. Press any key to stop."
+// Server that serves pages from the given array
+let handlePage s =
+  match servers.TryGetValue(s) with
+  | true, part -> dropPrefix part
+  | _ -> RequestErrors.NOT_FOUND "Page not found"
 
-  System.Threading.Thread.Sleep(System.Threading.Timeout.Infinite)
-)
+let app =
+  choose [ Filters.pathScan "/%s/%s" (fst >> handlePage)  
+           Filters.pathScan "/%s" handlePage ]
+let port = 10042
+let _, server = startWebServerAsync (getLocalServerConfig port) app
 
-// --------------------------------------------------------------------------------------
-// Targets for running build script in background (for Atom)
-// --------------------------------------------------------------------------------------
+// Start Suave to host it on localhost
+let sources = { BaseDirectory = __SOURCE_DIRECTORY__; Includes = [ "*/server.fsx" ]; Excludes = [] }
+reloadAppServer sources
+Async.Start(server)
 
-open System.Diagnostics
+// Watch for changes & reload when server.fsx changes
+let watcher = sources |> WatchChanges (Seq.map (fun x -> x.FullPath) >> reloadAppServer)
+traceImportant "Waiting for app.fsx edits. Press any key to stop."
+System.Threading.Thread.Sleep(System.Threading.Timeout.Infinite)
 
-let runningFileLog = __SOURCE_DIRECTORY__ @@ "build.log"
-let runningFile = __SOURCE_DIRECTORY__ @@ "build.running"
-
-Target "spawn" (fun _ ->
-  if File.Exists(runningFile) then
-    failwith "The build is already running!"
-
-  let ps =
-    ProcessStartInfo
-      ( WorkingDirectory = __SOURCE_DIRECTORY__,
-        FileName = __SOURCE_DIRECTORY__  @@ "packages/FAKE/tools/FAKE.exe",
-        Arguments = "run --fsiargs build.fsx",
-        RedirectStandardOutput = true,
-        RedirectStandardError = true,
-        UseShellExecute = false )
-  use fs = new FileStream(runningFileLog, FileMode.Create, FileAccess.ReadWrite, FileShare.Read)
-  use sw = new StreamWriter(fs)
-  let p = Process.Start(ps)
-  p.ErrorDataReceived.Add(fun data -> printfn "%s" data.Data; sw.WriteLine(data.Data); sw.Flush())
-  p.OutputDataReceived.Add(fun data -> printfn "%s" data.Data; sw.WriteLine(data.Data); sw.Flush())
-  p.EnableRaisingEvents <- true
-  p.BeginOutputReadLine()
-  p.BeginErrorReadLine()
-
-  File.WriteAllText(runningFile, string p.Id)
-  while File.Exists(runningFile) do
-    System.Threading.Thread.Sleep(500)  
-  p.Kill()
-)
-
-Target "attach" (fun _ ->
-  if not (File.Exists(runningFile)) then
-    failwith "The build is not running!"
-  use fs = new FileStream(runningFileLog, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
-  use sr = new StreamReader(fs)
-  while File.Exists(runningFile) do
-    let msg = sr.ReadLine()
-    if not (String.IsNullOrEmpty(msg)) then
-      printfn "%s" msg 
-    else System.Threading.Thread.Sleep(500)
-)
-
-Target "stop" (fun _ ->
-  if not (File.Exists(runningFile)) then
-    failwith "The build is not running!"
-  File.Delete(runningFile)
-)
-
-// --------------------------------------------------------------------------------------
-// Minimal Azure deploy script - just overwrite old files with new ones
-// --------------------------------------------------------------------------------------
-
-Target "deploy" (fun _ ->
-  let sourceDirectory = __SOURCE_DIRECTORY__
-  let wwwrootDirectory = __SOURCE_DIRECTORY__ @@ "../wwwroot"
-  CleanDir wwwrootDirectory
-  CopyRecursive sourceDirectory wwwrootDirectory false |> ignore
-)
-
-RunTargetOrDefault "run"
