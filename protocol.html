@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>REST Provider protocol
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="F# type provider that lets you create type providers just by implementing a simple REST service"/>
+    <meta name="author" content="Tomas Petricek"/>
+
+    <script src="https://code.jquery.com/jquery-1.8.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet"/>
+
+    <link type="text/css" rel="stylesheet" href="/RestProvider/content/style.css" />
+    <script type="text/javascript" src="/RestProvider/content/tips.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="http://fsharp.org">fsharp.org</a></li>
+          <li><a href="http://github.com/fsprojects/RestProvider">github page</a></li>
+        </ul>
+        <h3 class="muted"><a href="/RestProvider/index.html">RestProvider</a></h3>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="span9" id="main">
+          
+<h1><a name="REST-Provider-protocol" class="anchor" href="#REST-Provider-protocol">REST Provider protocol</a></h1>
+<p>This page provides some details on the format of the responses that the REST type provider
+understands. This is still work in progress, so expect that things will change in the future.
+Also, please share your thoughts <a href="https://github.com/fsprojects/RestProvider/issues">as GitHub issues</a>!</p>
+<h2><a name="Provided-type-endpoint" class="anchor" href="#Provided-type-endpoint">Provided type endpoint</a></h2>
+<p>When the REST provider calls your root URL or an endpoint specifying a nested type, the resulting
+<code>&lt;type&gt;</code> should be an array of members. Those will be turned into members of the provided type:</p>
+<pre class='fssnip'><span class='t'>&lt;type&gt;</span> <span class='o'>=</span><br/>  [ <span class='t'>&lt;member&gt;</span>, <span class='o'>.</span><span class='o'>.</span><span class='o'>.</span> ]<br/><br/><span class='t'>&lt;member&gt;</span> <span class='o'>=</span><br/>  { <span class='s'>"name"</span> : <span class='t'>&lt;string&gt;</span>,<br/>    <span class='s'>"returns"</span> : <span class='t'>&lt;returns&gt;</span>,<br/>    <span class='s'>"trace"</span><span class='o'>?</span> : [<span class='t'>&lt;string&gt;</span>, <span class='o'>.</span><span class='o'>.</span><span class='o'>.</span> ],<br/>    <span class='s'>"documentation"</span><span class='o'>?</span> : <span class='t'>&lt;documentation&gt;</span> }</pre>
+<p>Each member needs to have a <code>name</code> and <code>returns</code>, which is the type of the result. It can
+optionally have <code>trace</code>, which specifies an array of strings that will be passed to the endpoint
+that returns data (once we reach a primitive type). A member can also optionally have a
+documentation (displayed in a tooltip):</p>
+<pre class='fssnip'><span class='t'>&lt;documentation&gt;</span> <span class='o'>=</span><br/>  <span class='o'>|</span> <span class='t'>&lt;string&gt;</span><br/>  <span class='o'>|</span> { <span class='s'>"endpoint"</span>: <span class='t'>&lt;string&gt;</span> }<br/><br/><span class='t'>&lt;returns&gt;</span> <span class='o'>=</span><br/>  <span class='o'>|</span> { <span class='s'>"kind"</span>: <span class='s'>"nested"</span>, <span class='s'>"endpoint"</span>: <span class='t'>&lt;string&gt;</span> }<br/>  <span class='o'>|</span> { <span class='s'>"kind"</span>: <span class='s'>"primitive"</span>, <span class='s'>"endpoint"</span>: <span class='t'>&lt;string&gt;</span>, <span class='s'>"type"</span>:<span class='t'>&lt;type&gt;</span> }</pre>
+<p>A documentation is either an inline string or a record with a URL that should be called to
+obtain the string. The return type can be one of two things:</p>
+<ul>
+<li>
+<strong>Nested type</strong> means that the type of the member is another provided type specified by
+an endpoint that returns another <code>&lt;type&gt;</code> specification.
+</li>
+<li>
+<strong>Primitive type</strong> means that the result is a primitive type. In this case, the provider
+generates code to call the specified <code>endpoint</code> to get the data and parse it according to
+the specified <code>type</code>.
+</li>
+</ul>
+<p>The type can be one of a few primitive types (<code>string</code>, <code>float</code> and <code>int</code>) or one of more complex
+types, including sequence (collection), record (with named fields) or a tuple (with two unnamed
+fields):</p>
+<pre class='fssnip'><span class='t'>&lt;type&gt;</span> <span class='o'>=</span><br/>  <span class='o'>|</span> <span class='s'>"string"</span><br/>  <span class='o'>|</span> <span class='s'>"float"</span><br/>  <span class='o'>|</span> <span class='s'>"int"</span><br/>  <span class='o'>|</span> { <span class='s'>"name"</span>:<span class='s'>"record"</span>, <span class='s'>"fields"</span>:[<span class='t'>&lt;field&gt;</span>, <span class='o'>.</span><span class='o'>.</span><span class='o'>.</span>] }<br/>  <span class='o'>|</span> { <span class='s'>"name"</span>:<span class='s'>"seq"</span>, <span class='s'>"params"</span>:[<span class='t'>&lt;type&gt;</span>] }<br/>  <span class='o'>|</span> { <span class='s'>"name"</span>:<span class='s'>"tuple"</span>, <span class='s'>"params"</span>:[<span class='t'>&lt;type&gt;</span>, <span class='t'>&lt;type&gt;</span>] }<br/><br/><span class='t'>&lt;field&gt;</span> <span class='o'>=</span><br/>  { <span class='s'>"name"</span>:<span class='t'>&lt;string&gt;</span>, <span class='s'>"type"</span>:<span class='t'>&lt;type&gt;</span> }</pre>
+<p>The following section discusses the format of the data that should be returned by the <code>endpoint</code>
+for accessing data.</p>
+<h2><a name="Data-endpoint" class="anchor" href="#Data-endpoint">Data endpoint</a></h2>
+<p>When you evaluate some code that returns primitive data such as <code>cities.London.Population</code>,
+the REST provider makes a <code>POST</code> request to the given endpoint with a body set to the <code>trace</code>
+values collected along the way and concatenated using <code>&amp;</code> (as demonstrated in the <a href="index.html">home page
+example</a>).</p>
+<p>The result should be formatted as follows:</p>
+<ul>
+<li>
+<p>For <code>string</code>, <code>float</code> or <code>int</code>, the result should simply return plain text with the
+value (plain-text string, integer such as <code>42</code> or a floating point number such as <code>3.1415</code>).</p>
+</li>
+<li>
+<p>For <code>seq</code>, the result should be a JSON array <code>[ ... ]</code> containing individual values of the
+sequence (recursively formatted using the rules given here).</p>
+</li>
+<li>
+<p>For <code>tuple</code>, the result should be a JSON array containing two values <code>[ v1, v2 ]</code>,
+formatted recursively using the rules given here.</p>
+</li>
+<li>
+<p>For <code>record</code>, the result should be a JSON object with fields corresponding to the
+fields of the record type. The values for the fields should be, again, formatted recursively.</p>
+</li>
+</ul>
+<p>To give a concrete example, say we have a sequence of records with a single field. The type
+returned by the type endpoint would specify this as follows:</p>
+<pre class='fssnip'>{ <span class='s'>"name"</span>:<span class='s'>"seq"</span>,<br/>  <span class='s'>"params"</span>: [<br/>    { <span class='s'>"name"</span>:<span class='s'>"record"</span>, <span class='s'>"fields"</span>:[<br/>      { <span class='s'>"name"</span>:<span class='s'>"demo"</span>, <span class='s'>"type"</span>:<span class='s'>"int"</span> } ] }<br/>] }</pre>
+<p>A valid value returned by the data endpoint for the above type is a JSON array of objects
+with the <code>demo</code> field:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="javascript">[ { <span class="s">"demo"</span>:<span class="n">1</span> },
+  { <span class="s">"demo"</span>:<span class="n">2</span> },
+  { <span class="s">"demo"</span>:<span class="n">42</span> } ]
+</code></pre></td></tr></table>
+
+
+        </div>
+        <div class="span3">
+          <img src="/RestProvider/img/logo.png" alt="F# Project" style="width:150px;margin:10px" />
+          <ul class="nav nav-list" id="menu" style="margin-top: 20px;">
+            <li class="nav-header">RestProvider</li>
+            <li><a href="/RestProvider/index.html">Home page</a></li>
+            <li class="divider"></li>
+            <li><a href="http://nuget.org/packages/RestProvider">Get Library via NuGet</a></li>
+            <li><a href="http://github.com/fsprojects/RestProvider">Source Code on GitHub</a></li>
+            <li><a href="/RestProvider/license.html">License</a></li>
+            <li><a href="/RestProvider/release-notes.html">Release Notes</a></li>
+
+            <li class="nav-header">Protocol</li>
+            <li><a href="/RestProvider/protocol.html">REST Provider protocol</a></li>
+
+            <li class="nav-header">Suave demos</li>
+            <li><a href="/RestProvider/minimal.html">Minimal demo</a></li>
+            <!--
+            <li><a href="/RestProvider/adventure.html">Adventure game</a></li>
+            -->
+          </ul>
+        </div>
+      </div>
+    </div>
+    <a href="http://github.com/fsprojects/RestProvider"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"/></a>
+  </body>
+  </html>

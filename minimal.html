@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Minimal type provider sample
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="F# type provider that lets you create type providers just by implementing a simple REST service"/>
+    <meta name="author" content="Tomas Petricek"/>
+
+    <script src="https://code.jquery.com/jquery-1.8.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet"/>
+
+    <link type="text/css" rel="stylesheet" href="/RestProvider/content/style.css" />
+    <script type="text/javascript" src="/RestProvider/content/tips.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="http://fsharp.org">fsharp.org</a></li>
+          <li><a href="http://github.com/fsprojects/RestProvider">github page</a></li>
+        </ul>
+        <h3 class="muted"><a href="/RestProvider/index.html">RestProvider</a></h3>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="span9" id="main">
+          
+<h1><a name="Minimal-type-provider-sample" class="anchor" href="#Minimal-type-provider-sample">Minimal type provider sample</a></h1>
+<p>This sample discusses the implementation of the server-side component of the minimal type
+provider demo that is <a href="index.html">discussed on the home page</a>. You can also find the
+complete source code for the server <a href="https://github.com/fsprojects/RestProvider/blob/master/src/SuaveSources/minimal/server.fsx">in the GitHub
+repository</a>.
+We're going to use lightweight F# library <a href="https://suave.io/">Suave</a> to build the web server and
+a helper function <code>toJson</code> that turns an F# record into JSON (also <a href="https://github.com/fsprojects/RestProvider/blob/8e20e01d4bae8d7efecb7013ca1d393cd3fa4d4a/src/SuaveSources/minimal/server.fsx#L15">in the full source
+code</a>).</p>
+<h2><a name="REST-provider-protocol-as-F-records" class="anchor" href="#REST-provider-protocol-as-F-records">REST provider protocol as F# records</a></h2>
+<p>The first thing to do is to define records that model the relevant parts of the
+<a href="protocol.html">REST provider protocol</a>. These directly map to JSON values, so writing
+the code that returns the JSON data will be easy. The request to <code>/</code> and <code>/city</code> returns
+information about provided type, which is just an array of members - we're going to represent
+this as <code>Member[]</code> in F#. The type of a member can be either nested provided type, or a
+primitive type. Those are repesented by <code>TypeNested</code> and <code>TypePrimitive</code>:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="c">/// Type of a member that is primitive type (int)</span>
+<span class="k">type</span> <span onmouseout="hideTip(event, 'fs28', 42)" onmouseover="showTip(event, 'fs28', 42)" class="t">TypePrimitive</span> <span class="o">=</span>
+  { <span onmouseout="hideTip(event, 'fs29', 43)" onmouseover="showTip(event, 'fs29', 43)" class="i">kind</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs30', 44)" onmouseover="showTip(event, 'fs30', 44)" class="t">string</span> <span class="c">// This is always &quot;primitive&quot;</span>
+    <span class="i">``type``</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs31', 45)" onmouseover="showTip(event, 'fs31', 45)" class="t">obj</span>
+    <span onmouseout="hideTip(event, 'fs32', 46)" onmouseover="showTip(event, 'fs32', 46)" class="i">endpoint</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs30', 47)" onmouseover="showTip(event, 'fs30', 47)" class="t">string</span> }
+
+<span class="c">/// Type of a member that is another provided type</span>
+<span class="k">type</span> <span onmouseout="hideTip(event, 'fs33', 48)" onmouseover="showTip(event, 'fs33', 48)" class="t">TypeNested</span> <span class="o">=</span>
+  { <span onmouseout="hideTip(event, 'fs34', 49)" onmouseover="showTip(event, 'fs34', 49)" class="i">kind</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs30', 50)" onmouseover="showTip(event, 'fs30', 50)" class="t">string</span> <span class="c">// This is always &quot;nested&quot;</span>
+    <span onmouseout="hideTip(event, 'fs35', 51)" onmouseover="showTip(event, 'fs35', 51)" class="i">endpoint</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs30', 52)" onmouseover="showTip(event, 'fs30', 52)" class="t">string</span> }
+
+<span class="c">/// Represents a single member of a provided type</span>
+<span class="k">type</span> <span onmouseout="hideTip(event, 'fs36', 53)" onmouseover="showTip(event, 'fs36', 53)" class="t">Member</span> <span class="o">=</span>
+  { <span onmouseout="hideTip(event, 'fs37', 54)" onmouseover="showTip(event, 'fs37', 54)" class="i">name</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs30', 55)" onmouseover="showTip(event, 'fs30', 55)" class="t">string</span>
+    <span onmouseout="hideTip(event, 'fs38', 56)" onmouseover="showTip(event, 'fs38', 56)" class="i">returns</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs31', 57)" onmouseover="showTip(event, 'fs31', 57)" class="t">obj</span> <span class="c">// TypePrimitive or TypeNested</span>
+    <span onmouseout="hideTip(event, 'fs39', 58)" onmouseover="showTip(event, 'fs39', 58)" class="i">trace</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs30', 59)" onmouseover="showTip(event, 'fs30', 59)" class="t">string</span>[] }
+</code></pre></td>
+</tr>
+</table>
+<h2><a name="Implementing-the-service" class="anchor" href="#Implementing-the-service">Implementing the service</a></h2>
+<p>The service handles requests to <code>/</code> (the root type returning different cities), <code>/city</code>
+(the "city" type with members for the various indicators) and <code>/data</code> (to actually load
+the data based on a trace).</p>
+<p>Using Suave, this can be easily expressed using the <code>choose</code> combinator that takes a list
+of WebParts and runs the first one that can handle a request. We use <code>path "/city"</code> to
+specify the required path. The actual code to handle the request is hidden in <code>(...)</code> and
+we look at it next:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs40', 60)" onmouseover="showTip(event, 'fs40', 60)" class="i">app</span> <span class="o">=</span>
+  <span class="i">choose</span> [
+    <span class="i">path</span> <span class="s">&quot;/&quot;</span> <span class="o">&gt;</span><span class="o">=&gt;</span> <span id="fst41" onmouseout="hideTip(event, 'fs41', 61)" onmouseover="showTip(event, 'fs41', 61, document.getElementById('fst41'))" class="omitted">(...)</span>
+    <span class="i">path</span> <span class="s">&quot;/city&quot;</span> <span class="o">&gt;</span><span class="o">=&gt;</span> <span id="fst41" onmouseout="hideTip(event, 'fs41', 62)" onmouseover="showTip(event, 'fs41', 62, document.getElementById('fst41'))" class="omitted">(...)</span>
+    <span class="i">path</span> <span class="s">&quot;/data&quot;</span> <span class="o">&gt;</span><span class="o">=&gt;</span> <span id="fst41" onmouseout="hideTip(event, 'fs41', 63)" onmouseover="showTip(event, 'fs41', 63, document.getElementById('fst41'))" class="omitted">(...)</span> ]
+</code></pre></td>
+</tr>
+</table>
+<h3><a name="Providing-root-and-city-types" class="anchor" href="#Providing-root-and-city-types">Providing root and city types</a></h3>
+<p>We are writing very minimal sample here, so the types representing the root (with city names as
+members) and city (with indicators as members) do not load data from anywhere and instead return
+just a constant F# value. Those directly correspond to the <a href="index.html">examples on the homepage</a>,
+so we won't repeat everything here. The main point is that you could easily generate the records
+and arrays from any data source that you wish:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs42', 64)" onmouseover="showTip(event, 'fs42', 64)" class="f">path</span> <span class="s">&quot;/&quot;</span> <span class="o">&gt;</span><span class="o">=&gt;</span>
+  ( [| { <span class="i">name</span><span class="o">=</span><span class="s">&quot;London&quot;</span>; <span onmouseout="hideTip(event, 'fs39', 65)" onmouseover="showTip(event, 'fs39', 65)" class="i">trace</span><span class="o">=</span>[|<span class="s">&quot;London&quot;</span>|]
+         <span class="i">returns</span><span class="o">=</span>{<span class="i">kind</span><span class="o">=</span><span class="s">&quot;nested&quot;</span>; <span class="i">endpoint</span><span class="o">=</span><span class="s">&quot;/city&quot;</span>} }
+       { <span class="i">name</span><span class="o">=</span><span class="s">&quot;New York&quot;</span>; <span onmouseout="hideTip(event, 'fs39', 66)" onmouseover="showTip(event, 'fs39', 66)" class="i">trace</span><span class="o">=</span>[|<span class="s">&quot;NYC&quot;</span>|]
+         <span class="i">returns</span><span class="o">=</span>{<span class="i">kind</span><span class="o">=</span><span class="s">&quot;nested&quot;</span>; <span class="i">endpoint</span><span class="o">=</span><span class="s">&quot;/city&quot;</span>} } |]
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs13', 67)" onmouseover="showTip(event, 'fs13', 67)" class="f">toJson</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs43', 68)" onmouseover="showTip(event, 'fs43', 68)" class="t">Successful</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs44', 69)" onmouseover="showTip(event, 'fs44', 69)" class="f">OK</span> )
+</code></pre></td>
+</tr>
+</table>
+<p>For the root type, we return members named <code>London</code> and <code>New York</code>. They are both of a nested type
+provided by the <code>/city</code> endpoint (below) and they append an array of values that identify which
+city we are accessing to the trace.</p>
+<p>The implementation creates an array of <code>Member</code> types and passes it to the helper <code>toJson</code> function,
+which serializes the data into JSON and then to <code>Successful.OK</code>, which creates a WebPart that
+returns the resulting JSON as HTTP 200 response. The handler for <code>/city</code> is similar:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs42', 70)" onmouseover="showTip(event, 'fs42', 70)" class="f">path</span> <span class="s">&quot;/city&quot;</span> <span class="o">&gt;</span><span class="o">=&gt;</span>
+  ( [| { <span class="i">name</span><span class="o">=</span><span class="s">&quot;Population&quot;</span>; <span onmouseout="hideTip(event, 'fs39', 71)" onmouseover="showTip(event, 'fs39', 71)" class="i">trace</span><span class="o">=</span>[|<span class="s">&quot;Population&quot;</span>|]
+         <span class="i">returns</span><span class="o">=</span>{<span class="i">kind</span><span class="o">=</span><span class="s">&quot;primitive&quot;</span>; <span class="i">``type``</span><span class="o">=</span><span class="s">&quot;int&quot;</span>; <span class="i">endpoint</span><span class="o">=</span><span class="s">&quot;/data&quot;</span>} }
+       { <span class="i">name</span><span class="o">=</span><span class="s">&quot;Settled&quot;</span>; <span onmouseout="hideTip(event, 'fs39', 72)" onmouseover="showTip(event, 'fs39', 72)" class="i">trace</span><span class="o">=</span>[|<span class="s">&quot;Settled&quot;</span>|]
+         <span class="i">returns</span><span class="o">=</span>{<span class="i">kind</span><span class="o">=</span><span class="s">&quot;primitive&quot;</span>; <span class="i">``type``</span><span class="o">=</span><span class="s">&quot;int&quot;</span>; <span class="i">endpoint</span><span class="o">=</span><span class="s">&quot;/data&quot;</span>} } |]
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs13', 73)" onmouseover="showTip(event, 'fs13', 73)" class="f">toJson</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs43', 74)" onmouseover="showTip(event, 'fs43', 74)" class="t">Successful</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs44', 75)" onmouseover="showTip(event, 'fs44', 75)" class="f">OK</span> )
+</code></pre></td>
+</tr>
+</table>
+<p>The type of the <code>returns</code> field is <code>obj</code>, so we can set it to a value of the <code>TypeNested</code> record
+(as we did in the first case) or the <code>TypePrimitive</code> record (as we did here). For primitive types,
+we set <code>type="int"</code>, which tells the provider what should be the return type of the member
+(the example here is very simple, but you can use more complex primitive types - see the
+<a href="protocol.html">protocol page for more info</a>).</p>
+<h3><a name="Returning-data-at-runtime" class="anchor" href="#Returning-data-at-runtime">Returning data at runtime</a></h3>
+<p>When the provided code <code>cities.London.Population</code> is evaluated, the provider sends a <code>POST</code>
+request to the <code>/data</code> endpoint. The body of the request includes trace values generated by the
+individual members that were called along the way. In the above case, the request will include
+body <code>London&amp;Population</code>. The handler for the <code>/data</code> endpoint turns the body into a set and
+uses pattern matching with a helper active pattern <code>Contains</code> to detect which of the values
+should be returned:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+<span class="l">7: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs42', 76)" onmouseover="showTip(event, 'fs42', 76)" class="f">path</span> <span class="s">&quot;/data&quot;</span> <span class="o">&gt;</span><span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs45', 77)" onmouseover="showTip(event, 'fs45', 77)" class="f">request</span> (<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs46', 78)" onmouseover="showTip(event, 'fs46', 78)" class="i">r</span> <span class="k">-&gt;</span>
+  <span class="k">match</span> <span onmouseout="hideTip(event, 'fs47', 79)" onmouseover="showTip(event, 'fs47', 79)" class="f">set</span> (<span onmouseout="hideTip(event, 'fs48', 80)" onmouseover="showTip(event, 'fs48', 80)" class="i">Utils</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs49', 81)" onmouseover="showTip(event, 'fs49', 81)" class="t">ASCII</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs50', 82)" onmouseover="showTip(event, 'fs50', 82)" class="f">toString</span>(<span onmouseout="hideTip(event, 'fs46', 83)" onmouseover="showTip(event, 'fs46', 83)" class="i">r</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs51', 84)" onmouseover="showTip(event, 'fs51', 84)" class="i">rawForm</span>)<span class="o">.</span><span class="f">Split</span>(<span class="s">&#39;&amp;&#39;</span>)) <span class="k">with</span>
+  | <span onmouseout="hideTip(event, 'fs52', 85)" onmouseover="showTip(event, 'fs52', 85)" class="p">Contains</span> <span class="s">&quot;London&quot;</span> <span class="o">&amp;</span> <span onmouseout="hideTip(event, 'fs52', 86)" onmouseover="showTip(event, 'fs52', 86)" class="p">Contains</span> <span class="s">&quot;Population&quot;</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs43', 87)" onmouseover="showTip(event, 'fs43', 87)" class="t">Successful</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs44', 88)" onmouseover="showTip(event, 'fs44', 88)" class="f">OK</span> <span class="s">&quot;538689&quot;</span>
+  | <span onmouseout="hideTip(event, 'fs52', 89)" onmouseover="showTip(event, 'fs52', 89)" class="p">Contains</span> <span class="s">&quot;NYC&quot;</span> <span class="o">&amp;</span> <span onmouseout="hideTip(event, 'fs52', 90)" onmouseover="showTip(event, 'fs52', 90)" class="p">Contains</span> <span class="s">&quot;Population&quot;</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs43', 91)" onmouseover="showTip(event, 'fs43', 91)" class="t">Successful</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs44', 92)" onmouseover="showTip(event, 'fs44', 92)" class="f">OK</span> <span class="s">&quot;550405&quot;</span>
+  | <span onmouseout="hideTip(event, 'fs52', 93)" onmouseover="showTip(event, 'fs52', 93)" class="p">Contains</span> <span class="s">&quot;London&quot;</span> <span class="o">&amp;</span> <span onmouseout="hideTip(event, 'fs52', 94)" onmouseover="showTip(event, 'fs52', 94)" class="p">Contains</span> <span class="s">&quot;Settled&quot;</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs43', 95)" onmouseover="showTip(event, 'fs43', 95)" class="t">Successful</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs44', 96)" onmouseover="showTip(event, 'fs44', 96)" class="f">OK</span> <span class="s">&quot;-43&quot;</span>
+  | <span onmouseout="hideTip(event, 'fs52', 97)" onmouseover="showTip(event, 'fs52', 97)" class="p">Contains</span> <span class="s">&quot;NYC&quot;</span> <span class="o">&amp;</span> <span onmouseout="hideTip(event, 'fs52', 98)" onmouseover="showTip(event, 'fs52', 98)" class="p">Contains</span> <span class="s">&quot;Settled&quot;</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs43', 99)" onmouseover="showTip(event, 'fs43', 99)" class="t">Successful</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs44', 100)" onmouseover="showTip(event, 'fs44', 100)" class="f">OK</span> <span class="s">&quot;1624&quot;</span>
+  | _ <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs53', 101)" onmouseover="showTip(event, 'fs53', 101)" class="t">RequestErrors</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs54', 102)" onmouseover="showTip(event, 'fs54', 102)" class="f">BAD_REQUEST</span> <span class="s">&quot;Wrong trace&quot;</span> )
+</code></pre></td>
+</tr>
+</table>
+<p>We are using the <code>request</code> function from Suave to get access to the <code>r.rawForm</code> value, which
+contains the body of the request. The <code>Contains</code> active pattern that lets us nicely decide which
+value to return is defined as follows:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> (|<span class="p">Contains</span>|_|) <span onmouseout="hideTip(event, 'fs22', 34)" onmouseover="showTip(event, 'fs22', 34)" class="i">k</span> <span onmouseout="hideTip(event, 'fs23', 35)" onmouseover="showTip(event, 'fs23', 35)" class="i">s</span> <span class="o">=</span> <span class="k">if</span> <span onmouseout="hideTip(event, 'fs24', 36)" onmouseover="showTip(event, 'fs24', 36)" class="t">Set</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs25', 37)" onmouseover="showTip(event, 'fs25', 37)" class="f">contains</span> <span onmouseout="hideTip(event, 'fs22', 38)" onmouseover="showTip(event, 'fs22', 38)" class="i">k</span> <span onmouseout="hideTip(event, 'fs23', 39)" onmouseover="showTip(event, 'fs23', 39)" class="i">s</span> <span class="k">then</span> <span onmouseout="hideTip(event, 'fs26', 40)" onmouseover="showTip(event, 'fs26', 40)" class="p">Some</span>() <span class="k">else</span> <span onmouseout="hideTip(event, 'fs27', 41)" onmouseover="showTip(event, 'fs27', 41)" class="p">None</span>
+</code></pre></td>
+</tr>
+</table>
+<h2><a name="Summary" class="anchor" href="#Summary">Summary</a></h2>
+<p>In this tutorial, we looked at the simplest server that exposes data for the REST provider.
+You can find the complete source code for the server <a href="https://github.com/fsprojects/RestProvider/blob/master/src/SuaveSources/minimal/server.fsx">in the GitHub
+repository</a>
+and there are also couple of <a href="https://github.com/fsprojects/RestProvider/tree/master/src/SuaveSources">other examples you can
+explore</a>. For more
+information abotu the protocol, see a dedicated <a href="protocol.html">REST provider protocol page</a>.</p>
+
+<div class="tip" id="fs1">namespace System</div>
+<div class="tip" id="fs2">namespace System.IO</div>
+<div class="tip" id="fs3">namespace System.Collections</div>
+<div class="tip" id="fs4">namespace System.Collections.Generic</div>
+<div class="tip" id="fs5">namespace Newtonsoft</div>
+<div class="tip" id="fs6">namespace Newtonsoft.Json</div>
+<div class="tip" id="fs7">namespace Suave</div>
+<div class="tip" id="fs8">module Filters<br /><br />from Suave</div>
+<div class="tip" id="fs9">module Operators<br /><br />from Suave</div>
+<div class="tip" id="fs10">val serializer : JsonSerializer<br /><br />Full name: Minimal.serializer</div>
+<div class="tip" id="fs11">Multiple items<br />type JsonSerializer =<br />&#160;&#160;new : unit -&gt; JsonSerializer<br />&#160;&#160;member Binder : SerializationBinder with get, set<br />&#160;&#160;member CheckAdditionalContent : bool with get, set<br />&#160;&#160;member ConstructorHandling : ConstructorHandling with get, set<br />&#160;&#160;member Context : StreamingContext with get, set<br />&#160;&#160;member ContractResolver : IContractResolver with get, set<br />&#160;&#160;member Converters : JsonConverterCollection<br />&#160;&#160;member Culture : CultureInfo with get, set<br />&#160;&#160;member DateFormatHandling : DateFormatHandling with get, set<br />&#160;&#160;member DateFormatString : string with get, set<br />&#160;&#160;...<br /><br />Full name: Newtonsoft.Json.JsonSerializer<br /><br />--------------------<br />JsonSerializer() : unit</div>
+<div class="tip" id="fs12">JsonSerializer.Create() : JsonSerializer<br />JsonSerializer.Create(settings: JsonSerializerSettings) : JsonSerializer</div>
+<div class="tip" id="fs13">val toJson : value:&#39;a -&gt; string<br /><br />Full name: Minimal.toJson</div>
+<div class="tip" id="fs14">val value : &#39;a</div>
+<div class="tip" id="fs15">val sb : Text.StringBuilder</div>
+<div class="tip" id="fs16">namespace System.Text</div>
+<div class="tip" id="fs17">Multiple items<br />type StringBuilder =<br />&#160;&#160;new : unit -&gt; StringBuilder + 5 overloads<br />&#160;&#160;member Append : value:string -&gt; StringBuilder + 18 overloads<br />&#160;&#160;member AppendFormat : format:string * arg0:obj -&gt; StringBuilder + 4 overloads<br />&#160;&#160;member AppendLine : unit -&gt; StringBuilder + 1 overload<br />&#160;&#160;member Capacity : int with get, set<br />&#160;&#160;member Chars : int -&gt; char with get, set<br />&#160;&#160;member Clear : unit -&gt; StringBuilder<br />&#160;&#160;member CopyTo : sourceIndex:int * destination:char[] * destinationIndex:int * count:int -&gt; unit<br />&#160;&#160;member EnsureCapacity : capacity:int -&gt; int<br />&#160;&#160;member Equals : sb:StringBuilder -&gt; bool<br />&#160;&#160;...<br /><br />Full name: System.Text.StringBuilder<br /><br />--------------------<br />Text.StringBuilder() : unit<br />Text.StringBuilder(capacity: int) : unit<br />Text.StringBuilder(value: string) : unit<br />Text.StringBuilder(value: string, capacity: int) : unit<br />Text.StringBuilder(capacity: int, maxCapacity: int) : unit<br />Text.StringBuilder(value: string, startIndex: int, length: int, capacity: int) : unit</div>
+<div class="tip" id="fs18">val tw : StringWriter</div>
+<div class="tip" id="fs19">Multiple items<br />type StringWriter =<br />&#160;&#160;inherit TextWriter<br />&#160;&#160;new : unit -&gt; StringWriter + 3 overloads<br />&#160;&#160;member Close : unit -&gt; unit<br />&#160;&#160;member Encoding : Encoding<br />&#160;&#160;member GetStringBuilder : unit -&gt; StringBuilder<br />&#160;&#160;member ToString : unit -&gt; string<br />&#160;&#160;member Write : value:char -&gt; unit + 2 overloads<br /><br />Full name: System.IO.StringWriter<br /><br />--------------------<br />StringWriter() : unit<br />StringWriter(formatProvider: IFormatProvider) : unit<br />StringWriter(sb: Text.StringBuilder) : unit<br />StringWriter(sb: Text.StringBuilder, formatProvider: IFormatProvider) : unit</div>
+<div class="tip" id="fs20">JsonSerializer.Serialize(jsonWriter: JsonWriter, value: obj) : unit<br />JsonSerializer.Serialize(textWriter: TextWriter, value: obj) : unit<br />JsonSerializer.Serialize(textWriter: TextWriter, value: obj, objectType: Type) : unit<br />JsonSerializer.Serialize(jsonWriter: JsonWriter, value: obj, objectType: Type) : unit</div>
+<div class="tip" id="fs21">Text.StringBuilder.ToString() : string<br />Text.StringBuilder.ToString(startIndex: int, length: int) : string</div>
+<div class="tip" id="fs22">val k : &#39;a (requires comparison)</div>
+<div class="tip" id="fs23">val s : Set&lt;&#39;a&gt; (requires comparison)</div>
+<div class="tip" id="fs24">Multiple items<br />module Set<br /><br />from Microsoft.FSharp.Collections<br /><br />--------------------<br />type Set&lt;&#39;T (requires comparison)&gt; =<br />&#160;&#160;interface IComparable<br />&#160;&#160;interface IEnumerable<br />&#160;&#160;interface IEnumerable&lt;&#39;T&gt;<br />&#160;&#160;interface ICollection&lt;&#39;T&gt;<br />&#160;&#160;new : elements:seq&lt;&#39;T&gt; -&gt; Set&lt;&#39;T&gt;<br />&#160;&#160;member Add : value:&#39;T -&gt; Set&lt;&#39;T&gt;<br />&#160;&#160;member Contains : value:&#39;T -&gt; bool<br />&#160;&#160;override Equals : obj -&gt; bool<br />&#160;&#160;member IsProperSubsetOf : otherSet:Set&lt;&#39;T&gt; -&gt; bool<br />&#160;&#160;member IsProperSupersetOf : otherSet:Set&lt;&#39;T&gt; -&gt; bool<br />&#160;&#160;...<br /><br />Full name: Microsoft.FSharp.Collections.Set&lt;_&gt;<br /><br />--------------------<br />new : elements:seq&lt;&#39;T&gt; -&gt; Set&lt;&#39;T&gt;</div>
+<div class="tip" id="fs25">val contains : element:&#39;T -&gt; set:Set&lt;&#39;T&gt; -&gt; bool (requires comparison)<br /><br />Full name: Microsoft.FSharp.Collections.Set.contains</div>
+<div class="tip" id="fs26">union case Option.Some: Value: &#39;T -&gt; Option&lt;&#39;T&gt;</div>
+<div class="tip" id="fs27">union case Option.None: Option&lt;&#39;T&gt;</div>
+<div class="tip" id="fs28">type TypePrimitive =<br />&#160;&#160;{kind: string;<br />&#160;&#160;&#160;type: obj;<br />&#160;&#160;&#160;endpoint: string;}<br /><br />Full name: Minimal.TypePrimitive<br /><em><br /><br />&#160;Type of a member that is primitive type (int)</em></div>
+<div class="tip" id="fs29">TypePrimitive.kind: string</div>
+<div class="tip" id="fs30">Multiple items<br />val string : value:&#39;T -&gt; string<br /><br />Full name: Microsoft.FSharp.Core.Operators.string<br /><br />--------------------<br />type string = String<br /><br />Full name: Microsoft.FSharp.Core.string</div>
+<div class="tip" id="fs31">type obj = Object<br /><br />Full name: Microsoft.FSharp.Core.obj</div>
+<div class="tip" id="fs32">TypePrimitive.endpoint: string</div>
+<div class="tip" id="fs33">type TypeNested =<br />&#160;&#160;{kind: string;<br />&#160;&#160;&#160;endpoint: string;}<br /><br />Full name: Minimal.TypeNested<br /><em><br /><br />&#160;Type of a member that is another provided type</em></div>
+<div class="tip" id="fs34">TypeNested.kind: string</div>
+<div class="tip" id="fs35">TypeNested.endpoint: string</div>
+<div class="tip" id="fs36">type Member =<br />&#160;&#160;{name: string;<br />&#160;&#160;&#160;returns: obj;<br />&#160;&#160;&#160;trace: string [];}<br /><br />Full name: Minimal.Member<br /><em><br /><br />&#160;Represents a single member of a provided type</em></div>
+<div class="tip" id="fs37">Member.name: string</div>
+<div class="tip" id="fs38">Member.returns: obj</div>
+<div class="tip" id="fs39">Member.trace: string []</div>
+<div class="tip" id="fs40">val app : obj<br /><br />Full name: minimal.app</div>
+<div class="tip" id="fs41">(...)</div>
+<div class="tip" id="fs42">val path : pathAfterDomain:string -&gt; WebPart<br /><br />Full name: Suave.Filters.path</div>
+<div class="tip" id="fs43">module Successful<br /><br />from Suave</div>
+<div class="tip" id="fs44">val OK : body:string -&gt; WebPart<br /><br />Full name: Suave.Successful.OK</div>
+<div class="tip" id="fs45">val request : apply:(HttpRequest -&gt; HttpContext -&gt; &#39;a) -&gt; context:HttpContext -&gt; &#39;a<br /><br />Full name: Suave.Http.request</div>
+<div class="tip" id="fs46">val r : HttpRequest</div>
+<div class="tip" id="fs47">val set : elements:seq&lt;&#39;T&gt; -&gt; Set&lt;&#39;T&gt; (requires comparison)<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.set</div>
+<div class="tip" id="fs48">namespace Suave.Utils</div>
+<div class="tip" id="fs49">module ASCII<br /><br />from Suave.Utils</div>
+<div class="tip" id="fs50">val toString : b:byte [] -&gt; string<br /><br />Full name: Suave.Utils.ASCII.toString</div>
+<div class="tip" id="fs51">HttpRequest.rawForm: byte []</div>
+<div class="tip" id="fs52">active recognizer Contains: &#39;a -&gt; Set&lt;&#39;a&gt; -&gt; unit option<br /><br />Full name: Minimal.( |Contains|_| )</div>
+<div class="tip" id="fs53">module RequestErrors<br /><br />from Suave</div>
+<div class="tip" id="fs54">val BAD_REQUEST : body:string -&gt; WebPart<br /><br />Full name: Suave.RequestErrors.BAD_REQUEST</div>
+
+        </div>
+        <div class="span3">
+          <img src="/RestProvider/img/logo.png" alt="F# Project" style="width:150px;margin:10px" />
+          <ul class="nav nav-list" id="menu" style="margin-top: 20px;">
+            <li class="nav-header">RestProvider</li>
+            <li><a href="/RestProvider/index.html">Home page</a></li>
+            <li class="divider"></li>
+            <li><a href="http://nuget.org/packages/RestProvider">Get Library via NuGet</a></li>
+            <li><a href="http://github.com/fsprojects/RestProvider">Source Code on GitHub</a></li>
+            <li><a href="/RestProvider/license.html">License</a></li>
+            <li><a href="/RestProvider/release-notes.html">Release Notes</a></li>
+
+            <li class="nav-header">Protocol</li>
+            <li><a href="/RestProvider/protocol.html">REST Provider protocol</a></li>
+
+            <li class="nav-header">Suave demos</li>
+            <li><a href="/RestProvider/minimal.html">Minimal demo</a></li>
+            <!--
+            <li><a href="/RestProvider/adventure.html">Adventure game</a></li>
+            -->
+          </ul>
+        </div>
+      </div>
+    </div>
+    <a href="http://github.com/fsprojects/RestProvider"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"/></a>
+  </body>
+  </html>
