@@ -1,6 +1,8 @@
 *.suo
-paket-files
+*.bak
+.fake
 paket.exe
+paket-files
 packages
 
 bin
@@ -8,3 +10,6 @@ obj
 
 src/SuaveSources/worldbank/data
 src/SuaveSources/AssemblyInfo.fs
+
+
+TestResults.xml

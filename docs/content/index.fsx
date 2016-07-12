@@ -17,8 +17,10 @@ This example demonstrates using a function defined in this sample library.
 open TheGamma
 
 type Adventure = RestProvider<"http://localhost:10042/adventure">
-Adventure.``Start the adventure...``.
 
+Adventure.``Start the adventure...``
+  .``Philosophical pursuits.  Those books made quite an impact on you.``
+  .``Something humorous.  For Humor is a Truth fit to express the merits of Beauty. ``
 
 (**
 Some more info

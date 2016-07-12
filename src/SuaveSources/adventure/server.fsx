@@ -27,7 +27,7 @@ open Suave.Filters
 open Suave.Operators
 
 type TypeNested = { kind:string; endpoint:string }
-type Member = { name:string; returns:obj; trace:string[] }
+type Member = { name:string; documentation:string; returns:obj; trace:string[] }
 
 
 type PageEntry = { Key: string; Text : string; Choices : (string * string) list }
@@ -51,9 +51,11 @@ let lookup =
 let app =
   choose [
     path "/" >=> 
-      ( [| { name="Start the adventure..."; returns={kind="nested"; endpoint="/intro"}; trace=[||] } |]
+      ( [| { name="Start the adventure..."; returns={kind="nested"; endpoint="/intro"}; 
+             documentation=lookup.["intro"].Text; trace=[||] } |]
         |> toJson |> Successful.OK )
     pathScan "/%s" (fun section ->
         [| for key, text in lookup.[section].Choices ->
-            { name=text; returns={kind="nested"; endpoint="/"+key}; trace=[||] } |]
+            { name=text; returns={kind="nested"; endpoint="/"+key}; 
+              documentation=lookup.[key].Text; trace=[||] } |]
         |> toJson |> Successful.OK) ]

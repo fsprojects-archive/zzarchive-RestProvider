@@ -216,9 +216,9 @@ type public RestProvider() =
           match membr.Documentation.Record, membr.Documentation.String with
           | Some recd, _ -> 
               let doc = Http.AsyncRequestString(recd.Endpoint) |> Async.StartAsTask
-              p.AddXmlDocDelayed(fun _ -> doc.Result)
-          | _, Some str -> p.AddXmlDoc(str)
-          | _ -> p.AddXmlDoc(altdoc)
+              p.AddXmlDocDelayed(fun _ -> "<summary>" + doc.Result + "</summary>")
+          | _, Some str -> p.AddXmlDoc("<summary>" + str + "</summary>")
+          | _ -> p.AddXmlDoc("<summary>/" + altdoc + "</summary>")
           p ]
 
     and provideType (source:string) (endpoint:string) =
