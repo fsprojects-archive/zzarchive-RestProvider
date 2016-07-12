@@ -1,15 +1,17 @@
 *.suo
 *.bak
+.ionide.debug
+
 .fake
 paket.exe
 paket-files
 packages
 
+docs/output
 bin
 obj
 
 src/SuaveSources/worldbank/data
 src/SuaveSources/AssemblyInfo.fs
-
 
 TestResults.xml

@@ -12,7 +12,7 @@ open WorldBank
 open WorldBank.Domain
 open Newtonsoft.Json
 
-let worldBank = Serializer.readCache (__SOURCE_DIRECTORY__ + "/cache")
+let worldBank = lazy Serializer.readCache (__SOURCE_DIRECTORY__ + "/cache")
 
 // ----------------------------------------------------------------------------
 // Helpers
@@ -68,23 +68,23 @@ let app =
           trace=[| |] } ])
 
     memberPath "/pickCountry" (fun () ->
-      [ for (KeyValue(id, country)) in worldBank.Countries ->
+      [ for (KeyValue(id, country)) in worldBank.Value.Countries ->
           { name=country.Name; returns={kind="nested"; endpoint="/byCountry/pickTopic"}
             trace=[|"country=" + id |] } ])
 
     memberPath "/pickYear" (fun () ->
-      [ for (KeyValue(id, year)) in worldBank.Years ->
+      [ for (KeyValue(id, year)) in worldBank.Value.Years ->
           { name=year.Year; returns={kind="nested"; endpoint="/byYear/pickTopic"}
             trace=[|"year=" + id |] } ])
 
     memberPathf "/%s/pickTopic" (fun by ->
-      [ for (KeyValue(id, top)) in worldBank.Topics ->
+      [ for (KeyValue(id, top)) in worldBank.Value.Topics ->
           { name=top.Name; returns={kind="nested"; endpoint="/" + by + "/pickIndicator/" + id}
             trace=[||] } ])
 
     memberPathf "/%s/pickIndicator/%s" (fun (by, topic) ->
-      [ for ikey in worldBank.Topics.[topic].Indicators ->
-          let ind = worldBank.Indicators.[ikey]
+      [ for ikey in worldBank.Value.Topics.[topic].Indicators ->
+          let ind = worldBank.Value.Indicators.[ikey]
           let typ = 
               if by = "byYear" then { name="tuple"; ``params``=[| "string"; "float" |] }
               elif by = "byCountry" then { name="tuple"; ``params``=[| "int"; "float" |] }
@@ -102,17 +102,17 @@ let app =
 
       match trace with
       | (Lookup "year" y) & (Lookup "indicator" i) -> 
-          let ydet, idet = worldBank.Years.[y], worldBank.Indicators.[i]
-          worldBank.Data 
+          let ydet, idet = worldBank.Value.Years.[y], worldBank.Value.Indicators.[i]
+          worldBank.Value.Data 
           |> Seq.filter (fun dt -> dt.Year = ydet.Index && dt.Indicator = idet.Index )
-          |> Seq.map (fun dt -> worldBank.CountriesByIndex.[dt.Country].Name, dt.Value)
+          |> Seq.map (fun dt -> worldBank.Value.CountriesByIndex.[dt.Country].Name, dt.Value)
           |> formatPairSeq JsonValue.String
           |> Successful.OK
       | (Lookup "country" c) & (Lookup "indicator" i) -> 
-          let cdet, idet = worldBank.Countries.[c], worldBank.Indicators.[i]
-          worldBank.Data 
+          let cdet, idet = worldBank.Value.Countries.[c], worldBank.Value.Indicators.[i]
+          worldBank.Value.Data 
           |> Seq.filter (fun dt -> dt.Country = cdet.Index && dt.Indicator = idet.Index )
-          |> Seq.map (fun dt -> worldBank.YearsByIndex.[dt.Year].Year, dt.Value)
+          |> Seq.map (fun dt -> worldBank.Value.YearsByIndex.[dt.Year].Year, dt.Value)
           |> formatPairSeq JsonValue.String
           |> Successful.OK
       | _ -> failwith "wrong trace" ) ]

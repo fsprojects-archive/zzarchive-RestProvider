@@ -1,58 +1,130 @@
 (*** hide ***)
-// This block of code is omitted in the generated HTML documentation. Use 
+// This block of code is omitted in the generated HTML documentation. Use
 // it to define helpers that you do not want to show in the documentation.
 #I "../../bin"
-//#r "FSharp.Data.dll"
 (**
-RestProvider
-======================
+REST Provider: Type providers made easy
+======================================
 
-Example
--------
+F# type providers are amazing - they can be used for a wide range of things such as reading
+data in [CSV](http://fsharp.github.io/FSharp.Data/library/CsvProvider.html),
+[JSON](http://fsharp.github.io/FSharp.Data/library/JsonProvider.html) and
+[XML](http://fsharp.github.io/FSharp.Data/library/XmlProvider.html) formats,
+accessing [SQL databases](http://fsprojects.github.io/SQLProvider/),
+reading data exposed by international organizations such as the
+[World Bank](http://fsharp.github.io/FSharp.Data/library/WorldBank.html), interoperating
+with [the R langauge](bluemountaincapital.github.io/FSharpRProvider/), but also fun things
+like [playing adventure games in your
+editor](http://www.pinksquirrellabs.com/post/2013/07/29/Choose-Your-Own-Adventure-Type-Provider.aspx).
 
-This example demonstrates using a function defined in this sample library.
+Sadly, _writing type providers_ is not very easy. You have to use fairly complicated
+[provided types API](https://github.com/fsprojects/FSharp.TypeProviders.StarterPack) and
+[learn how to use](http://blog.mavnn.co.uk/type-providers-from-the-ground-up/) advanced F#
+features like `<@@ "code" + "quotations" @@>`.
+Wouldn't it be nice if you could create type providers without all this complexity?
+The REST provider is a project that does exactly this. The idea is simple:
 
+ - You write a simple REST service that provides endpoints representing the different provided
+   types and returns information about the types in a simple JSON format. You can write the
+   service in F# or anything else you fancy.
+
+ - You pass the URL for your service to REST type provider by writing
+   `RestProvider<"http://myservice/provider">` and the REST provider takes care of doing all the
+   magic that is needed to provide types.
+
+Minimal type provider sample
+----------------------------
+
+You can find a number of samples in the [REST provider repository](https://github.com/fsprojects/RestProvider/tree/master/src/SuaveSources)
+and you can read more [about the protocol](protocol.html) and other fun examples in the detailed
+documentation (see links below), but just to give you a taste - the following calls the
+[minimal](https://github.com/fsprojects/RestProvider/tree/master/src/SuaveSources/minimal) sample
+provider that returns information about cities:
 *)
 #r "TheGamma.RestProvider.dll"
 open TheGamma
 
-type Adventure = RestProvider<"http://localhost:10042/adventure">
+type cities = RestProvider<"http://localhost:10042/minimal">
 
-Adventure.``Start the adventure...``
-  .``Philosophical pursuits.  Those books made quite an impact on you.``
-  .``Something humorous.  For Humor is a Truth fit to express the merits of Beauty. ``
-
+cities.London.Population
+cities.``New York``.Population
 (**
-Some more info
+When you clone the repository, you can start the server that hosts sample providers by running
+`build RunServers`. This will start a lightweight Suave server that runs on port 10042 which
+is then called by the `RestProvider`. In the above example, we look at population of two cities
+using a type representing a city with members `London` and `New York`. The members return value
+of another type representing an indicator which has a member `Population`.
 
-Samples & documentation
------------------------
+### Implementing the type provider protocol
 
-The library comes with comprehensible documentation. 
-It can include tutorials automatically generated from `*.fsx` files in [the content folder][content]. 
-The API reference is automatically generated from Markdown comments in the library implementation.
+The server that is behind the above type provider is very simple. The REST provider first makes
+a request to the base URL passed in the type provider argument:
 
- * [Tutorial](tutorial.html) contains a further explanation of this sample library.
+`GET /minimal/`
 
- * [API Reference](reference/index.html) contains automatically generated documentation for all types, modules
-   and functions in the library. This includes additional brief samples on using most of the
-   functions.
- 
-Contributing and copyright
---------------------------
+    [lang=javascript]
+    [ { "name":"London", "trace":["London"],
+        "returns":{"kind":"nested", "endpoint":"/city"} },
+      { "name":"New York","trace":["NYC"],
+        "returns":{"kind":"nested","endpoint":"/city"} }]
 
-The project is hosted on [GitHub][gh] where you can [report issues][issues], fork 
-the project and submit pull requests. If you're adding a new public API, please also 
-consider adding [samples][content] that can be turned into a documentation. You might
-also want to read the [library design notes][readme] to understand how it works.
+The response returns a list of members with `name` (the name of the property). The `returns`
+field specifies the type of the result - here, we are just saying that the result is another
+provided type that can be obtained by making a relative request to `/city`. The `trace` field
+represents an information that will be used later once we try to get the data - you can think
+of `/city` as a _type_ and `trace` values (`"London"` or `"NYC"`) as _values_ of that type.
+When you type `cities.London`, the provider requests type for the city:
 
-The library is available under Public Domain license, which allows modification and 
-redistribution for both commercial and non-commercial purposes. For more information see the 
-[License file][license] in the GitHub repository. 
+`GET /minimal/city`
+
+    [lang=javascript]
+    [ { "name":"Population", "trace":["Population"],
+        "returns":{"kind":"primitive","type":"int","endpoint":"/data"} },
+      { "name":"Settled", "trace":["Settled"],
+        "returns":{"kind":"primitive","type":"int","endpoint":"/data"} }]"
+
+As before, the `/city` type has a number of members (that will appear as properties). They both
+add a value to `trace` to track what data we want to get at the end. The `returns` field now says
+that the result is a primitive type `int`. It also specifies the endpoint for accessing the data.
+The endpoint is called when you evaluate `cities.London.Population`:
+
+`POST /minimal/data` with body `London&Population`
+
+    [lang=javascript]
+    538689
+
+The provider accumulates `trace` values that are generated by the individual members that we
+encounter as we "dot through" the provided types, concatenates it using `&` and passes it as the
+body to the `/data` endpoint. For primitive `int` types, the endpoint just returns the number.
+
+More information
+----------------
+
+### Work in progress
+
+This project is still very experimental and everything is likely going to change, including the
+protocol that is used for the communication between the REST server and the type provider. There
+are many things that the provider should, but does not support yet (say, providing methods) and
+the protocol is too simplistic. If you have thoughts, please [comment on GitHub
+issues](https://github.com/fsprojects/RestProvider/issues)!
+
+This documentation contains some more information about the [current version of the protocol](protocol.html)
+and also a few examples for creating providers (see the menu on the right for the latests links).
+You can also browse the [Suave sources](https://github.com/fsprojects/RestProvider/tree/master/src/SuaveSources)
+directory on GitHub, which contains sample data providers written using [Suave](http://suave.io).
+
+### Contributing and license
+
+The project is hosted on [GitHub][gh] where you can [report issues][issues], fork
+the project and submit pull requests. If you're adding a new public API, please also
+consider adding [samples][content] that can be turned into a documentation.
+
+The library is available under the Apache 2.0 license, which allows modification and
+redistribution for both commercial and non-commercial purposes. For more information see the
+[License file][license] in the GitHub repository.
 
   [content]: https://github.com/fsprojects/RestProvider/tree/master/docs/content
   [gh]: https://github.com/fsprojects/RestProvider
   [issues]: https://github.com/fsprojects/RestProvider/issues
-  [readme]: https://github.com/fsprojects/RestProvider/blob/master/README.md
   [license]: https://github.com/fsprojects/RestProvider/blob/master/LICENSE.txt
 *)

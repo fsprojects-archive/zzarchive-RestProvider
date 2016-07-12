@@ -5,6 +5,9 @@ open System
 open System.IO
 open System.Collections.Generic
 open Newtonsoft.Json
+open Suave
+open Suave.Filters
+open Suave.Operators
 
 // ----------------------------------------------------------------------------
 // Helpers
@@ -18,17 +21,12 @@ let toJson value =
   serializer.Serialize(tw, value)
   sb.ToString() 
 
-// ----------------------------------------------------------------------------
-// Adventure provider
-// ----------------------------------------------------------------------------
-
-open Suave
-open Suave.Filters
-open Suave.Operators
-
 type TypeNested = { kind:string; endpoint:string }
 type Member = { name:string; documentation:string; returns:obj; trace:string[] }
 
+// ----------------------------------------------------------------------------
+// Adventure provider
+// ----------------------------------------------------------------------------
 
 type PageEntry = { Key: string; Text : string; Choices : (string * string) list }
 
