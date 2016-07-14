@@ -11,6 +11,7 @@ open Fake
 open System
 open System.IO
 open Suave
+open Suave.Operators
 open Suave.Web
 open Microsoft.FSharp.Compiler.Interactive.Shell
 
@@ -83,8 +84,10 @@ let handlePage s =
   | _ -> RequestErrors.NOT_FOUND "Page not found"
 
 let app =
-  choose [ Filters.pathScan "/%s/%s" (fst >> handlePage)  
-           Filters.pathScan "/%s" handlePage ]
+  Writers.setHeader  "Access-Control-Allow-Origin" "*"
+  >=> Writers.setHeader "Access-Control-Allow-Headers" "content-type"
+  >=> choose [ Filters.pathScan "/%s/%s" (fst >> handlePage)  
+               Filters.pathScan "/%s" handlePage ]
 let port = 10042
 let _, server = startWebServerAsync (getLocalServerConfig port) app
 

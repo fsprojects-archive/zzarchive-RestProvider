@@ -105,6 +105,33 @@ let buildReference () =
       sourceFolder = __SOURCE_DIRECTORY__ @@ ".." @@ "..",
       publicOnly = true,libDirs = libDirs )
 
+// Fsi Evaluator
+open FSharp.Markdown
+open System.Text.RegularExpressions
+
+let placeholders = Regex("<([^>]*)>")
+let strings= Regex("\"([^\"]*)\"")
+
+let ops = "?|=." |> Seq.mapi (fun i op -> string op, sprintf "$$$OPERATOR_%d$$$" i)
+
+let formatJsonSpec (str:string) = 
+  let str = ops |> Seq.fold (fun (str:string) (op, repl) -> str.Replace(op, repl)) str
+  let str = placeholders.Replace(str, fun m -> 
+    sprintf "<span class='t'>&lt;%s&gt;</span>" m.Groups.[1].Value)
+  let str = strings.Replace(str, fun m -> 
+    sprintf "<span class='s'>\"%s\"</span>" m.Groups.[1].Value)
+  let str = str.Replace("\r\n", "<br/>").Replace("\n", "<br/>")
+  let str = ops |> Seq.fold (fun (str:string) (op, repl) -> 
+    str.Replace(repl, "<span class='o'>" + op + "</span>")) str
+  sprintf "<pre class='fssnip'>%s</pre>" str
+
+let fsiEval = FsiEvaluator([||], FsiEvaluatorConfig.CreateNoOpFsiObject())
+fsiEval.RegisterTransformation(fun (v, typ) ->
+  if typ = typeof<string> && v.ToString().StartsWith("JsonSpec:") then
+    let str = v.ToString().Substring("JsonSpec:".Length).Trim()
+    Some [ MarkdownParagraph.InlineBlock(formatJsonSpec str) ]
+  else None )
+
 // Build documentation from `fsx` and `md` files in `docs/content`
 let buildDocumentation () =
 
@@ -113,6 +140,7 @@ let buildDocumentation () =
   Literate.ProcessDirectory
     ( content, docTemplate, output, replacements = ("root", root)::info,
       layoutRoots = layoutRootsAll.["en"],
+      fsiEvaluator = fsiEval,
       generateAnchors = true,
       processRecursive = false)
 

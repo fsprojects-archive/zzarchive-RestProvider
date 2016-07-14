@@ -12,7 +12,7 @@ open ProviderImplementation.QuotationBuilder
 type MemberQuery = JsonProvider<"""
   [ { "name":"United Kingdom", "returns":{"kind":"nested", "endpoint":"/country"}, "trace":["country", "UK"],
       "documentation":"can be a plain string" }, 
-    { "name":"United Kingdom", "returns":{"kind":"nested", "endpoint":"/country"}, "trace":["country", "UK"],
+    { "name":"United Kingdom", "returns":{"kind":"nested", "endpoint":"/country"},
       "documentation":{"endpoint":"/or-a-url-to-call"} }, 
     { "name":"Population", "returns":{"kind":"primitive", "type":null, "endpoint":"/data"}, "trace":["indicator", "POP"] } ] """>
 

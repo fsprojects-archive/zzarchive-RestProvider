@@ -81,7 +81,7 @@ When you type `cities.London`, the provider requests type for the city:
     [ { "name":"Population", "trace":["Population"],
         "returns":{"kind":"primitive","type":"int","endpoint":"/data"} },
       { "name":"Settled", "trace":["Settled"],
-        "returns":{"kind":"primitive","type":"int","endpoint":"/data"} }]"
+        "returns":{"kind":"primitive","type":"int","endpoint":"/data"} }]
 
 As before, the `/city` type has a number of members (that will appear as properties). They both
 add a value to `trace` to track what data we want to get at the end. The `returns` field now says

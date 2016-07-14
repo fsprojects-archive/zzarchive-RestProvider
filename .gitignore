@@ -3,10 +3,12 @@
 .ionide.debug
 
 .fake
+.vs
 paket.exe
 paket-files
 packages
 
+temp
 docs/output
 bin
 obj

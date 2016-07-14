@@ -115,9 +115,7 @@ let (</>) (a:string) (b:string) =
   else "/" + a + "/" + b
 
 let app =
-  Writers.setHeader  "Access-Control-Allow-Origin" "*"
-  >=> Writers.setHeader "Access-Control-Allow-Headers" "content-type"
-  >=> request (fun r ->
+  request (fun r ->
     let selected = r.url.LocalPath.Split([|'/'|], StringSplitOptions.RemoveEmptyEntries) |> List.ofSeq
     match selected with
     | ["data"] ->
