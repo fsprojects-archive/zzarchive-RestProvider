@@ -23,22 +23,33 @@ type TypeInfo = JsonProvider<"""
   """, SampleIsList=true>
 
 module Helpers = 
-  let agent = MailboxProcessor<_ * AsyncReplyChannel<_>>.Start(fun inbox -> async {
-    let cache = Collections.Generic.Dictionary<string, string>()
+  type Message =
+    | SetTimeout of int
+    | Download of string * AsyncReplyChannel<Choice<string, exn>>
+
+  let agent = MailboxProcessor.Start(fun inbox -> async {
+    let cache = Collections.Generic.Dictionary<string, DateTime * string>()
+    let mutable timeout = 3600
     while true do
-      let! url, repl = inbox.Receive()
-      try 
-        if cache.ContainsKey url then 
-          repl.Reply(Choice1Of2(cache.[url]))
-        else
-          let! res = Http.AsyncRequestString(url)
-          cache.Add(url, res)
-          repl.Reply(Choice1Of2 res)
-      with e ->
-        repl.Reply(Choice2Of2 e) })
+      let! msg = inbox.Receive()
+      match msg with 
+      | SetTimeout t -> timeout <- t
+      | Download(url, repl) ->
+        try 
+          match cache.TryGetValue(url) with
+          | true, (dt, res) when (DateTime.Now - dt).TotalSeconds < float timeout -> 
+              repl.Reply(Choice1Of2(res))
+          | _ ->
+            let! res = Http.AsyncRequestString(url)
+            cache.[url] <- (DateTime.Now, res)
+            repl.Reply(Choice1Of2 res)
+        with e ->
+          repl.Reply(Choice2Of2 e) })
   
+  let setTimeout t = agent.Post(SetTimeout t)
+
   let cachedMemberQuery url = async {
-    let! res = agent.PostAndAsyncReply(fun r -> url, r)
+    let! res = agent.PostAndAsyncReply(fun r -> Download(url, r))
     match res with
     | Choice1Of2 body -> return MemberQuery.Parse(body)
     | Choice2Of2 e -> return raise e }
@@ -173,7 +184,7 @@ module ResultType =
     | t -> failwith (sprintf "Unsupported type: %A" t)
 
 [<TypeProvider>]
-type public RestProvider() = 
+type public RestProvider() as this = 
   inherit TypeProviderForNamespaces()
 
   let thisAssembly = System.Reflection.Assembly.GetExecutingAssembly()
@@ -182,8 +193,19 @@ type public RestProvider() =
   let knownTypes = System.Collections.Concurrent.ConcurrentDictionary<string, System.Type>()
   let runtimeContext = typeof<RuntimeContext>
   let records = System.Collections.Concurrent.ConcurrentDictionary<ResultType, System.Type * System.Type * (Expr -> Expr)>()
+  
+  let invalidator = MailboxProcessor.Start(fun inbox -> async {
+    let mutable lastRefresh = DateTime.Now
+    while true do 
+      let! timeout = inbox.Receive()
+      if (DateTime.Now - lastRefresh).TotalSeconds > float timeout then
+        this.Invalidate()
+        lastRefresh <- DateTime.Now })
 
-  let provideType typeName (source:string) = 
+  let provideType typeName (source:string) timeout = 
+    invalidator.Post(timeout)
+    Helpers.setTimeout (timeout / 2)
+    
     let root = ProvidedTypeDefinition(thisAssembly, rootNamespace, typeName, baseType=Some typeof<obj>, HideObjectMethods=true)
     let types = ProvidedTypeDefinition("types", None)
     root.AddMember(types)
@@ -240,17 +262,20 @@ type public RestProvider() =
   let gammaType = 
     ProvidedTypeDefinition
       (thisAssembly, rootNamespace, "RestProvider", Some(typeof<obj>), HideObjectMethods = true)
-  let sourceParam = 
-    ProvidedStaticParameter("Source", typeof<string>, "")
+  let staticParams = 
+    [ ProvidedStaticParameter("Source", typeof<string>, "")
+      ProvidedStaticParameter("Timeout", typeof<int>, 3600) ]
+
   
   let helpText = """
     <summary>A provider</summary>
     <param name="Source">A thing</param>"""
 
   do gammaType.AddXmlDoc(helpText)
-  do gammaType.DefineStaticParameters([sourceParam], fun typeName providerArgs -> 
+  do gammaType.DefineStaticParameters(staticParams, fun typeName providerArgs -> 
         let source = (providerArgs.[0] :?> string)
-        provideType typeName source)
+        let timeout = (providerArgs.[1] :?> int)
+        provideType typeName source timeout)
   do base.AddNamespace(rootNamespace, [ gammaType ])
 
 [<TypeProviderAssembly>]

@@ -41,8 +41,10 @@ let app =
         |> toJson |> Successful.OK )
 
     path "/city" >=>
-      ( [| { name="Population"; returns={kind="primitive"; ``type``="int"; endpoint="/data"}; trace=[|"Population"|] };
-           { name="Settled"; returns={kind="primitive"; ``type``="int"; endpoint="/data"}; trace=[|"Settled"|] } |]
+      ( [| { name="Population"; trace=[|"Population"|]
+             returns={kind="primitive"; ``type``="int"; endpoint="/data"};  };
+           { name="Settled"; trace=[|"Settled"|] 
+             returns={kind="primitive"; ``type``="int"; endpoint="/data"}} |]
         |> toJson |> Successful.OK )
 
     path "/data" >=> request (fun r ->

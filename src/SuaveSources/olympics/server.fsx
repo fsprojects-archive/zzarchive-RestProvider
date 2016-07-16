@@ -61,7 +61,7 @@ type Facet<'T> =
   | Choice of seq<string * string * Facet<'T>>
 
 module Data = 
-  let [<Literal>] Root = __SOURCE_DIRECTORY__ + "/medals-1896-2008.csv"
+  let [<Literal>] Root = __SOURCE_DIRECTORY__ + "/medals-merged.csv"
   type Medals = CsvProvider<Root>
   let olympics = Medals.GetSample().Rows
 
@@ -77,12 +77,22 @@ module Data =
     |> Seq.distinct
     |> Seq.mapi (fun i s -> sprintf "sport-%d" i, s)
     |> dict
+
+  let nocs = 
+    olympics 
+    |> Seq.map (fun o -> o.NOC) 
+    |> Seq.distinct
+    |> Seq.mapi (fun i s -> sprintf "noc-%d" i, s)
+    |> dict
   
   let facets : list<string * Facet<Medals.Row>> = 
     [ "city", Filter(fun r -> Some(sprintf "%s (%d)" r.City r.Edition))
       "medal", Filter(fun r -> Some(r.Medal))
       "gender", Filter(fun r -> Some(r.Gender))
       "country", Filter(fun r -> Some(countries.[r.NOC]))
+      "athlete", Choice [ 
+        for (KeyValue(k,v)) in nocs -> 
+          k, countries.[v], Filter(fun r -> if r.NOC = v then Some(r.Athlete) else None) ]
       "sport", Choice [ 
         for (KeyValue(k,v)) in sports -> 
           k, v, Filter(fun r -> if r.Sport = v then Some(r.Event) else None) ] ]
@@ -92,7 +102,10 @@ module Data =
   let rec findFilter path facet = 
     match path, facet with
     | [], f -> f
-    | p::ps, Choice choices -> choices |> Seq.pick (fun (k, v, f) -> if p = k  then Some(findFilter ps f) else None)
+    | p::ps, Choice choices -> 
+        match choices |> Seq.tryPick (fun (k, _, f) -> if p = k  then Some(findFilter ps f) else None) with
+        | Some f -> f
+        | None -> failwithf "Could not find filter '%s' in choices '%A'" p [ for c, _, _ in choices -> c ]
     | _ -> failwith "Mismatching filter"
 
   let findFacet prefix = 

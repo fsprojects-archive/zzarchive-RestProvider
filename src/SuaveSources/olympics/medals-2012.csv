@@ -1,0 +1,1953 @@
+City,Edition,Sport,Discipline,Athlete,NOC,Gender,Event,Event_gender,Medal
+London,2012,Aquatics,Swimming,PHELPS Michael,USA,Men,100m butterfly,M,Gold
+London,2012,Aquatics,Swimming,PHELPS Michael,USA,Men,200m butterfly,M,Silver
+London,2012,Aquatics,Swimming,PHELPS Michael,USA,Men,200m individual medley,M,Gold
+London,2012,Aquatics,Swimming,PHELPS Michael,USA,Men,4x100m freestyle relay,M,Silver
+London,2012,Aquatics,Swimming,PHELPS Michael,USA,Men,4x200m freestyle relay,M,Gold
+London,2012,Aquatics,Swimming,PHELPS Michael,USA,Men,4x100m medley relay,M,Gold
+London,2012,Aquatics,Swimming,FRANKLIN Missy,USA,Women,100m backstroke,W,Gold
+London,2012,Aquatics,Swimming,FRANKLIN Missy,USA,Women,200m backstroke,W,Gold
+London,2012,Aquatics,Swimming,FRANKLIN Missy,USA,Women,4x100m freestyle relay,W,Bronze
+London,2012,Aquatics,Swimming,FRANKLIN Missy,USA,Women,4x200m freestyle relay,W,Gold
+London,2012,Aquatics,Swimming,FRANKLIN Missy,USA,Women,4x100m medley relay,W,Gold
+London,2012,Aquatics,Swimming,SCHMITT Allison,USA,Women,200m freestyle,W,Gold
+London,2012,Aquatics,Swimming,SCHMITT Allison,USA,Women,400m freestyle,W,Silver
+London,2012,Aquatics,Swimming,SCHMITT Allison,USA,Women,4x100m freestyle relay,W,Bronze
+London,2012,Aquatics,Swimming,SCHMITT Allison,USA,Women,4x200m freestyle relay,W,Gold
+London,2012,Aquatics,Swimming,SCHMITT Allison,USA,Women,4x100m medley relay,W,Gold
+London,2012,Athletics,Athletics,BOLT Usain,JAM,Men,100m,M,Gold
+London,2012,Athletics,Athletics,BOLT Usain,JAM,Men,200m,M,Gold
+London,2012,Athletics,Athletics,BOLT Usain,JAM,Men,4x100m relay,M,Gold
+London,2012,Athletics,Athletics,FELIX Allyson,USA,Women,200m,W,Gold
+London,2012,Athletics,Athletics,FELIX Allyson,USA,Women,4x100m relay,W,Gold
+London,2012,Athletics,Athletics,FELIX Allyson,USA,Women,4x400m relay,W,Gold
+London,2012,Aquatics,Swimming,VOLLMER Dana,USA,Women,100m butterfly,W,Gold
+London,2012,Aquatics,Swimming,VOLLMER Dana,USA,Women,4x200m freestyle relay,W,Gold
+London,2012,Aquatics,Swimming,VOLLMER Dana,USA,Women,4x100m medley relay,W,Gold
+London,2012,Aquatics,Swimming,LOCHTE Ryan,USA,Men,200m backstroke,M,Bronze
+London,2012,Aquatics,Swimming,LOCHTE Ryan,USA,Men,200m individual medley,M,Silver
+London,2012,Aquatics,Swimming,LOCHTE Ryan,USA,Men,400m individual medley,M,Gold
+London,2012,Aquatics,Swimming,LOCHTE Ryan,USA,Men,4x100m freestyle relay,M,Silver
+London,2012,Aquatics,Swimming,LOCHTE Ryan,USA,Men,4x200m freestyle relay,M,Gold
+London,2012,Aquatics,Swimming,SUN Yang,CHN,Men,200m freestyle,M,Silver
+London,2012,Aquatics,Swimming,SUN Yang,CHN,Men,400m freestyle,M,Gold
+London,2012,Aquatics,Swimming,SUN Yang,CHN,Men,1500m freestyle,M,Gold
+London,2012,Aquatics,Swimming,SUN Yang,CHN,Men,4x200m freestyle relay,M,Bronze
+London,2012,Aquatics,Swimming,KROMOWIDJOJO Ranomi,NED,Women,50m freestyle,W,Gold
+London,2012,Aquatics,Swimming,KROMOWIDJOJO Ranomi,NED,Women,100m freestyle,W,Gold
+London,2012,Aquatics,Swimming,KROMOWIDJOJO Ranomi,NED,Women,4x100m freestyle relay,W,Silver
+London,2012,Aquatics,Swimming,AGNEL Yannick,FRA,Men,200m freestyle,M,Gold
+London,2012,Aquatics,Swimming,AGNEL Yannick,FRA,Men,4x100m freestyle relay,M,Gold
+London,2012,Aquatics,Swimming,AGNEL Yannick,FRA,Men,4x200m freestyle relay,M,Silver
+London,2012,Aquatics,Swimming,SONI Rebecca,USA,Women,100m breaststroke,W,Silver
+London,2012,Aquatics,Swimming,SONI Rebecca,USA,Women,200m breaststroke,W,Gold
+London,2012,Aquatics,Swimming,SONI Rebecca,USA,Women,4x100m medley relay,W,Gold
+London,2012,Aquatics,Swimming,GREVERS Matthew,USA,Men,100m backstroke,M,Gold
+London,2012,Aquatics,Swimming,GREVERS Matthew,USA,Men,4x100m freestyle relay,M,Silver
+London,2012,Aquatics,Swimming,GREVERS Matthew,USA,Men,4x100m medley relay,M,Gold
+London,2012,Aquatics,Swimming,ADRIAN Nathan,USA,Men,100m freestyle,M,Gold
+London,2012,Aquatics,Swimming,ADRIAN Nathan,USA,Men,4x100m freestyle relay,M,Silver
+London,2012,Aquatics,Swimming,ADRIAN Nathan,USA,Men,4x100m medley relay,M,Gold
+London,2012,Gymnastics,Artistic G.,RAISMAN Alexandra,USA,Women,floor exercises,W,Gold
+London,2012,Gymnastics,Artistic G.,RAISMAN Alexandra,USA,Women,balance beam,W,Bronze
+London,2012,Gymnastics,Artistic G.,RAISMAN Alexandra,USA,Women,"team, horizontal bar",W,Gold
+London,2012,Gymnastics,Artistic G.,ZOU Kai,CHN,Men,floor exercises,M,Gold
+London,2012,Gymnastics,Artistic G.,ZOU Kai,CHN,Men,horizontal bar,M,Bronze
+London,2012,Gymnastics,Artistic G.,ZOU Kai,CHN,Men,"team, horizontal bar",M,Gold
+London,2012,Athletics,Athletics,RICHARDS-ROSS Sanya,USA,Women,400m,W,Gold
+London,2012,Athletics,Athletics,RICHARDS-ROSS Sanya,USA,Women,4x400m relay,W,Gold
+London,2012,Tennis,Tennis,WILLIAMS Serena,USA,Women,singles,W,Gold
+London,2012,Tennis,Tennis,WILLIAMS Serena,USA,Women,doubles,W,Gold
+London,2012,Gymnastics,Artistic G.,DOUGLAS Gabrielle,USA,Women,individual all-round,W,Gold
+London,2012,Gymnastics,Artistic G.,DOUGLAS Gabrielle,USA,Women,"team, horizontal bar",W,Gold
+London,2012,Table Tennis,Table Tennis,LI Xiaoxia,CHN,Women,singles,W,Gold
+London,2012,Table Tennis,Table Tennis,LI Xiaoxia,CHN,Women,team,W,Gold
+London,2012,Badminton,Badminton,ZHAO Yunlei,CHN,Women,doubles,W,Gold
+London,2012,Badminton,Badminton,ZHAO Yunlei,CHN,Unknown,doubles,X,Gold
+London,2012,Cycling,Cycling Track,HOY Sir Chris,GBR,Men,Keirin,M,Gold
+London,2012,Cycling,Cycling Track,HOY Sir Chris,GBR,Men,Team Sprint,M,Gold
+London,2012,Cycling,Cycling Track,KENNY Jason,GBR,Men,Sprint indivual,M,Gold
+London,2012,Cycling,Cycling Track,KENNY Jason,GBR,Men,Team Sprint,M,Gold
+London,2012,Athletics,Athletics,FARAH Mo,GBR,Men,5000m team,M,Gold
+London,2012,Athletics,Athletics,FARAH Mo,GBR,Men,10miles walk (16093m),M,Gold
+London,2012,Equestrian,Dressage,DUJARDIN Charlotte,GBR,Unknown,individual,X,Gold
+London,2012,Equestrian,Dressage,DUJARDIN Charlotte,GBR,Unknown,team,X,Gold
+London,2012,Gymnastics,Artistic G.,FENG Zhe,CHN,Men,parallel bars,M,Gold
+London,2012,Gymnastics,Artistic G.,FENG Zhe,CHN,Men,"team, horizontal bar",M,Gold
+London,2012,Table Tennis,Table Tennis,JIKE Zhang,CHN,Men,singles,M,Gold
+London,2012,Table Tennis,Table Tennis,JIKE Zhang,CHN,Men,team,M,Gold
+London,2012,Aquatics,Diving,MINXIA Wu,CHN,Women,3m springboard,W,Gold
+London,2012,Aquatics,Diving,MINXIA Wu,CHN,Women,3m springboard,W,Gold
+London,2012,Aquatics,Diving,RUOLIN Chen,CHN,Women,10m platform,W,Gold
+London,2012,Aquatics,Diving,RUOLIN Chen,CHN,Women,10m platform,W,Gold
+London,2012,Aquatics,Swimming,YE Shiwen,CHN,Women,200m individual medley,W,Gold
+London,2012,Aquatics,Swimming,YE Shiwen,CHN,Women,400m individual medley,W,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,KOZAK Danuta,HUN,Women,K-1 500m (kayak single),W,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,KOZAK Danuta,HUN,Women,K-4 500m (kayak four),W,Gold
+London,2012,Cycling,Cycling Track,TROTT Laura,GBR,Women,12-hour race,W,Gold
+London,2012,Cycling,Cycling Track,TROTT Laura,GBR,Women,"1980 yards Pursuit, Team",W,Gold
+London,2012,Equestrian,Eventing,JUNG Michael,GER,Unknown,individual,X,Gold
+London,2012,Equestrian,Eventing,JUNG Michael,GER,Unknown,team,X,Gold
+London,2012,Fencing,Fencing,DI FRANCISCA Elisa,ITA,Women,foil individual,W,Gold
+London,2012,Fencing,Fencing,DI FRANCISCA Elisa,ITA,Women,foil team,W,Gold
+London,2012,Archery,Archery,KI Bo Bae,KOR,Women,individual FITA round,W,Gold
+London,2012,Archery,Archery,KI Bo Bae,KOR,Women,team round 60y,W,Gold
+London,2012,Shooting,Shooting,JIN Jongoh,KOR,Men,50m pistol (60 shots),M,Gold
+London,2012,Shooting,Shooting,JIN Jongoh,KOR,Men,10m air pistol (40 shots),M,Gold
+London,2012,Aquatics,Swimming,ISHCHENKO Natalia,RUS,Women,100m freestyle,W,Gold
+London,2012,Aquatics,Swimming,ISHCHENKO Natalia,RUS,Women,100m freestyle,W,Gold
+London,2012,Aquatics,Swimming,ROMASHINA Svetlana,RUS,Women,100m freestyle,W,Gold
+London,2012,Aquatics,Swimming,ROMASHINA Svetlana,RUS,Women,100m freestyle,W,Gold
+London,2012,Aquatics,Swimming,COUTTS Alicia,AUS,Women,100m butterfly,W,Bronze
+London,2012,Aquatics,Swimming,COUTTS Alicia,AUS,Women,200m individual medley,W,Silver
+London,2012,Aquatics,Swimming,COUTTS Alicia,AUS,Women,4x100m freestyle relay,W,Gold
+London,2012,Aquatics,Swimming,COUTTS Alicia,AUS,Women,4x200m freestyle relay,W,Silver
+London,2012,Aquatics,Swimming,COUTTS Alicia,AUS,Women,4x100m medley relay,W,Silver
+London,2012,Gymnastics,Artistic G.,UCHIMURA Kohei,JPN,Men,floor exercises,M,Silver
+London,2012,Gymnastics,Artistic G.,UCHIMURA Kohei,JPN,Men,individual all-round,M,Gold
+London,2012,Gymnastics,Artistic G.,UCHIMURA Kohei,JPN,Men,"team, horizontal bar",M,Silver
+London,2012,Athletics,Athletics,FRASER-PRYCE Shelly-Ann,JAM,Women,100m,W,Gold
+London,2012,Athletics,Athletics,FRASER-PRYCE Shelly-Ann,JAM,Women,200m,W,Silver
+London,2012,Athletics,Athletics,FRASER-PRYCE Shelly-Ann,JAM,Women,4x100m relay,W,Silver
+London,2012,Athletics,Athletics,BLAKE Yohan,JAM,Men,100m,M,Silver
+London,2012,Athletics,Athletics,BLAKE Yohan,JAM,Men,200m,M,Silver
+London,2012,Athletics,Athletics,BLAKE Yohan,JAM,Men,4x100m relay,M,Gold
+London,2012,Aquatics,Swimming,ELMSLIE Brittany,AUS,Women,4x100m freestyle relay,W,Gold
+London,2012,Aquatics,Swimming,ELMSLIE Brittany,AUS,Women,4x200m freestyle relay,W,Silver
+London,2012,Aquatics,Swimming,ELMSLIE Brittany,AUS,Women,4x100m medley relay,W,Silver
+London,2012,Aquatics,Swimming,SCHLANGER Melanie,AUS,Women,4x100m freestyle relay,W,Gold
+London,2012,Aquatics,Swimming,SCHLANGER Melanie,AUS,Women,4x200m freestyle relay,W,Silver
+London,2012,Aquatics,Swimming,SCHLANGER Melanie,AUS,Women,4x100m medley relay,W,Silver
+London,2012,Aquatics,Swimming,SEEBOHM Emily,AUS,Women,100m backstroke,W,Silver
+London,2012,Aquatics,Swimming,SEEBOHM Emily,AUS,Women,4x100m freestyle relay,W,Gold
+London,2012,Aquatics,Swimming,SEEBOHM Emily,AUS,Women,4x100m medley relay,W,Silver
+London,2012,Aquatics,Swimming,JONES Cullen,USA,Men,50m freestyle,M,Silver
+London,2012,Aquatics,Swimming,JONES Cullen,USA,Men,4x100m freestyle relay,M,Silver
+London,2012,Aquatics,Swimming,JONES Cullen,USA,Men,4x100m medley relay,M,Gold
+London,2012,Gymnastics,Artistic G.,MUSTAFINA Aliya,RUS,Women,floor exercises,W,Bronze
+London,2012,Gymnastics,Artistic G.,MUSTAFINA Aliya,RUS,Women,uneven bars,W,Gold
+London,2012,Gymnastics,Artistic G.,MUSTAFINA Aliya,RUS,Women,individual all-round,W,Bronze
+London,2012,Gymnastics,Artistic G.,MUSTAFINA Aliya,RUS,Women,"team, horizontal bar",W,Silver
+London,2012,Aquatics,Swimming,MUFFAT Camille,FRA,Women,200m freestyle,W,Silver
+London,2012,Aquatics,Swimming,MUFFAT Camille,FRA,Women,400m freestyle,W,Gold
+London,2012,Aquatics,Swimming,MUFFAT Camille,FRA,Women,4x200m freestyle relay,W,Bronze
+London,2012,Athletics,Athletics,JETER Carmelita,USA,Women,100m,W,Silver
+London,2012,Athletics,Athletics,JETER Carmelita,USA,Women,200m,W,Bronze
+London,2012,Athletics,Athletics,JETER Carmelita,USA,Women,4x100m relay,W,Gold
+London,2012,Aquatics,Swimming,THOMAN Nick,USA,Men,100m backstroke,M,Silver
+London,2012,Aquatics,Swimming,THOMAN Nick,USA,Men,4x100m medley relay,M,Gold
+London,2012,Tennis,Tennis,MURRAY Andy,GBR,Men,singles,M,Gold
+London,2012,Tennis,Tennis,MURRAY Andy,GBR,Unknown,mixed doubles,X,Silver
+London,2012,Cycling,Cycling Track,PENDLETON Victoria,GBR,Women,Sprint indivual,W,Silver
+London,2012,Cycling,Cycling Track,PENDLETON Victoria,GBR,Women,Keirin,W,Gold
+London,2012,Table Tennis,Table Tennis,NING Ding,CHN,Women,singles,W,Silver
+London,2012,Table Tennis,Table Tennis,NING Ding,CHN,Women,team,W,Gold
+London,2012,Aquatics,Swimming,STRAVIUS Jeremy,FRA,Men,4x100m freestyle relay,M,Gold
+London,2012,Aquatics,Swimming,STRAVIUS Jeremy,FRA,Men,4x200m freestyle relay,M,Silver
+London,2012,Aquatics,Swimming,BERENS Ricky,USA,Men,4x100m freestyle relay,M,Silver
+London,2012,Aquatics,Swimming,BERENS Ricky,USA,Men,4x200m freestyle relay,M,Gold
+London,2012,Gymnastics,Artistic G.,MARONEY Mc Kayla,USA,Women,vault,W,Silver
+London,2012,Gymnastics,Artistic G.,MARONEY Mc Kayla,USA,Women,"team, horizontal bar",W,Gold
+London,2012,Athletics,Athletics,ANTYUKH Natalya,RUS,Women,400m hurdles,W,Gold
+London,2012,Athletics,Athletics,ANTYUKH Natalya,RUS,Women,4x400m relay,W,Silver
+London,2012,Aquatics,Swimming,le CLOS Chad,RSA,Men,100m butterfly,M,Silver
+London,2012,Aquatics,Swimming,le CLOS Chad,RSA,Men,200m butterfly,M,Gold
+London,2012,Aquatics,Diving,ZAKHAROV Ilya,RUS,Men,3m springboard,M,Gold
+London,2012,Aquatics,Diving,ZAKHAROV Ilya,RUS,Men,3m springboard,M,Silver
+London,2012,Shooting,Shooting,CAMPRIANI Niccolo,ITA,Men,10m air rifle (40 shots),M,Silver
+London,2012,Shooting,Shooting,CAMPRIANI Niccolo,ITA,Men,50m rifle 3 positions (3x40 shots),M,Gold
+London,2012,Fencing,Fencing,ERRIGO Arianna,ITA,Women,foil individual,W,Silver
+London,2012,Fencing,Fencing,ERRIGO Arianna,ITA,Women,foil team,W,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,DIETZE Tina,GER,Women,K-2 500m (kayak double),W,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,DIETZE Tina,GER,Women,K-4 500m (kayak four),W,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,WEBER Franziska,GER,Women,K-2 500m (kayak double),W,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,WEBER Franziska,GER,Women,K-4 500m (kayak four),W,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,KOVACS Katalin,HUN,Women,K-2 500m (kayak double),W,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,KOVACS Katalin,HUN,Women,K-4 500m (kayak four),W,Gold
+London,2012,Aquatics,Diving,ZI He,CHN,Women,3m springboard,W,Silver
+London,2012,Aquatics,Diving,ZI He,CHN,Women,3m springboard,W,Gold
+London,2012,Table Tennis,Table Tennis,WANG Hao,CHN,Men,singles,M,Silver
+London,2012,Table Tennis,Table Tennis,WANG Hao,CHN,Men,team,M,Gold
+London,2012,Aquatics,Swimming,LEFERT Clement,FRA,Men,4x100m freestyle relay,M,Gold
+London,2012,Aquatics,Swimming,LEFERT Clement,FRA,Men,4x200m freestyle relay,M,Silver
+London,2012,Aquatics,Swimming,LEVEAUX Amaury,FRA,Men,4x100m freestyle relay,M,Gold
+London,2012,Aquatics,Swimming,LEVEAUX Amaury,FRA,Men,4x200m freestyle relay,M,Silver
+London,2012,Aquatics,Diving,KAI Qin,CHN,Men,3m springboard,M,Silver
+London,2012,Aquatics,Diving,KAI Qin,CHN,Men,3m springboard,M,Gold
+London,2012,Gymnastics,Artistic G.,CHEN Yibing,CHN,Men,rings,M,Silver
+London,2012,Gymnastics,Artistic G.,CHEN Yibing,CHN,Men,"team, horizontal bar",M,Gold
+London,2012,Athletics,Athletics,DIBABA Tirunesh,ETH,Women,5000m team,W,Bronze
+London,2012,Athletics,Athletics,DIBABA Tirunesh,ETH,Women,10miles walk (16093m),W,Gold
+London,2012,Equestrian,Dressage,BECHTOLSHEIMER Laura,GBR,Unknown,individual,X,Bronze
+London,2012,Equestrian,Dressage,BECHTOLSHEIMER Laura,GBR,Unknown,team,X,Gold
+London,2012,Equestrian,Eventing,AUFFARTH Sandra,GER,Unknown,individual,X,Bronze
+London,2012,Equestrian,Eventing,AUFFARTH Sandra,GER,Unknown,team,X,Gold
+London,2012,Fencing,Fencing,VEZZALI Valentina,ITA,Women,foil individual,W,Bronze
+London,2012,Fencing,Fencing,VEZZALI Valentina,ITA,Women,foil team,W,Gold
+London,2012,Archery,Archery,OH Jin Hyek,KOR,Men,individual FITA round,M,Gold
+London,2012,Archery,Archery,OH Jin Hyek,KOR,Men,team round 60y,M,Bronze
+London,2012,Gymnastics,Artistic G.,IZBASA Sandra Raluca,ROU,Women,vault,W,Gold
+London,2012,Gymnastics,Artistic G.,IZBASA Sandra Raluca,ROU,Women,"team, horizontal bar",W,Bronze
+London,2012,Aquatics,Diving,BOUDIA David,USA,Men,10m platform,M,Gold
+London,2012,Aquatics,Diving,BOUDIA David,USA,Men,10m platform,M,Bronze
+London,2012,Tennis,Tennis,BRYAN Mike,USA,Men,doubles,M,Gold
+London,2012,Tennis,Tennis,BRYAN Mike,USA,Unknown,mixed doubles,X,Bronze
+London,2012,Aquatics,Swimming,HANSEN Brendan,USA,Men,100m breaststroke,M,Bronze
+London,2012,Aquatics,Swimming,HANSEN Brendan,USA,Men,4x100m medley relay,M,Gold
+London,2012,Aquatics,Swimming,HARDY Jessica,USA,Women,4x100m freestyle relay,W,Bronze
+London,2012,Aquatics,Swimming,HARDY Jessica,USA,Women,4x100m medley relay,W,Gold
+London,2012,Cycling,Cycling Track,CLANCY Ed,GBR,Men,12-hour race,M,Bronze
+London,2012,Cycling,Cycling Track,CLANCY Ed,GBR,Men,"1980 yards Pursuit, Team",M,Gold
+London,2012,Fencing,Fencing,SUN Yujie,CHN,Women,foil individual,W,Bronze
+London,2012,Fencing,Fencing,SUN Yujie,CHN,Women,foil team,W,Gold
+London,2012,Cycling,Cycling Track,MEARES Anna,AUS,Women,Sprint indivual,W,Gold
+London,2012,Cycling,Cycling Track,MEARES Anna,AUS,Women,Team Sprint,W,Bronze
+London,2012,Tennis,Tennis,AZARENKA Victoria,BLR,Women,singles,W,Bronze
+London,2012,Tennis,Tennis,AZARENKA Victoria,BLR,Unknown,mixed doubles,X,Gold
+London,2012,Aquatics,Swimming,MELLOULI Oussama,TUN,Men,1500m freestyle,M,Bronze
+London,2012,Aquatics,Swimming,MELLOULI Oussama,TUN,Men,marathon 10km,M,Gold
+London,2012,Athletics,Athletics,TROTTER DeeDee,USA,Women,400m,W,Bronze
+London,2012,Athletics,Athletics,TROTTER DeeDee,USA,Women,4x400m relay,W,Gold
+London,2012,Judo,Judo,ISAEV Mansur,RUS,Men,66 - 73kg (lightweight),M,Gold
+London,2012,Wrestling,Wrestling Gre-R,GALSTYAN Arsen,RUS,Men,- 60kg (featherweight),M,Gold
+London,2012,Judo,Judo,KHAIBULAEV Tagir,RUS,Men,90 - 100kg (half-heavyweight),M,Gold
+London,2012,Wrestling,Wrestling Free.,VOROBIEVA Natalia,RUS,Women,66 - 72kg (welterweight),W,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,POSTRIGAY Yury,RUS,Men,C-2 1000m (canoe double),M,Gold
+London,2012,Wrestling,Wrestling Gre-R,VLASOV Roman,RUS,Men,68 - 74kg (welterweight),M,Gold
+London,2012,Wrestling,Wrestling Free.,OTARSULTANOV Dzhamal,RUS,Men,- 55kg,M,Gold
+London,2012,Gymnastics,Rhythmic G.,BLIZNYUK Anastasia,RUS,Women,group competition,W,Gold
+London,2012,Gymnastics,Rhythmic G.,DONSKOVA Uliana,RUS,Women,group competition,W,Gold
+London,2012,Gymnastics,Rhythmic G.,DUDKINA Ksenia,RUS,Women,group competition,W,Gold
+London,2012,Gymnastics,Rhythmic G.,KANAEVA Evgeniya,RUS,Women,individual all-round,W,Gold
+London,2012,Volleyball,Volleyball,APALIKOV Nikolay,RUS,Men,volleyball,M,Gold
+London,2012,Volleyball,Volleyball,BEREZHKO Yury,RUS,Men,volleyball,M,Gold
+London,2012,Gymnastics,Rhythmic G.,MAKARENKO Alina,RUS,Women,group competition,W,Gold
+London,2012,Volleyball,Volleyball,BUTKO Alexander,RUS,Men,volleyball,M,Gold
+London,2012,Gymnastics,Rhythmic G.,NAZARENKO Anastasia,RUS,Women,group competition,W,Gold
+London,2012,Volleyball,Volleyball,VOLKOV Alexander,RUS,Men,volleyball,M,Gold
+London,2012,Volleyball,Volleyball,GRANKIN Sergey,RUS,Men,volleyball,M,Gold
+London,2012,Gymnastics,Rhythmic G.,SEVASTYANOVA Karolina,RUS,Women,group competition,W,Gold
+London,2012,Volleyball,Volleyball,ILINYKH Dmitriy,RUS,Men,volleyball,M,Gold
+London,2012,Volleyball,Volleyball,MIKHAYLOV Maxim,RUS,Men,volleyball,M,Gold
+London,2012,Volleyball,Volleyball,MUSERSKIY Dmitriy,RUS,Men,volleyball,M,Gold
+London,2012,Volleyball,Volleyball,OBMOCHAEV Alexey,RUS,Men,volleyball,M,Gold
+London,2012,Volleyball,Volleyball,SOKOLOV Alexander,RUS,Men,volleyball,M,Gold
+London,2012,Volleyball,Volleyball,TETYUKHIN Sergey,RUS,Men,volleyball,M,Gold
+London,2012,Volleyball,Volleyball,KHTEY Taras,RUS,Men,volleyball,M,Gold
+London,2012,Boxing,Boxing,MEKHONTCEV Egor,RUS,Men,75 - 81kg (light-heavyweight),M,Gold
+London,2012,Wrestling,Wrestling Gre-R,KHUGAEV Alan,RUS,Men,74 - 84kg,M,Gold
+London,2012,Athletics,Athletics,ZARIPOVA Yuliya,RUS,Women,3000m steeplechase,W,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,DYACHENKO Alexander,RUS,Men,C-2 1000m (canoe double),M,Gold
+London,2012,Athletics,Athletics,UKHOV Ivan,RUS,Men,high jump,M,Gold
+London,2012,Athletics,Athletics,CHICHEROVA Anna,RUS,Women,high jump,W,Gold
+London,2012,Athletics,Athletics,LYSENKO Tatyana,RUS,Women,hammer throw,W,Gold
+London,2012,Athletics,Athletics,KIRDYAPKIN Sergey,RUS,Men,50km walk,M,Gold
+London,2012,Athletics,Athletics,LASHMANOVA Elena,RUS,Women,20km walk,W,Gold
+London,2012,Athletics,Athletics,SAVINOVA Mariya,RUS,Women,800m,W,Gold
+London,2012,Aquatics,Swimming,TIMANINA Anzhelika,RUS,Women,100m freestyle,W,Gold
+London,2012,Aquatics,Swimming,KHASYANOVA Elvira,RUS,Women,100m freestyle,W,Gold
+London,2012,Aquatics,Swimming,SHISHKINA Alla,RUS,Women,100m freestyle,W,Gold
+London,2012,Aquatics,Swimming,KOROBOVA Daria,RUS,Women,100m freestyle,W,Gold
+London,2012,Aquatics,Swimming,PATSKEVICH Alexandra,RUS,Women,100m freestyle,W,Gold
+London,2012,Aquatics,Swimming,GROMOVA Maria,RUS,Women,100m freestyle,W,Gold
+London,2012,Aquatics,Swimming,DAVYDOVA Anastasia,RUS,Women,100m freestyle,W,Gold
+London,2012,Shooting,Shooting,MOLDOVEANU Alin George,ROU,Men,10m air rifle (40 shots),M,Gold
+London,2012,Aquatics,Swimming,van der BURGH Cameron,RSA,Men,100m breaststroke,M,Gold
+London,2012,Rowing,Rowing,THOMPSON James,RSA,Men,lightweight coxless four (4-),M,Gold
+London,2012,Rowing,Rowing,SMITH John,RSA,Men,lightweight coxless four (4-),M,Gold
+London,2012,Rowing,Rowing,NDLOVU Sizwe,RSA,Men,lightweight coxless four (4-),M,Gold
+London,2012,Rowing,Rowing,BRITTAIN Matthew,RSA,Men,lightweight coxless four (4-),M,Gold
+London,2012,Handball,Handball,SULLAND Linn Jorum,NOR,Women,handball,W,Gold
+London,2012,Handball,Handball,JOHANSEN Kari Mette,NOR,Women,handball,W,Gold
+London,2012,Handball,Handball,GRIMSBO Kari Aalvik,NOR,Women,handball,W,Gold
+London,2012,Handball,Handball,FRAFJORD Marit Malm,NOR,Women,handball,W,Gold
+London,2012,Handball,Handball,KURTOVIC Amanda,NOR,Women,handball,W,Gold
+London,2012,Handball,Handball,HARALDSEN Katrine Lunde,NOR,Women,handball,W,Gold
+London,2012,Handball,Handball,HERREM Camilla,NOR,Women,handball,W,Gold
+London,2012,Handball,Handball,ALSTAD Ida,NOR,Women,handball,W,Gold
+London,2012,Handball,Handball,NOSTVOLD Tonje,NOR,Women,handball,W,Gold
+London,2012,Handball,Handball,LOKE Heidi,NOR,Women,handball,W,Gold
+London,2012,Handball,Handball,SNORROEGGEN Goril,NOR,Women,handball,W,Gold
+London,2012,Handball,Handball,KOREN Linn-Kristin,NOR,Women,handball,W,Gold
+London,2012,Handball,Handball,BREIVANG Karoline Dyhre,NOR,Women,handball,W,Gold
+London,2012,Handball,Handball,LUNDE-BORGERSEN Kristine,NOR,Women,handball,W,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,LARSEN Eirik Veras,NOR,Men,C-1 1000m (canoe single),M,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,CARRINGTON Lisa,NZL,Women,C-1 1000m (canoe single),W,Gold
+London,2012,Sailing,Sailing,ALEH Jo,NZL,Women,470 - Two Person Dinghy,W,Gold
+London,2012,Rowing,Rowing,BOND Hamish,NZL,Men,pair-oared shell with coxswain (2+),M,Gold
+London,2012,Rowing,Rowing,COHEN Nathan,NZL,Men,double sculls (2x),M,Gold
+London,2012,Rowing,Rowing,DRYSDALE Mahe,NZL,Men,single sculls (1x),M,Gold
+London,2012,Sailing,Sailing,POWRIE Olivia,NZL,Women,470 - Two Person Dinghy,W,Gold
+London,2012,Rowing,Rowing,MURRAY Eric,NZL,Men,pair-oared shell with coxswain (2+),M,Gold
+London,2012,Athletics,Athletics,ADAMS Valerie,NZL,Women,shot put,W,Gold
+London,2012,Rowing,Rowing,SULLIVAN Joseph,NZL,Men,double sculls (2x),M,Gold
+London,2012,Athletics,Athletics,MAJEWSKI Tomasz,POL,Men,shot put,M,Gold
+London,2012,Weightlifting,Weightlifting,ZIELINSKI Adrian Edward,POL,Men,85kg,M,Gold
+London,2012,Judo,Judo,AN Kum Ae,PRK,Women,48 - 52kg (half-lightweight),W,Gold
+London,2012,Weightlifting,Weightlifting,OM Yun Chol,PRK,Men,"- 56kg, total (bantamweight)",M,Gold
+London,2012,Weightlifting,Weightlifting,KIM Un Guk,PRK,Men,62kg,M,Gold
+London,2012,Weightlifting,Weightlifting,RIM Jong Sim,PRK,Women,69kg,W,Gold
+London,2012,Athletics,Athletics,KEMBOI Ezekiel,KEN,Men,3000m steeplechase,M,Gold
+London,2012,Athletics,Athletics,RUDISHA David Lekuta,KEN,Men,800m,M,Gold
+London,2012,Athletics,Athletics,RYPAKOVA Olga,KAZ,Women,triple jump,W,Gold
+London,2012,Weightlifting,Weightlifting,ILYIN Ilya,KAZ,Men,94kg,M,Gold
+London,2012,Weightlifting,Weightlifting,CHINSHANLO Zulfiya,KAZ,Women,53kg,W,Gold
+London,2012,Weightlifting,Weightlifting,MANEZA Maiya,KAZ,Women,63kg,W,Gold
+London,2012,Weightlifting,Weightlifting,PODOBEDOVA Svetlana,KAZ,Women,"67.5 - 75kg, one-two hand 3 events (middleweight)",W,Gold
+London,2012,Cycling,Cycling Road,VINOKUROV Alexandr,KAZ,Men,individual road race,M,Gold
+London,2012,Judo,Judo,SONG Dae-Nam,KOR,Men,81 - 90kg (middleweight),M,Gold
+London,2012,Fencing,Fencing,KIM Jiyeon,KOR,Women,sabre individual,W,Gold
+London,2012,Archery,Archery,LEE Sung Jin,KOR,Women,team round 60y,W,Gold
+London,2012,Shooting,Shooting,KIM Jangmi,KOR,Women,25m army pistol,W,Gold
+London,2012,Archery,Archery,CHOI Hyeonju,KOR,Women,team round 60y,W,Gold
+London,2012,Fencing,Fencing,GU Bongil,KOR,Men,sabre team,M,Gold
+London,2012,Fencing,Fencing,KIM Junghwan,KOR,Men,sabre team,M,Gold
+London,2012,Fencing,Fencing,OH Eunseok,KOR,Men,sabre team,M,Gold
+London,2012,Fencing,Fencing,WON Woo Young,KOR,Men,sabre team,M,Gold
+London,2012,Boxing,Boxing,SAPIYEV Serik,KAZ,Men,61.24 - 65.77kg (welterweight),M,Gold
+London,2012,Fencing,Fencing,ASPROMONTE Valerio,ITA,Men,foil team,M,Gold
+London,2012,Fencing,Fencing,AVOLA Giorgio,ITA,Men,foil team,M,Gold
+London,2012,Fencing,Fencing,BALDINI Andrea,ITA,Men,foil team,M,Gold
+London,2012,Fencing,Fencing,CASSARA Andrea,ITA,Men,foil team,M,Gold
+London,2012,Fencing,Fencing,SALVATORI Ilaria,ITA,Women,foil team,W,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,FAZEKAS Krisztina,HUN,Women,K-4 500m (kayak four),W,Gold
+London,2012,Cycling,Cycling Track,VOGEL Kristina,GER,Women,Team Sprint,W,Gold
+London,2012,Cycling,Cycling Track,WELTE Miriam,GER,Women,Team Sprint,W,Gold
+London,2012,Equestrian,Eventing,KLIMKE Ingrid,GER,Unknown,team,X,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,KOKENY Roland,HUN,Men,C-2 1000m (canoe double),M,Gold
+London,2012,Equestrian,Eventing,SCHRADE Dirk,GER,Unknown,team,X,Gold
+London,2012,Equestrian,Eventing,THOMSEN Peter,GER,Unknown,team,X,Gold
+London,2012,Athletics,Athletics,HARTING Robert,GER,Men,discus throw,M,Gold
+London,2012,Athletics,Athletics,PARS Krisztian,HUN,Men,hammer throw,M,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,DOMBI Rudolf,HUN,Men,C-2 1000m (canoe double),M,Gold
+London,2012,Rowing,Rowing,ADAMSKI Filip,GER,Men,eight with coxswain (8+),M,Gold
+London,2012,Rowing,Rowing,GROHMANN Tim,GER,Men,quadruple sculls with coxswain (4x),M,Gold
+London,2012,Rowing,Rowing,JOHANNESEN Eric,GER,Men,eight with coxswain (8+),M,Gold
+London,2012,Rowing,Rowing,KUFFNER Andreas,GER,Men,eight with coxswain (8+),M,Gold
+London,2012,Rowing,Rowing,MENNIGEN Florian,GER,Men,eight with coxswain (8+),M,Gold
+London,2012,Rowing,Rowing,MUELLER Lukas,GER,Men,eight with coxswain (8+),M,Gold
+London,2012,Athletics,Athletics,JAMES Kirani,GRN,Men,400m,M,Gold
+London,2012,Rowing,Rowing,REINELT Maximilian,GER,Men,eight with coxswain (8+),M,Gold
+London,2012,Rowing,Rowing,SAUER Martin,GER,Men,eight with coxswain (8+),M,Gold
+London,2012,Rowing,Rowing,SCHMIDT Richard,GER,Men,eight with coxswain (8+),M,Gold
+London,2012,Rowing,Rowing,SCHOOF Lauritz,GER,Men,quadruple sculls with coxswain (4x),M,Gold
+London,2012,Rowing,Rowing,SCHULZE Karl,GER,Men,quadruple sculls with coxswain (4x),M,Gold
+London,2012,Rowing,Rowing,WENDE Phillipp,GER,Men,quadruple sculls with coxswain (4x),M,Gold
+London,2012,Rowing,Rowing,WILKE Kristof,GER,Men,eight with coxswain (8+),M,Gold
+London,2012,Volleyball,Beach volley.,BRINK Julius,GER,Men,beach volleyball,M,Gold
+London,2012,Volleyball,Beach volley.,RECKERMANN Jonas,GER,Men,beach volleyball,M,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,KRETSCHMER Peter,GER,Men,C-2 1000m (canoe double),M,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,KUSCHELA Kurt,GER,Men,C-2 1000m (canoe double),M,Gold
+London,2012,Cycling,Cycling Road,WIGGINS Bradley,GBR,Men,individual time trial,M,Gold
+London,2012,Athletics,Athletics,ENNIS Jessica,GBR,Unknown,heptathlon,X,Gold
+London,2012,Equestrian,Jumping,BRASH Scott,GBR,Unknown,team,X,Gold
+London,2012,Equestrian,Jumping,CHARLES Peter,GBR,Unknown,team,X,Gold
+London,2012,Aquatics,Swimming,GYURTA Daniel,HUN,Men,200m breaststroke,M,Gold
+London,2012,Aquatics,Swimming,RISZTOV Eva,HUN,Women,marathon 10km,W,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,SZABO Gabriella,HUN,Women,K-4 500m (kayak four),W,Gold
+London,2012,Fencing,Fencing,SZILAGYI Aron,HUN,Men,sabre individual,M,Gold
+London,2012,Gymnastics,Artistic G.,BERKI Krisztian,HUN,Men,pommel horse,M,Gold
+London,2012,Weightlifting,Weightlifting,SALIMIKORDASIABI Behdad,IRI,Men,+ 105kg,M,Gold
+London,2012,Wrestling,Wrestling Gre-R,SORYAN REIHANPOUR Hamid Mohammad,IRI,Men,- 55kg,M,Gold
+London,2012,Wrestling,Wrestling Gre-R,NOROOZI Omid Haji,IRI,Men,- 60kg (featherweight),M,Gold
+London,2012,Wrestling,Wrestling Gre-R,REZAEI Ghasem Gholamreza,IRI,Men,84 - 96kg,M,Gold
+London,2012,Boxing,Boxing,TAYLOR Katie,IRL,Women,57 - 60kg (lightweight),W,Gold
+London,2012,Shooting,Shooting,ROSSI Jessica,ITA,Women,trap (125 targets),W,Gold
+London,2012,Taekwondo,Taekwondo,HWANG Kyung Sun,KOR,Women,57 - 67 kg,W,Gold
+London,2012,Gymnastics,Artistic G.,YANG Hak Seon,KOR,Men,vault,M,Gold
+London,2012,Judo,Judo,KIM Jae-Bum,KOR,Men,73 - 81kg (half-middleweight),M,Gold
+London,2012,Wrestling,Wrestling Gre-R,KIM Hyeonwoo,KOR,Men,61 - 66kg (lightweight),M,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,MOLMENTI Daniele,ITA,Men,C-1 1000m (canoe single),M,Gold
+London,2012,Archery,Archery,FRANGILLI Michele,ITA,Men,team round 60y,M,Gold
+London,2012,Archery,Archery,GALIAZZO Marco,ITA,Men,team round 60y,M,Gold
+London,2012,Archery,Archery,NESPOLI Mauro,ITA,Men,team round 60y,M,Gold
+London,2012,Taekwondo,Taekwondo,MOLFETTA Carlo,ITA,Men,+ 80 kg,M,Gold
+London,2012,Cycling,BMX,STROMBERGS Maris,LAT,Men,Individual,M,Gold
+London,2012,Modern Pentathlon,Modern Pentath.,ASADAUSKAITE Laura,LTU,Women,Individual competition,W,Gold
+London,2012,Aquatics,Swimming,MEILUTYTE Ruta,LTU,Women,100m breaststroke,W,Gold
+London,2012,Football,Football,CORONA Jose,MEX,Men,football,M,Gold
+London,2012,Football,Football,RODRIGUEZ Jose,MEX,Men,football,M,Gold
+London,2012,Football,Football,JIMENEZ Israel,MEX,Men,football,M,Gold
+London,2012,Football,Football,SALCIDO Carlos,MEX,Men,football,M,Gold
+London,2012,Football,Football,MIER Hiram,MEX,Men,football,M,Gold
+London,2012,Football,Football,PONCE Miguel,MEX,Men,football,M,Gold
+London,2012,Football,Football,CHAVEZ Darvin,MEX,Men,football,M,Gold
+London,2012,Football,Football,AQUINO Javier,MEX,Men,football,M,Gold
+London,2012,Football,Football,CORTES Javier,MEX,Men,football,M,Gold
+London,2012,Football,Football,VIDRIO Nestor,MEX,Men,football,M,Gold
+London,2012,Football,Football,REYES Diego,MEX,Men,football,M,Gold
+London,2012,Football,Football,ARAUJO Nestor,MEX,Men,football,M,Gold
+London,2012,Football,Football,HERRERA Hector,MEX,Men,football,M,Gold
+London,2012,Football,Football,ENRIQUEZ Jorge,MEX,Men,football,M,Gold
+London,2012,Football,Football,PERALTA Oribe,MEX,Men,football,M,Gold
+London,2012,Football,Football,dos SANTOS Giovani,MEX,Men,football,M,Gold
+London,2012,Football,Football,FABIAN Marco,MEX,Men,football,M,Gold
+London,2012,Football,Football,JIMENEZ Raul,MEX,Men,football,M,Gold
+London,2012,Cycling,Cycling Road,VOS Marianne,NED,Women,individual road race,W,Gold
+London,2012,Gymnastics,Artistic G.,ZONDERLAND Epke,NED,Men,horizontal bar,M,Gold
+London,2012,Hockey,Hockey,AGLIOTTI Marilyn,NED,Women,hockey,W,Gold
+London,2012,Hockey,Hockey,van AS Naomi,NED,Women,hockey,W,Gold
+London,2012,Hockey,Hockey,van GEFFEN Margot,NED,Women,hockey,W,Gold
+London,2012,Hockey,Hockey,GODERIE Maartje,NED,Women,hockey,W,Gold
+London,2012,Hockey,Hockey,de GOEDE Eva,NED,Women,hockey,W,Gold
+London,2012,Hockey,Hockey,HOOG Ellen,NED,Women,hockey,W,Gold
+London,2012,Hockey,Hockey,de BLAEIJ Merel,NED,Women,hockey,W,Gold
+London,2012,Hockey,Hockey,DIRKSE van den HEUVEL Carlien,NED,Women,hockey,W,Gold
+London,2012,Hockey,Hockey,JONKER Kelly,NED,Women,hockey,W,Gold
+London,2012,Hockey,Hockey,PAUMEN Maartje,NED,Women,hockey,W,Gold
+London,2012,Hockey,Hockey,POLKAMP Sophie,NED,Women,hockey,W,Gold
+London,2012,Hockey,Hockey,SOMBROEK Joyce,NED,Women,hockey,W,Gold
+London,2012,Hockey,Hockey,LAMMERS Kim,NED,Women,hockey,W,Gold
+London,2012,Hockey,Hockey,van MAASAKKER Caia,NED,Women,hockey,W,Gold
+London,2012,Hockey,Hockey,van MALE Kitty,NED,Women,hockey,W,Gold
+London,2012,Hockey,Hockey,WELTEN Lidewij,NED,Women,hockey,W,Gold
+London,2012,Sailing,Sailing,van RIJSSELBERGE Dorian,NED,Men,RS:X - Windsurfer,M,Gold
+London,2012,Athletics,Athletics,BAILEY-COLE Kemar,JAM,Men,4x100m relay,M,Gold
+London,2012,Wrestling,Wrestling Free.,OBARA Hitomi,JPN,Women,- 48kg (light-flyweight),W,Gold
+London,2012,Wrestling,Wrestling Free.,YONEMITSU Tatsuhiro,JPN,Men,61 - 66kg (lightweight),M,Gold
+London,2012,Wrestling,Wrestling Free.,YOSHIDA Saori,JPN,Women,- 55kg,W,Gold
+London,2012,Wrestling,Wrestling Free.,ICHO Kaori,JPN,Women,57 - 63kg (featherweight),W,Gold
+London,2012,Athletics,Athletics,CARTER Nesta,JAM,Men,4x100m relay,M,Gold
+London,2012,Athletics,Athletics,FRATER Michael,JAM,Men,4x100m relay,M,Gold
+London,2012,Boxing,Boxing,MURATA Ryota,JPN,Men,65.77 - 71.67kg (middleweight),M,Gold
+London,2012,Judo,Judo,MATSUMOTO Kaori,JPN,Women,52 - 57kg (lightweight),W,Gold
+London,2012,Athletics,Athletics,DEFAR Meseret,ETH,Women,5000m team,W,Gold
+London,2012,Athletics,Athletics,GELANA Tiki,ETH,Women,marathon,W,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,ESTANGUET Tony,FRA,Men,C-1 1000m (canoe single),M,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,FER Emilie,FRA,Women,C-1 1000m (canoe single),W,Gold
+London,2012,Handball,Handball,ABALO Luc,FRA,Men,handball,M,Gold
+London,2012,Handball,Handball,ACCAMBRAY William,FRA,Men,handball,M,Gold
+London,2012,Handball,Handball,BARACHET Xavier,FRA,Men,handball,M,Gold
+London,2012,Handball,Handball,DINART Didier,FRA,Men,handball,M,Gold
+London,2012,Handball,Handball,FERNANDEZ Jerome,FRA,Men,handball,M,Gold
+London,2012,Handball,Handball,GILLE Bertrand,FRA,Men,handball,M,Gold
+London,2012,Handball,Handball,GILLE Guillaume,FRA,Men,handball,M,Gold
+London,2012,Handball,Handball,GUIGOU Michael,FRA,Men,handball,M,Gold
+London,2012,Handball,Handball,HONRUBIA Samuel,FRA,Men,handball,M,Gold
+London,2012,Handball,Handball,JOLI Guillaume,FRA,Men,handball,M,Gold
+London,2012,Handball,Handball,KARABATIC Nikola,FRA,Men,handball,M,Gold
+London,2012,Handball,Handball,KARABOUE Daouda,FRA,Men,handball,M,Gold
+London,2012,Handball,Handball,NARCISSE Daniel,FRA,Men,handball,M,Gold
+London,2012,Handball,Handball,OMEYER Thierry,FRA,Men,handball,M,Gold
+London,2012,Handball,Handball,SORHAINDO Cedric,FRA,Men,handball,M,Gold
+London,2012,Judo,Judo,DECOSSE Lucie,FRA,Women,63 - 70kg (half-middleweight),W,Gold
+London,2012,Judo,Judo,RINER Teddy,FRA,Men,+ 100kg (heavyweight),M,Gold
+London,2012,Cycling,Mountain Bike,BRESSET Julie,FRA,Women,cross-country,W,Gold
+London,2012,Aquatics,Swimming,JIAO Liuyang,CHN,Women,200m butterfly,W,Gold
+London,2012,Aquatics,Diving,WANG Hao,CHN,Women,10m platform,W,Gold
+London,2012,Table Tennis,Table Tennis,LONG Ma,CHN,Men,team,M,Gold
+London,2012,Sailing,Sailing,ALABAU NEIRA Marina,ESP,Women,RS:X - Windsurfer,W,Gold
+London,2012,Sailing,Sailing,ECHEGOYEN DOMINGUEZ Tamara,ESP,Women,6m,W,Gold
+London,2012,Sailing,Sailing,PUMARIEGA MENENDEZ Angela,ESP,Women,6m,W,Gold
+London,2012,Sailing,Sailing,TORO PRIETO PUGA Sofia,ESP,Women,6m,W,Gold
+London,2012,Gymnastics,Artistic G.,GUO Weiyang,CHN,Men,"team, horizontal bar",M,Gold
+London,2012,Gymnastics,Artistic G.,DENG Linlin,CHN,Women,balance beam,W,Gold
+London,2012,Boxing,Boxing,ZOU Shiming,CHN,Men,- 48kg (light-flyweight),M,Gold
+London,2012,Shooting,Shooting,YI Siling,CHN,Women,10m air rifle (40 shots),W,Gold
+London,2012,Shooting,Shooting,GUO Wenjun,CHN,Women,10m air pistol (40 shots),W,Gold
+London,2012,Aquatics,Diving,LUO Yutong,CHN,Men,3m springboard,M,Gold
+London,2012,Aquatics,Diving,CAO Yuan,CHN,Men,10m platform,M,Gold
+London,2012,Aquatics,Diving,ZHANG Yanquan,CHN,Men,10m platform,M,Gold
+London,2012,Weightlifting,Weightlifting,WANG Mingjuan,CHN,Women,48kg,W,Gold
+London,2012,Weightlifting,Weightlifting,LI Xueying,CHN,Women,58kg,W,Gold
+London,2012,Weightlifting,Weightlifting,ZHOU Lulu,CHN,Women,+ 75kg,W,Gold
+London,2012,Weightlifting,Weightlifting,LIN Qingfeng,CHN,Men,69kg,M,Gold
+London,2012,Weightlifting,Weightlifting,LU Xiaojun,CHN,Men,77kg,M,Gold
+London,2012,Taekwondo,Taekwondo,JINGYU Wu,CHN,Women,- 49 kg,W,Gold
+London,2012,Gymnastics,Artistic G.,ZHANG Chenglong,CHN,Men,"team, horizontal bar",M,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,BAILLIE Tim,GBR,Men,C-2 1000m (canoe double),M,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,STOTT Etienne,GBR,Men,C-2 1000m (canoe double),M,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,MCKEEVER Ed,GBR,Men,C-1 1000m (canoe single),M,Gold
+London,2012,Rowing,Rowing,COPELAND Katherine,GBR,Women,lightweight double sculls (2x),W,Gold
+London,2012,Rowing,Rowing,HOSKING Sophie,GBR,Women,lightweight double sculls (2x),W,Gold
+London,2012,Rowing,Rowing,JAMES Tom,GBR,Men,four-oared shell with coxswain (4-),M,Gold
+London,2012,Rowing,Rowing,REED Peter,GBR,Men,four-oared shell with coxswain (4-),M,Gold
+London,2012,Sailing,Sailing,AINSLIE Ben,GBR,Men,single-handed dinghy (Finn),M,Gold
+London,2012,Rowing,Rowing,STANNING Heather,GBR,Women,pair-oared shell with coxswain (2+),W,Gold
+London,2012,Rowing,Rowing,WATKINS Anna,GBR,Women,double sculls (2x),W,Gold
+London,2012,Cycling,Cycling Track,BURKE Steven,GBR,Men,"1980 yards Pursuit, Team",M,Gold
+London,2012,Athletics,Athletics,BROWNLEE Alistair,GBR,Men,triathlon (long jump / shot put / 100 yards),M,Gold
+London,2012,Boxing,Boxing,ADAMS Nicola,GBR,Women,- 51kg (flyweight),W,Gold
+London,2012,Boxing,Boxing,CAMPBELL Luke,GBR,Men,47.63 - 52.16kg (bantamweight),M,Gold
+London,2012,Boxing,Boxing,JOSHUA Anthony,GBR,Men,+ 91kg (super heavyweight),M,Gold
+London,2012,Taekwondo,Taekwondo,JONES Jade,GBR,Women,49 - 57 kg,W,Gold
+London,2012,Shooting,Shooting,WILSON Peter,GBR,Men,double trap (120 targets),M,Gold
+London,2012,Aquatics,Swimming,MANAUDOU Florent,FRA,Men,50m freestyle,M,Gold
+London,2012,Fencing,Fencing,LEI Sheng,CHN,Men,foil individual,M,Gold
+London,2012,Fencing,Fencing,LUO Xiaojuan,CHN,Women,foil team,W,Gold
+London,2012,Fencing,Fencing,XU Anqi,CHN,Women,foil team,W,Gold
+London,2012,Aquatics,Swimming,BERNARD Alain,FRA,Men,4x100m freestyle relay,M,Gold
+London,2012,Aquatics,Swimming,GILOT Fabien,FRA,Men,4x100m freestyle relay,M,Gold
+London,2012,Hockey,Hockey,DEECKE Oskar,GER,Men,hockey,M,Gold
+London,2012,Hockey,Hockey,FUCHS Florian,GER,Men,hockey,M,Gold
+London,2012,Hockey,Hockey,FUERSTE Moritz,GER,Men,hockey,M,Gold
+London,2012,Hockey,Hockey,HAENER Martin,GER,Men,hockey,M,Gold
+London,2012,Hockey,Hockey,HAUKE Tobias,GER,Men,hockey,M,Gold
+London,2012,Hockey,Hockey,KORN Oliver,GER,Men,hockey,M,Gold
+London,2012,Hockey,Hockey,MUELLER Maximilian,GER,Men,hockey,M,Gold
+London,2012,Hockey,Hockey,RABENTE Jan Philipp,GER,Men,hockey,M,Gold
+London,2012,Hockey,Hockey,STRALKOWSKI Thilo,GER,Men,hockey,M,Gold
+London,2012,Hockey,Hockey,WEINHOLD Max,GER,Men,hockey,M,Gold
+London,2012,Hockey,Hockey,WESLEY Christopher,GER,Men,hockey,M,Gold
+London,2012,Hockey,Hockey,WESS Timo,GER,Men,hockey,M,Gold
+London,2012,Hockey,Hockey,WESS Benjamin,GER,Men,hockey,M,Gold
+London,2012,Hockey,Hockey,WITTHAUS Matthias,GER,Men,hockey,M,Gold
+London,2012,Hockey,Hockey,ZELLER Philipp,GER,Men,hockey,M,Gold
+London,2012,Hockey,Hockey,ZELLER Christopher,GER,Men,hockey,M,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,BRENDEL Sebastian,GER,Men,C-1 1000m (canoe single),M,Gold
+London,2012,Equestrian,Dressage,HESTER Carl,GBR,Unknown,team,X,Gold
+London,2012,Equestrian,Jumping,MAHER Ben,GBR,Unknown,team,X,Gold
+London,2012,Equestrian,Jumping,SKELTON Nick,GBR,Unknown,team,X,Gold
+London,2012,Rowing,Rowing,GRAINGER Katherine,GBR,Women,double sculls (2x),W,Gold
+London,2012,Rowing,Rowing,GREGORY Alex,GBR,Men,four-oared shell with coxswain (4-),M,Gold
+London,2012,Cycling,Cycling Track,KENNAUGH Peter,GBR,Men,"1980 yards Pursuit, Team",M,Gold
+London,2012,Athletics,Athletics,RUTHERFORD Greg,GBR,Men,long jump,M,Gold
+London,2012,Rowing,Rowing,TRIGGS HODGE Andrew,GBR,Men,four-oared shell with coxswain (4-),M,Gold
+London,2012,Cycling,Cycling Track,HINDES Philip,GBR,Men,Team Sprint,M,Gold
+London,2012,Judo,Judo,SHAVDATUASHVILI Lasha,GEO,Men,61 - 66kg (middleweight),M,Gold
+London,2012,Rowing,Rowing,GLOVER Helen,GBR,Women,pair-oared shell with coxswain (2+),W,Gold
+London,2012,Cycling,Cycling Track,KING Dani,GBR,Women,"1980 yards Pursuit, Team",W,Gold
+London,2012,Athletics,Athletics,LAVILLENIE Renaud,FRA,Men,pole vault,M,Gold
+London,2012,Judo,Judo,MENEZES Sarah,BRA,Women,- 48kg (extra-lightweight),W,Gold
+London,2012,Volleyball,Volleyball,SILVA Adenizia,BRA,Women,volleyball,W,Gold
+London,2012,Volleyball,Volleyball,LINS Danielle,BRA,Women,volleyball,W,Gold
+London,2012,Volleyball,Volleyball,OLIVEIRA Fabiana,BRA,Women,volleyball,W,Gold
+London,2012,Volleyball,Volleyball,CLAUDINO Fabiana,BRA,Women,volleyball,W,Gold
+London,2012,Volleyball,Volleyball,RODRIGUES Fernanda,BRA,Women,volleyball,W,Gold
+London,2012,Volleyball,Volleyball,PEREIRA Natalia,BRA,Women,volleyball,W,Gold
+London,2012,Volleyball,Volleyball,PEQUENO Paula,BRA,Women,volleyball,W,Gold
+London,2012,Volleyball,Volleyball,CASTRO Sheilla,BRA,Women,volleyball,W,Gold
+London,2012,Volleyball,Volleyball,MENEZES Thaisa,BRA,Women,volleyball,W,Gold
+London,2012,Volleyball,Volleyball,CARVALHO Jaqueline,BRA,Women,volleyball,W,Gold
+London,2012,Volleyball,Volleyball,CAIXETA Tandara,BRA,Women,volleyball,W,Gold
+London,2012,Cycling,Cycling Track,ROWSELL Joanna,GBR,Women,"1980 yards Pursuit, Team",W,Gold
+London,2012,Cycling,Cycling Track,THOMAS Geraint,GBR,Men,"1980 yards Pursuit, Team",M,Gold
+London,2012,Gymnastics,Artistic G.,NABARRETE ZANETTI Arthur,BRA,Men,rings,M,Gold
+London,2012,Volleyball,Volleyball,FERREIRA Fernanda,BRA,Women,volleyball,W,Gold
+London,2012,Gymnastics,Trampoline,MACLENNAN Rosannagh,CAN,Women,individual,W,Gold
+London,2012,Sailing,Sailing,XU Lijia,CHN,Women,Laser Radial - One Person Dinghy,W,Gold
+London,2012,Sailing,Sailing,BELCHER Mathew,AUS,Men,470 - Two Person Dinghy,M,Gold
+London,2012,Sailing,Sailing,JENSEN Iain,AUS,Men,49er - Skiff,M,Gold
+London,2012,Sailing,Sailing,PAGE Malcolm,AUS,Men,470 - Two Person Dinghy,M,Gold
+London,2012,Sailing,Sailing,SLINGSBY Tom,AUS,Men,single-handed dinghy open (Laser),M,Gold
+London,2012,Athletics,Athletics,PEARSON Sally,AUS,Women,100m hurdles,W,Gold
+London,2012,Athletics,Athletics,MAKHLOUFI Taoufik,ALG,Men,1500m,M,Gold
+London,2012,Taekwondo,Taekwondo,CRISMANICH Sebastian Eduardo,ARG,Men,68 - 80 kg,M,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,CLEAR Jacob,AUS,Men,K-4 1000m (kayak four),M,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,SMITH Dave,AUS,Men,K-4 1000m (kayak four),M,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,SMITH Tate,AUS,Men,K-4 1000m (kayak four),M,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,STEWART Murray,AUS,Men,K-4 1000m (kayak four),M,Gold
+London,2012,Athletics,Athletics,CHEN Ding,CHN,Men,20km walk,M,Gold
+London,2012,Fencing,Fencing,LI Na,CHN,Women,foil team,W,Gold
+London,2012,Athletics,Athletics,PERKOVIC Sandra,CRO,Women,discus throw,W,Gold
+London,2012,Shooting,Shooting,CERNOGORAZ Giovanni,CRO,Men,trap (125 targets),M,Gold
+London,2012,Aquatics,Water polo,BARAC Samir,CRO,Men,water polo,M,Gold
+London,2012,Aquatics,Water polo,PAVIC Josip,CRO,Men,water polo,M,Gold
+London,2012,Aquatics,Water polo,BULJUBASIC Ivan,CRO,Men,water polo,M,Gold
+London,2012,Aquatics,Water polo,JOKOVIC Maro,CRO,Men,water polo,M,Gold
+London,2012,Aquatics,Water polo,MUSLIM Petar,CRO,Men,water polo,M,Gold
+London,2012,Aquatics,Water polo,BOSKOVIC Miho,CRO,Men,water polo,M,Gold
+London,2012,Aquatics,Water polo,BUSLJE Andro,CRO,Men,water polo,M,Gold
+London,2012,Aquatics,Water polo,OBRADOVIC Paulo,CRO,Men,water polo,M,Gold
+London,2012,Aquatics,Water polo,SUKNO Sandro,CRO,Men,water polo,M,Gold
+London,2012,Aquatics,Water polo,DOBUD Niksa,CRO,Men,water polo,M,Gold
+London,2012,Aquatics,Water polo,VICAN Frano,CRO,Men,water polo,M,Gold
+London,2012,Aquatics,Water polo,BURIC Damir,CRO,Men,water polo,M,Gold
+London,2012,Aquatics,Water polo,HINIC Igor,CRO,Men,water polo,M,Gold
+London,2012,Badminton,Badminton,LI Xuerui,CHN,Women,singles,W,Gold
+London,2012,Cycling,BMX,PAJON Mariana,COL,Women,Individual,W,Gold
+London,2012,Wrestling,Wrestling Gre-R,LOPEZ NUNEZ Mijain,CUB,Men,96 - 120kg,M,Gold
+London,2012,Judo,Judo,ORTIZ Idalys,CUB,Women,+ 78kg (heavyweight),W,Gold
+London,2012,Boxing,Boxing,IGLESIAS SOTOLONGO Roniel,CUB,Men,60 - 63.5kg (light-welterweight),M,Gold
+London,2012,Shooting,Shooting,PUPO Leuris,CUB,Men,25m rapid fire pistol (60 shots),M,Gold
+London,2012,Boxing,Boxing,RAMIREZ CARRAZANA Robeisy,CUB,Men,- 47.63kg (flyweight),M,Gold
+London,2012,Modern Pentathlon,Modern Pentath.,SVOBODA David,CZE,Men,Individual competition,M,Gold
+London,2012,Athletics,Athletics,SPOTAKOVA Barbora,CZE,Women,javelin throw,W,Gold
+London,2012,Rowing,Rowing,KNAPKOVA Miroslava,CZE,Women,single sculls (1x),W,Gold
+London,2012,Cycling,Mountain Bike,KULHAVY Jaroslav,CZE,Men,cross-country,M,Gold
+London,2012,Rowing,Rowing,RASMUSSEN Mads,DEN,Men,lightweight double sculls (2x),M,Gold
+London,2012,Rowing,Rowing,QUIST Rasmus,DEN,Men,lightweight double sculls (2x),M,Gold
+London,2012,Athletics,Athletics,SANCHEZ Felix,DOM,Men,400m hurdles,M,Gold
+London,2012,Cycling,Cycling Track,HANSEN Lasse Norman,DEN,Men,12-hour race,M,Gold
+London,2012,Taekwondo,Taekwondo,GONZALEZ BONILLA Joel,ESP,Men,- 58 kg,M,Gold
+London,2012,Aquatics,Swimming,TRICKETT Libby,AUS,Women,4x100m freestyle relay,W,Gold
+London,2012,Sailing,Sailing,OUTTERIDGE Nathan,AUS,Men,49er - Skiff,M,Gold
+London,2012,Wrestling,Wrestling Free.,ASGAROV Toghrul,AZE,Men,- 60kg (featherweight),M,Gold
+London,2012,Wrestling,Wrestling Free.,SHARIFOV Sharif,AZE,Men,74 - 84kg,M,Gold
+London,2012,Shooting,Shooting,MARTYNOV Sergei,BLR,Men,50m rifle prone (60 shots),M,Gold
+London,2012,Athletics,Athletics,BROWN Chris,BAH,Men,4x400m relay,M,Gold
+London,2012,Athletics,Athletics,MATHIEU Michael,BAH,Men,4x400m relay,M,Gold
+London,2012,Athletics,Athletics,MILLER Ramon,BAH,Men,4x400m relay,M,Gold
+London,2012,Athletics,Athletics,PINDER Demetrius,BAH,Men,4x400m relay,M,Gold
+London,2012,Badminton,Badminton,TIAN Qing,CHN,Women,doubles,W,Gold
+London,2012,Gymnastics,Trampoline,DONG Dong,CHN,Men,individual,M,Gold
+London,2012,Table Tennis,Table Tennis,GUO Yue,CHN,Women,team,W,Gold
+London,2012,Badminton,Badminton,DAN Lin,CHN,Men,singles,M,Gold
+London,2012,Badminton,Badminton,CAI Yun,CHN,Men,doubles,M,Gold
+London,2012,Badminton,Badminton,FU Haifeng,CHN,Men,doubles,M,Gold
+London,2012,Badminton,Badminton,ZHANG Nan,CHN,Unknown,doubles,X,Gold
+London,2012,Aquatics,Swimming,KUKLA Yolane,AUS,Women,4x100m freestyle relay,W,Gold
+London,2012,Tennis,Tennis,MIRNYI Max,BLR,Unknown,mixed doubles,X,Gold
+London,2012,Aquatics,Swimming,CAMPBELL Cate,AUS,Women,4x100m freestyle relay,W,Gold
+London,2012,Football,Football,BARNHART Nicole,USA,Women,football,W,Gold
+London,2012,Aquatics,Swimming,LARSON Breeja,USA,Women,4x100m medley relay,W,Gold
+London,2012,Wrestling,Wrestling Free.,BURROUGHS Jordan Ernest,USA,Men,68 - 74kg (welterweight),M,Gold
+London,2012,Football,Football,WAMBACH Abby,USA,Women,football,W,Gold
+London,2012,Athletics,Athletics,WILLIAMS Lauryn,USA,Women,4x100m relay,W,Gold
+London,2012,Basketball,Basketball,HARDEN James,USA,Men,basketball,M,Gold
+London,2012,Judo,Judo,HARRISON Kayla,USA,Women,71 - 78kg (half-middleweight),W,Gold
+London,2012,Shooting,Shooting,RHODE Kim,USA,Women,skeet (125 targets),W,Gold
+London,2012,Aquatics,Swimming,HOUCHIN Charlie,USA,Men,4x200m freestyle relay,M,Gold
+London,2012,Aquatics,Swimming,CLARY Tyler,USA,Men,200m backstroke,M,Gold
+London,2012,Aquatics,Water polo,CRAIG Kami,USA,Women,water polo,W,Gold
+London,2012,Aquatics,Water polo,VILLA Brenda,USA,Women,water polo,W,Gold
+London,2012,Volleyball,Beach volley.,WALSH JENNINGS Kerri,USA,Women,beach volleyball,W,Gold
+London,2012,Shooting,Shooting,GRAY Jamie Lynn,USA,Women,50m rifle 3 positions (3x40 shots),W,Gold
+London,2012,Basketball,Basketball,BIRD Sue,USA,Women,basketball,W,Gold
+London,2012,Aquatics,Swimming,BOOTSMA Rachel,USA,Women,4x100m medley relay,W,Gold
+London,2012,Aquatics,Water polo,RULON Kelly,USA,Women,water polo,W,Gold
+London,2012,Aquatics,Water polo,SEIDEMANN Melissa,USA,Women,water polo,W,Gold
+London,2012,Aquatics,Swimming,SHANTEAU Eric,USA,Men,4x100m medley relay,M,Gold
+London,2012,Football,Football,SOLO Hope,USA,Women,football,W,Gold
+London,2012,Aquatics,Water polo,STEFFENS Maggie,USA,Women,water polo,W,Gold
+London,2012,Aquatics,Water polo,STEFFENS Jessica,USA,Women,water polo,W,Gold
+London,2012,Athletics,Athletics,SUHR Jennifer,USA,Women,pole vault,W,Gold
+London,2012,Aquatics,Swimming,TARWATER Davis,USA,Men,4x200m freestyle relay,M,Gold
+London,2012,Basketball,Basketball,TAURASI Diana,USA,Women,basketball,W,Gold
+London,2012,Rowing,Rowing,RITZEL Taylor,USA,Women,eight with coxswain (8+),W,Gold
+London,2012,Tennis,Tennis,BRYAN Bob,USA,Men,doubles,M,Gold
+London,2012,Rowing,Rowing,FRANCIA Zsuzsanna,USA,Women,eight with coxswain (8+),W,Gold
+London,2012,Aquatics,Swimming,DWYER Conor,USA,Men,4x200m freestyle relay,M,Gold
+London,2012,Athletics,Athletics,EATON Ashton,USA,Unknown,decathlon,X,Gold
+London,2012,Aquatics,Water polo,WINDES Elsie,USA,Women,water polo,W,Gold
+London,2012,Basketball,Basketball,FOWLES Sylvia,USA,Women,basketball,W,Gold
+London,2012,Rowing,Rowing,CAFARO Erin,USA,Women,eight with coxswain (8+),W,Gold
+London,2012,Basketball,Basketball,CASH Swin,USA,Women,basketball,W,Gold
+London,2012,Basketball,Basketball,CATCHINGS Tamika,USA,Women,basketball,W,Gold
+London,2012,Basketball,Basketball,CHARLES Tina,USA,Women,basketball,W,Gold
+London,2012,Gymnastics,Artistic G.,ROSS Kyla,USA,Women,"team, horizontal bar",W,Gold
+London,2012,Cycling,Cycling Road,ARMSTRONG Kristin,USA,Women,individual time trial,W,Gold
+London,2012,Basketball,Basketball,ANTHONY Carmelo,USA,Men,basketball,M,Gold
+London,2012,Aquatics,Water polo,ARMSTRONG Betsey,USA,Women,water polo,W,Gold
+London,2012,Basketball,Basketball,AUGUSTUS Seimone,USA,Women,basketball,W,Gold
+London,2012,Athletics,Athletics,BAKER Keshia,USA,Women,4x400m relay,W,Gold
+London,2012,Aquatics,Water polo,MATHEWSON Courtney,USA,Women,water polo,W,Gold
+London,2012,Volleyball,Beach volley.,MAY-TREANOR Misty,USA,Women,beach volleyball,W,Gold
+London,2012,Aquatics,Swimming,McGILL Tyler,USA,Men,4x100m medley relay,M,Gold
+London,2012,Basketball,Basketball,DAVIS Anthony,USA,Men,basketball,M,Gold
+London,2012,Aquatics,Water polo,ANAE Tumua,USA,Women,water polo,W,Gold
+London,2012,Aquatics,Swimming,ANDERSON Alyssa,USA,Women,4x200m freestyle relay,W,Gold
+London,2012,Athletics,Athletics,DIXON Diamond,USA,Women,4x400m relay,W,Gold
+London,2012,Athletics,Athletics,REESE Brittney,USA,Women,long jump,W,Gold
+London,2012,Aquatics,Swimming,VREELAND Shannon,USA,Women,4x200m freestyle relay,W,Gold
+London,2012,Wrestling,Wrestling Free.,TAYMAZOV Artur,UZB,Men,96 - 120kg,M,Gold
+London,2012,Fencing,Fencing,LIMARDO GASCON Ruben,VEN,Men,foil individual,M,Gold
+London,2012,Boxing,Boxing,LOMACHENKO Vasyl,UKR,Men,57 - 60kg (lightweight),M,Gold
+London,2012,Canoe / Kayak,Canoe / Kayak F,CHEBAN Yuri,UKR,Men,C-1 1000m (canoe single),M,Gold
+London,2012,Fencing,Fencing,SHEMYAKINA Yana,UKR,Women,foil individual,W,Gold
+London,2012,Weightlifting,Weightlifting,TOROKHTIY Oleksiy,UKR,Men,+ 105kg,M,Gold
+London,2012,Boxing,Boxing,USYK Oleksandr,UKR,Men,+ 91kg (super heavyweight),M,Gold
+London,2012,Athletics,Athletics,WALCOTT Keshorn,TRI,Men,javelin throw,M,Gold
+London,2012,Athletics,Athletics,KIPROTICH Stephen,UGA,Men,marathon,M,Gold
+London,2012,Rowing,Rowing,DEMENTIEVA Yana,UKR,Women,quadruple sculls with coxswain (4x),W,Gold
+London,2012,Rowing,Rowing,KOZHENKOVA Anastasiia,UKR,Women,quadruple sculls with coxswain (4x),W,Gold
+London,2012,Rowing,Rowing,TARASENKO Kateryna,UKR,Women,quadruple sculls with coxswain (4x),W,Gold
+London,2012,Rowing,Rowing,DOVGODKO Nataliya,UKR,Women,quadruple sculls with coxswain (4x),W,Gold
+London,2012,Taekwondo,Taekwondo,TAZEGUL Servet,TUR,Men,58 - 68 kg,M,Gold
+London,2012,Athletics,Athletics,CAKIR ALPTEKIN Asli,TUR,Women,1500m,W,Gold
+London,2012,Taekwondo,Taekwondo,MANDIC Milica,SRB,Women,+ 67 kg,W,Gold
+London,2012,Judo,Judo,ZOLNIR Urska,SLO,Women,- 63kg (lightweight),W,Gold
+London,2012,Athletics,Athletics,SPIRIG Nicola,SUI,Women,triathlon (long jump / shot put / 100 yards),W,Gold
+London,2012,Equestrian,Jumping,GUERDAT Steve,SUI,Unknown,individual,X,Gold
+London,2012,Sailing,Sailing,SALMINEN Max,SWE,Men,two-person keelboat open (Star),M,Gold
+London,2012,Sailing,Sailing,LOOF Fredrik,SWE,Men,two-person keelboat open (Star),M,Gold
+London,2012,Tennis,Tennis,WILLIAMS Venus,USA,Women,doubles,W,Gold
+London,2012,Athletics,Athletics,TAYLOR Christian,USA,Men,triple jump,M,Gold
+London,2012,Athletics,Athletics,KNIGHT Bianca,USA,Women,4x100m relay,W,Gold
+London,2012,Aquatics,Swimming,DONAHUE Claire,USA,Women,4x100m medley relay,W,Gold
+London,2012,Football,Football,SAUERBRUNN Becky,USA,Women,football,W,Gold
+London,2012,Football,Football,RAMPONE Christie,USA,Women,football,W,Gold
+London,2012,Football,Football,LLOYD Carli,USA,Women,football,W,Gold
+London,2012,Football,Football,le PEILBET Amy,USA,Women,football,W,Gold
+London,2012,Football,Football,BUEHLER Rachel,USA,Women,football,W,Gold
+London,2012,Football,Football,LEROUX Sydney,USA,Women,football,W,Gold
+London,2012,Football,Football,RODRIGUEZ Amy,USA,Women,football,W,Gold
+London,2012,Football,Football,BOXX Shannon,USA,Women,football,W,Gold
+London,2012,Basketball,Basketball,McCOUGHTRY Angel,USA,Women,basketball,W,Gold
+London,2012,Athletics,Athletics,MERRITT Aries,USA,Men,110m hurdles,M,Gold
+London,2012,Basketball,Basketball,MOORE Maya,USA,Women,basketball,W,Gold
+London,2012,Football,Football,MORGAN Alex,USA,Women,football,W,Gold
+London,2012,Basketball,Basketball,WESTBROOK Russell,USA,Men,basketball,M,Gold
+London,2012,Basketball,Basketball,PAUL Chris,USA,Men,basketball,M,Gold
+London,2012,Basketball,Basketball,BRYANT Kobe,USA,Men,basketball,M,Gold
+London,2012,Basketball,Basketball,IGUODALA Andre,USA,Men,basketball,M,Gold
+London,2012,Basketball,Basketball,WILLIAMS Deron,USA,Men,basketball,M,Gold
+London,2012,Basketball,Basketball,DURANT Kevin,USA,Men,basketball,M,Gold
+London,2012,Basketball,Basketball,CHANDLER Tyson,USA,Men,basketball,M,Gold
+London,2012,Football,Football,MITTS Heather,USA,Women,football,W,Gold
+London,2012,Football,Football,O'HARA Kelley,USA,Women,football,W,Gold
+London,2012,Athletics,Athletics,TARMOH Jeneba,USA,Women,4x100m relay,W,Gold
+London,2012,Athletics,Athletics,MADISON Tianna,USA,Women,4x100m relay,W,Gold
+London,2012,Football,Football,HEATH Tobin,USA,Women,football,W,Gold
+London,2012,Football,Football,RAPINOE Megan,USA,Women,football,W,Gold
+London,2012,Football,Football,O'REILLY Heather,USA,Women,football,W,Gold
+London,2012,Boxing,Boxing,SHIELDS Claressa,USA,Women,65.77 - 71.67kg (middleweight),W,Gold
+London,2012,Rowing,Rowing,LOFGREN Esther,USA,Women,eight with coxswain (8+),W,Gold
+London,2012,Wrestling,Wrestling Free.,VARNER Jacob Stephen,USA,Men,84 - 96kg,M,Gold
+London,2012,Basketball,Basketball,JAMES LeBron,USA,Men,basketball,M,Gold
+London,2012,Aquatics,Swimming,McLEAN Matthew,USA,Men,4x200m freestyle relay,M,Gold
+London,2012,Basketball,Basketball,PARKER Candace,USA,Women,basketball,W,Gold
+London,2012,Shooting,Shooting,HANCOCK Vincent,USA,Men,skeet (125 targets),M,Gold
+London,2012,Aquatics,Swimming,PERDUE Lauren,USA,Women,4x200m freestyle relay,W,Gold
+London,2012,Aquatics,Water polo,PETRI Heather,USA,Women,water polo,W,Gold
+London,2012,Athletics,Athletics,McCORORY Francena,USA,Women,4x400m relay,W,Gold
+London,2012,Football,Football,CHENEY Lauren,USA,Women,football,W,Gold
+London,2012,Aquatics,Water polo,WENGER Lauren,USA,Women,water polo,W,Gold
+London,2012,Basketball,Basketball,WHALEN Lindsay,USA,Women,basketball,W,Gold
+London,2012,Rowing,Rowing,WHIPPLE Mary,USA,Women,eight with coxswain (8+),W,Gold
+London,2012,Gymnastics,Artistic G.,WIEBER Jordyn,USA,Women,"team, horizontal bar",W,Gold
+London,2012,Basketball,Basketball,JONES Asjha,USA,Women,basketball,W,Gold
+London,2012,Aquatics,Swimming,LEDECKY Katie,USA,Women,800m freestyle,W,Gold
+London,2012,Rowing,Rowing,LIND Caroline,USA,Women,eight with coxswain (8+),W,Gold
+London,2012,Rowing,Rowing,LOGAN Eleanor,USA,Women,eight with coxswain (8+),W,Gold
+London,2012,Basketball,Basketball,LOVE Kevin,USA,Men,basketball,M,Gold
+London,2012,Rowing,Rowing,DAVIES Caryn,USA,Women,eight with coxswain (8+),W,Gold
+London,2012,Aquatics,Water polo,DRIES Annika,USA,Women,water polo,W,Gold
+London,2012,Rowing,Rowing,MUSNICKI Meghan,USA,Women,eight with coxswain (8+),W,Gold
+London,2012,Aquatics,Swimming,IRIE Ryosuke,JPN,Men,100m backstroke,M,Bronze
+London,2012,Aquatics,Swimming,IRIE Ryosuke,JPN,Men,200m backstroke,M,Silver
+London,2012,Aquatics,Swimming,IRIE Ryosuke,JPN,Men,4x100m medley relay,M,Silver
+London,2012,Cycling,Cycling Track,GUO Shuang,CHN,Women,Sprint indivual,W,Bronze
+London,2012,Cycling,Cycling Track,GUO Shuang,CHN,Women,Keirin,W,Silver
+London,2012,Cycling,Cycling Track,GUO Shuang,CHN,Women,Team Sprint,W,Silver
+London,2012,Aquatics,Swimming,HERASIMENIA Aliaksandra,BLR,Women,50m freestyle,W,Silver
+London,2012,Aquatics,Swimming,HERASIMENIA Aliaksandra,BLR,Women,100m freestyle,W,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,OSYPENKO-RADOMSKA Inna,UKR,Women,C-1 1000m (canoe single),W,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,OSYPENKO-RADOMSKA Inna,UKR,Women,K-1 500m (kayak single),W,Silver
+London,2012,Cycling,Cycling Track,HAMMER Sarah,USA,Women,12-hour race,W,Silver
+London,2012,Cycling,Cycling Track,HAMMER Sarah,USA,Women,"1980 yards Pursuit, Team",W,Silver
+London,2012,Equestrian,Jumping,SCHRODER Gerco,NED,Unknown,individual,X,Silver
+London,2012,Equestrian,Jumping,SCHRODER Gerco,NED,Unknown,team,X,Silver
+London,2012,Gymnastics,Artistic G.,KOMOVA Viktoria,RUS,Women,individual all-round,W,Silver
+London,2012,Gymnastics,Artistic G.,KOMOVA Viktoria,RUS,Women,"team, horizontal bar",W,Silver
+London,2012,Gymnastics,Artistic G.,NGUYEN Marcel,GER,Men,parallel bars,M,Silver
+London,2012,Gymnastics,Artistic G.,NGUYEN Marcel,GER,Men,individual all-round,M,Silver
+London,2012,Aquatics,Swimming,PARK Taehwan,KOR,Men,200m freestyle,M,Silver
+London,2012,Aquatics,Swimming,PARK Taehwan,KOR,Men,400m freestyle,M,Silver
+London,2012,Aquatics,Swimming,BELMONTE GARCIA Mireia,ESP,Women,800m freestyle,W,Silver
+London,2012,Aquatics,Swimming,BELMONTE GARCIA Mireia,ESP,Women,200m butterfly,W,Silver
+London,2012,Cycling,Cycling Track,BAUGE Gregory,FRA,Men,Sprint indivual,M,Silver
+London,2012,Cycling,Cycling Track,BAUGE Gregory,FRA,Men,Team Sprint,M,Silver
+London,2012,Aquatics,Swimming,SUZUKI Satomi,JPN,Women,100m breaststroke,W,Bronze
+London,2012,Aquatics,Swimming,SUZUKI Satomi,JPN,Women,200m breaststroke,W,Silver
+London,2012,Aquatics,Swimming,SUZUKI Satomi,JPN,Women,4x100m medley relay,W,Bronze
+London,2012,Gymnastics,Artistic G.,PASEKA Maria,RUS,Women,vault,W,Bronze
+London,2012,Gymnastics,Artistic G.,PASEKA Maria,RUS,Women,"team, horizontal bar",W,Silver
+London,2012,Athletics,Athletics,GATLIN Justin,USA,Men,100m,M,Bronze
+London,2012,Athletics,Athletics,GATLIN Justin,USA,Men,4x100m relay,M,Silver
+London,2012,Aquatics,Swimming,MAGNUSSEN James,AUS,Men,100m freestyle,M,Silver
+London,2012,Aquatics,Swimming,MAGNUSSEN James,AUS,Men,4x100m medley relay,M,Bronze
+London,2012,Aquatics,Swimming,BEISEL Elizabeth,USA,Women,200m backstroke,W,Bronze
+London,2012,Aquatics,Swimming,BEISEL Elizabeth,USA,Women,400m individual medley,W,Silver
+London,2012,Athletics,Athletics,CLAYE Will,USA,Men,long jump,M,Bronze
+London,2012,Athletics,Athletics,CLAYE Will,USA,Men,triple jump,M,Silver
+London,2012,Aquatics,Swimming,BARRATT Bronte,AUS,Women,200m freestyle,W,Bronze
+London,2012,Aquatics,Swimming,BARRATT Bronte,AUS,Women,4x200m freestyle relay,W,Silver
+London,2012,Gymnastics,Artistic G.,SMITH Louis,GBR,Men,pommel horse,M,Silver
+London,2012,Gymnastics,Artistic G.,SMITH Louis,GBR,Men,"team, horizontal bar",M,Bronze
+London,2012,Rowing,Rowing,CROW Kim,AUS,Women,single sculls (1x),W,Bronze
+London,2012,Rowing,Rowing,CROW Kim,AUS,Women,double sculls (2x),W,Silver
+London,2012,Aquatics,Swimming,SPRENGER Christian,AUS,Men,100m breaststroke,M,Silver
+London,2012,Aquatics,Swimming,SPRENGER Christian,AUS,Men,4x100m medley relay,M,Bronze
+London,2012,Aquatics,Swimming,HUANG Xuechen,CHN,Women,100m freestyle,W,Bronze
+London,2012,Aquatics,Swimming,HUANG Xuechen,CHN,Women,100m freestyle,W,Silver
+London,2012,Aquatics,Swimming,FUENTES FACHE Andrea,ESP,Women,100m freestyle,W,Silver
+London,2012,Aquatics,Swimming,FUENTES FACHE Andrea,ESP,Women,100m freestyle,W,Bronze
+London,2012,Aquatics,Swimming,LIU Ou,CHN,Women,100m freestyle,W,Bronze
+London,2012,Aquatics,Swimming,LIU Ou,CHN,Women,100m freestyle,W,Silver
+London,2012,Aquatics,Swimming,CARBONELL BALLESTERO Ona,ESP,Women,100m freestyle,W,Silver
+London,2012,Aquatics,Swimming,CARBONELL BALLESTERO Ona,ESP,Women,100m freestyle,W,Bronze
+London,2012,Fencing,Fencing,OCCHIUZZI Diego,ITA,Men,sabre individual,M,Silver
+London,2012,Fencing,Fencing,OCCHIUZZI Diego,ITA,Men,sabre team,M,Bronze
+London,2012,Athletics,Athletics,CAMPBELL-BROWN Veronica,JAM,Women,100m,W,Bronze
+London,2012,Athletics,Athletics,CAMPBELL-BROWN Veronica,JAM,Women,4x100m relay,W,Silver
+London,2012,Aquatics,Swimming,MATSUDA Takeshi,JPN,Men,200m butterfly,M,Bronze
+London,2012,Aquatics,Swimming,MATSUDA Takeshi,JPN,Men,4x100m medley relay,M,Silver
+London,2012,Cycling,Cycling Track,LEVY Maximilian,GER,Men,Keirin,M,Silver
+London,2012,Cycling,Cycling Track,LEVY Maximilian,GER,Men,Team Sprint,M,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,JANICS-DOUCHEV Natasa,HUN,Women,C-1 1000m (canoe single),W,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,JANICS-DOUCHEV Natasa,HUN,Women,K-2 500m (kayak double),W,Silver
+London,2012,Gymnastics,Artistic G.,PONOR Catalina,ROU,Women,floor exercises,W,Silver
+London,2012,Gymnastics,Artistic G.,PONOR Catalina,ROU,Women,"team, horizontal bar",W,Bronze
+London,2012,Athletics,Athletics,CHERUIYOT Vivian Jepkemoi,KEN,Women,5000m team,W,Silver
+London,2012,Athletics,Athletics,CHERUIYOT Vivian Jepkemoi,KEN,Women,10miles walk (16093m),W,Bronze
+London,2012,Aquatics,Swimming,VELDHUIS Marleen,NED,Women,50m freestyle,W,Bronze
+London,2012,Aquatics,Swimming,VELDHUIS Marleen,NED,Women,4x100m freestyle relay,W,Silver
+London,2012,Gymnastics,Artistic G.,ABLYAZIN Denis,RUS,Men,floor exercises,M,Bronze
+London,2012,Gymnastics,Artistic G.,ABLYAZIN Denis,RUS,Men,vault,M,Silver
+London,2012,Equestrian,Dressage,CORNELISSEN Adelinde,NED,Unknown,individual,X,Silver
+London,2012,Equestrian,Dressage,CORNELISSEN Adelinde,NED,Unknown,team,X,Bronze
+London,2012,Wrestling,Wrestling Free.,KUDUKHOV Besik,RUS,Men,- 60kg (featherweight),M,Silver
+London,2012,Fencing,Fencing,KOROBEYNIKOVA Larisa,RUS,Women,foil team,W,Silver
+London,2012,Fencing,Fencing,SHANAEVA Aida,RUS,Women,foil team,W,Silver
+London,2012,Fencing,Fencing,VELIKAYA Sofya,RUS,Women,sabre individual,W,Silver
+London,2012,Fencing,Fencing,GAFURZIANOVA Kamilla,RUS,Women,foil team,W,Silver
+London,2012,Fencing,Fencing,DERIGLAZOVA Inna,RUS,Women,foil team,W,Silver
+London,2012,Athletics,Athletics,SEMENYA Caster,RSA,Women,800m,W,Silver
+London,2012,Judo,Judo,MIKHAYLIN Alexander,RUS,Men,+ 100kg (heavyweight),M,Silver
+London,2012,Athletics,Athletics,WLODARCZYK Anita,POL,Women,hammer throw,W,Silver
+London,2012,Tennis,Tennis,SHARAPOVA Maria,RUS,Women,singles,W,Silver
+London,2012,Shooting,Shooting,BOGACKA Sylwia,POL,Women,10m air rifle (40 shots),W,Silver
+London,2012,Cycling,BMX,WALKER Sarah,NZL,Women,Individual,W,Silver
+London,2012,Sailing,Sailing,TUKE Blair,NZL,Men,49er - Skiff,M,Silver
+London,2012,Sailing,Sailing,BURLING Peter,NZL,Men,49er - Skiff,M,Silver
+London,2012,Aquatics,Swimming,ZUEVA Anastasia,RUS,Women,200m backstroke,W,Silver
+London,2012,Aquatics,Diving,KUZNETSOV Evgeny,RUS,Men,3m springboard,M,Silver
+London,2012,Fencing,Fencing,PIASECKI Bartosz,NOR,Men,foil individual,M,Silver
+London,2012,Equestrian,Jumping,HOUTZAGER Marc,NED,Unknown,team,X,Silver
+London,2012,Gymnastics,Artistic G.,AFANASEVA Kseniia,RUS,Women,"team, horizontal bar",W,Silver
+London,2012,Gymnastics,Artistic G.,GRISHINA Anastasia,RUS,Women,"team, horizontal bar",W,Silver
+London,2012,Aquatics,Swimming,SCHREUDER Hinkelien,NED,Women,4x100m freestyle relay,W,Silver
+London,2012,Fencing,Fencing,DUMITRESCU Rares,ROU,Men,sabre team,M,Silver
+London,2012,Fencing,Fencing,DOLNICEANU Tiberiu,ROU,Men,sabre team,M,Silver
+London,2012,Aquatics,Swimming,KOROTYSHKIN Evgeny,RUS,Men,100m butterfly,M,Silver
+London,2012,Athletics,Athletics,PISHCHALNIKOVA Darya,RUS,Women,discus throw,W,Silver
+London,2012,Athletics,Athletics,GUSHCHINA Yulia,RUS,Women,4x400m relay,W,Silver
+London,2012,Athletics,Athletics,KRIVOSHAPKA Antonina,RUS,Women,4x400m relay,W,Silver
+London,2012,Athletics,Athletics,NAZAROVA Natalya,RUS,Women,4x400m relay,W,Silver
+London,2012,Athletics,Athletics,KANISKINA Olga,RUS,Women,20km walk,W,Silver
+London,2012,Weightlifting,Weightlifting,TSARUKAEVA Svetlana,RUS,Women,63kg,W,Silver
+London,2012,Athletics,Athletics,SOKOLOVA Elena,RUS,Women,long jump,W,Silver
+London,2012,Wrestling,Wrestling Gre-R,TOTROV Rustam,RUS,Men,84 - 96kg,M,Silver
+London,2012,Boxing,Boxing,OCHIGAVA Sofya,RUS,Women,57 - 60kg (lightweight),W,Silver
+London,2012,Boxing,Boxing,TORLOPOVA Nadezda,RUS,Women,65.77 - 71.67kg (middleweight),W,Silver
+London,2012,Athletics,Athletics,KAPACHINSKAYA Anastasiya,RUS,Women,4x400m relay,W,Silver
+London,2012,Athletics,Athletics,FIROVA Tatyana,RUS,Women,4x400m relay,W,Silver
+London,2012,Athletics,Athletics,KOLODKO Evgeniia,RUS,Women,shot put,W,Silver
+London,2012,Weightlifting,Weightlifting,AUKHADOV Apti,RUS,Men,85kg,M,Silver
+London,2012,Weightlifting,Weightlifting,ZABOLOTNAYA Natalya,RUS,Women,"67.5 - 75kg, one-two hand 3 events (middleweight)",W,Silver
+London,2012,Weightlifting,Weightlifting,IVANOV Alexandr,RUS,Men,94kg,M,Silver
+London,2012,Weightlifting,Weightlifting,KASHIRINA Tatiana,RUS,Women,+ 75kg,W,Silver
+London,2012,Gymnastics,Rhythmic G.,DMITRIEVA Daria,RUS,Women,individual all-round,W,Silver
+London,2012,Gymnastics,Trampoline,USHAKOV Dmitry,RUS,Men,individual,M,Silver
+London,2012,Hockey,Hockey,HOFMAN Rogier,NED,Men,hockey,M,Silver
+London,2012,Hockey,Hockey,BAART Sander,NED,Men,hockey,M,Silver
+London,2012,Hockey,Hockey,BAKKER Billy,NED,Men,hockey,M,Silver
+London,2012,Hockey,Hockey,BALKESTEIN Marcel,NED,Men,hockey,M,Silver
+London,2012,Aquatics,Diving,OROZCO LOZA Alejandra,MEX,Women,10m platform,W,Silver
+London,2012,Aquatics,Diving,SANCHEZ SANCHEZ German,MEX,Men,10m platform,M,Silver
+London,2012,Aquatics,Diving,GARCIA NAVARRO Ivan,MEX,Men,10m platform,M,Silver
+London,2012,Aquatics,Diving,ESPINOSA SANCHEZ Paola,MEX,Women,10m platform,W,Silver
+London,2012,Archery,Archery,ROMAN Aida,MEX,Women,individual FITA round,W,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,SHUKLIN Jevgenij,LTU,Men,C-1 1000m (canoe single),M,Silver
+London,2012,Boxing,Boxing,NYAMBAYAR Tugstsogt,MGL,Men,- 47.63kg (flyweight),M,Silver
+London,2012,Handball,Handball,POPOVIC Bojana,MNE,Women,handball,W,Silver
+London,2012,Handball,Handball,BULATOVIC Andela,MNE,Women,handball,W,Silver
+London,2012,Handball,Handball,DOKIC Ana,MNE,Women,handball,W,Silver
+London,2012,Handball,Handball,RADOVIC Ana,MNE,Women,handball,W,Silver
+London,2012,Handball,Handball,LAZOVIC Suzana,MNE,Women,handball,W,Silver
+London,2012,Handball,Handball,BARJAKTAROVIC Sonja,MNE,Women,handball,W,Silver
+London,2012,Handball,Handball,MILJANIC Radmila,MNE,Women,handball,W,Silver
+London,2012,Handball,Handball,KNEZEVIC Milena,MNE,Women,handball,W,Silver
+London,2012,Handball,Handball,VUKCEVIC Marina,MNE,Women,handball,W,Silver
+London,2012,Handball,Handball,MEHMEDOVIC Majda,MNE,Women,handball,W,Silver
+London,2012,Handball,Handball,SAVIC Maja,MNE,Women,handball,W,Silver
+London,2012,Handball,Handball,BULATOVIC Katarina,MNE,Women,handball,W,Silver
+London,2012,Handball,Handball,JOVANOVIC Marija,MNE,Women,handball,W,Silver
+London,2012,Handball,Handball,RADICEVIC Jovanka,MNE,Women,handball,W,Silver
+London,2012,Judo,Judo,NAIDAN Tuvshinbayar,MGL,Men,90 - 100kg (half-heavyweight),M,Silver
+London,2012,Badminton,Badminton,LEE Chong Wei,MAS,Men,singles,M,Silver
+London,2012,Taekwondo,Taekwondo,LEE Daehoon,KOR,Men,- 58 kg,M,Silver
+London,2012,Rowing,Rowing,BATTISTI Romano,ITA,Men,double sculls (2x),M,Silver
+London,2012,Rowing,Rowing,SARTORI Alessio,ITA,Men,double sculls (2x),M,Silver
+London,2012,Shooting,Shooting,FABBRIZI Massimo,ITA,Men,trap (125 targets),M,Silver
+London,2012,Shooting,Shooting,CHOI Young Rae,KOR,Men,50m pistol (60 shots),M,Silver
+London,2012,Weightlifting,Weightlifting,NASIRSHELAL Navab,IRI,Men,+ 105kg,M,Silver
+London,2012,Taekwondo,Taekwondo,BAGHERI MOTAMED Mohammad,IRI,Men,58 - 68 kg,M,Silver
+London,2012,Wrestling,Wrestling Free.,GOUDARZI Sadegh Saeed,IRI,Men,68 - 74kg (welterweight),M,Silver
+London,2012,Athletics,Athletics,HADADI Ehsan,IRI,Men,discus throw,M,Silver
+London,2012,Aquatics,Water polo,TEMPESTI Stefano,ITA,Men,water polo,M,Silver
+London,2012,Aquatics,Water polo,PEREZ Amaurys,ITA,Men,water polo,M,Silver
+London,2012,Aquatics,Water polo,GITTO Niccolo',ITA,Men,water polo,M,Silver
+London,2012,Aquatics,Water polo,FIGLIOLI Pietro,ITA,Men,water polo,M,Silver
+London,2012,Aquatics,Water polo,GIORGETTI Alex,ITA,Men,water polo,M,Silver
+London,2012,Aquatics,Water polo,FELUGO Maurizio,ITA,Men,water polo,M,Silver
+London,2012,Aquatics,Water polo,GALLO Valentino,ITA,Men,water polo,M,Silver
+London,2012,Aquatics,Water polo,PRESCIUTTI Christian,ITA,Men,water polo,M,Silver
+London,2012,Aquatics,Water polo,FIORENTINI Deni,ITA,Men,water polo,M,Silver
+London,2012,Aquatics,Water polo,AICARDI Matteo,ITA,Men,water polo,M,Silver
+London,2012,Aquatics,Water polo,PASTORINO Giacomo,ITA,Men,water polo,M,Silver
+London,2012,Aquatics,Water polo,GIACOPPO Massimo,ITA,Men,water polo,M,Silver
+London,2012,Weightlifting,Weightlifting,ANOUSHIRAVANI HAMLABAD Sajjad,IRI,Men,+ 105kg,M,Silver
+London,2012,Shooting,Shooting,KUMAR Vijay,IND,Men,25m rapid fire pistol (60 shots),M,Silver
+London,2012,Judo,Judo,UNGVARI Miklos,HUN,Men,61 - 66kg (middleweight),M,Silver
+London,2012,Weightlifting,Weightlifting,TRIYATNO Triyatno,INA,Men,69kg,M,Silver
+London,2012,Wrestling,Wrestling Free.,KUMAR Sushil,IND,Men,61 - 66kg (lightweight),M,Silver
+London,2012,Athletics,Athletics,JEPTOO Priscah,KEN,Women,marathon,W,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,TOTH David,HUN,Men,K-4 1000m (kayak four),M,Silver
+London,2012,Wrestling,Wrestling Gre-R,LORINCZ Tamas,HUN,Men,61 - 66kg (lightweight),M,Silver
+London,2012,Equestrian,Eventing,COOK Kristina,GBR,Unknown,team,X,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,KULIFAI Tamas,HUN,Men,K-4 1000m (kayak four),M,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,PAUMAN Daniel,HUN,Men,K-4 1000m (kayak four),M,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,LEONHARDT Carolin,GER,Women,K-4 500m (kayak four),W,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,TASIADIS Sideris,GER,Men,C-1 1000m (canoe single),M,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,WAGNER-AUGUSTIN Katrin,GER,Women,K-4 500m (kayak four),W,Silver
+London,2012,Gymnastics,Artistic G.,HAMBUCHEN Fabian,GER,Men,horizontal bar,M,Silver
+London,2012,Cycling,Cycling Road,ARNDT Judith,GER,Women,individual time trial,W,Silver
+London,2012,Rowing,Rowing,RICHTER Julia,GER,Women,quadruple sculls with coxswain (4x),W,Silver
+London,2012,Athletics,Athletics,BARRONDO Erick,GUA,Men,20km walk,M,Silver
+London,2012,Rowing,Rowing,OPPELT Britta,GER,Women,quadruple sculls with coxswain (4x),W,Silver
+London,2012,Rowing,Rowing,BAER Carina,GER,Women,quadruple sculls with coxswain (4x),W,Silver
+London,2012,Athletics,Athletics,STORL David,GER,Men,shot put,M,Silver
+London,2012,Aquatics,Swimming,LURZ Thomas,GER,Men,marathon 10km,M,Silver
+London,2012,Rowing,Rowing,THIELE Annekatrin,GER,Women,quadruple sculls with coxswain (4x),W,Silver
+London,2012,Athletics,Athletics,OBERGFOLL Christina,GER,Women,javelin throw,W,Silver
+London,2012,Athletics,Athletics,OTTO Bjorn,GER,Men,pole vault,M,Silver
+London,2012,Athletics,Athletics,SCHWARZKOPF Lilli,GER,Unknown,heptathlon,X,Silver
+London,2012,Equestrian,Dressage,SPREHE Kristina,GER,Unknown,team,X,Silver
+London,2012,Cycling,Cycling Road,MARTIN Tony,GER,Men,individual time trial,M,Silver
+London,2012,Cycling,Mountain Bike,SPITZ Sabine,GER,Women,cross-country,W,Silver
+London,2012,Equestrian,Dressage,LANGEHANENBERG Helen,GER,Unknown,team,X,Silver
+London,2012,Equestrian,Dressage,SCHNEIDER Dorothee,GER,Unknown,team,X,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,KAMMERER Zoltan,HUN,Men,K-4 1000m (kayak four),M,Silver
+London,2012,Shooting,Shooting,TESCONI Luca,ITA,Men,10m air pistol (40 shots),M,Silver
+London,2012,Aquatics,Swimming,KITAJIMA Kosuke,JPN,Men,4x100m medley relay,M,Silver
+London,2012,Aquatics,Swimming,DEKKER Inge,NED,Women,4x100m freestyle relay,W,Silver
+London,2012,Aquatics,Swimming,HEEMSKERK Femke,NED,Women,4x100m freestyle relay,W,Silver
+London,2012,Boxing,Boxing,HAN Soonchul,KOR,Men,57 - 60kg (lightweight),M,Silver
+London,2012,Table Tennis,Table Tennis,JOO Saehyuk,KOR,Men,team,M,Silver
+London,2012,Table Tennis,Table Tennis,OH Sangeun,KOR,Men,team,M,Silver
+London,2012,Table Tennis,Table Tennis,RYU Seungmin,KOR,Men,team,M,Silver
+London,2012,Equestrian,Jumping,van der VLEUTEN Maikel,NED,Unknown,team,X,Silver
+London,2012,Equestrian,Jumping,VRIELING Jur,NED,Unknown,team,X,Silver
+London,2012,Fencing,Fencing,SHIN A Lam,KOR,Women,foil team,W,Silver
+London,2012,Fencing,Fencing,CHOI Injeong,KOR,Women,foil team,W,Silver
+London,2012,Fencing,Fencing,CHOI Eunsook,KOR,Women,foil team,W,Silver
+London,2012,Fencing,Fencing,JUNG Hyojung,KOR,Women,foil team,W,Silver
+London,2012,Boxing,Boxing,NIYAZYMBETOV Adilbek,KAZ,Men,75 - 81kg (light-heavyweight),M,Silver
+London,2012,Athletics,Athletics,KIRUI Abel,KEN,Men,marathon,M,Silver
+London,2012,Shooting,Shooting,KIM Jonghyun,KOR,Men,50m rifle 3 positions (3x40 shots),M,Silver
+London,2012,Judo,Judo,DUMITRU Alina,ROU,Women,- 48kg (extra-lightweight),W,Silver
+London,2012,Judo,Judo,CAPRIORIU Corina,ROU,Women,52 - 57kg (lightweight),W,Silver
+London,2012,Athletics,Athletics,KIPYEGO Sally Jepkosgei,KEN,Women,10miles walk (16093m),W,Silver
+London,2012,Wrestling,Wrestling Free.,ESPINAL Jaime Yusept,PUR,Men,74 - 84kg,M,Silver
+London,2012,Fencing,Fencing,SIRITEANU Alexandru,ROU,Men,sabre team,M,Silver
+London,2012,Fencing,Fencing,ZALOMIR Florin,ROU,Men,sabre team,M,Silver
+London,2012,Weightlifting,Weightlifting,COCOS Roxana Daniela,ROU,Women,69kg,W,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,SILVA Emanuel,POR,Men,C-2 1000m (canoe double),M,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,PIMENTA Fernando,POR,Men,C-2 1000m (canoe double),M,Silver
+London,2012,Sailing,Sailing,WHITTY Lucinda,AUS,Women,6m,W,Silver
+London,2012,Sailing,Sailing,PRICE Olivia,AUS,Women,6m,W,Silver
+London,2012,Aquatics,Swimming,BAINBRIDGE Angie,AUS,Women,4x200m freestyle relay,W,Silver
+London,2012,Rowing,Rowing,CHAPMAN James,AUS,Men,four-oared shell with coxswain (4-),M,Silver
+London,2012,Sailing,Sailing,CURTIS Nina,AUS,Women,6m,W,Silver
+London,2012,Rowing,Rowing,PRATLEY Brooke,AUS,Women,double sculls (2x),W,Silver
+London,2012,Rowing,Rowing,TAIT Sarah,AUS,Women,pair-oared shell with coxswain (2+),W,Silver
+London,2012,Rowing,Rowing,GINN Drew,AUS,Men,four-oared shell with coxswain (4-),M,Silver
+London,2012,Rowing,Rowing,HORNSEY Kate,AUS,Women,pair-oared shell with coxswain (2+),W,Silver
+London,2012,Rowing,Rowing,LOCKWOOD William,AUS,Men,four-oared shell with coxswain (4-),M,Silver
+London,2012,Hockey,Hockey,AYMAR Luciana,ARG,Women,hockey,W,Silver
+London,2012,Hockey,Hockey,RODRIGUEZ PEREZ Macarena,ARG,Women,hockey,W,Silver
+London,2012,Hockey,Hockey,del COLLE Laura,ARG,Women,hockey,W,Silver
+London,2012,Hockey,Hockey,BARRIONUEVO Noel,ARG,Women,hockey,W,Silver
+London,2012,Hockey,Hockey,LUCHETTI Rosario,ARG,Women,hockey,W,Silver
+London,2012,Hockey,Hockey,MACCARI Sofia,ARG,Women,hockey,W,Silver
+London,2012,Hockey,Hockey,REBECCHI Carla,ARG,Women,hockey,W,Silver
+London,2012,Hockey,Hockey,MUTIO Florencia,ARG,Women,hockey,W,Silver
+London,2012,Hockey,Hockey,D'ELIA Silvina,ARG,Women,hockey,W,Silver
+London,2012,Hockey,Hockey,SCARONE Mariela,ARG,Women,hockey,W,Silver
+London,2012,Hockey,Hockey,SRUOGA Daniela,ARG,Women,hockey,W,Silver
+London,2012,Hockey,Hockey,SANCHEZ MOCCIA Rocio,ARG,Women,hockey,W,Silver
+London,2012,Hockey,Hockey,MERINO Delfina,ARG,Women,hockey,W,Silver
+London,2012,Hockey,Hockey,CAVALLERO Martina,ARG,Women,hockey,W,Silver
+London,2012,Hockey,Hockey,SRUOGA Josefina,ARG,Women,hockey,W,Silver
+London,2012,Hockey,Hockey,HABIF Florencia,ARG,Women,hockey,W,Silver
+London,2012,Rowing,Rowing,DUNKLEY-SMITH Joshua,AUS,Men,four-oared shell with coxswain (4-),M,Silver
+London,2012,Rowing,Rowing,PRICE Brian,CAN,Men,eight with coxswain (8+),M,Silver
+London,2012,Boxing,Boxing,FALCAO FLORENTINO Esquiva,BRA,Men,65.77 - 71.67kg (middleweight),M,Silver
+London,2012,Rowing,Rowing,HOWARD Malcolm,CAN,Men,eight with coxswain (8+),M,Silver
+London,2012,Wrestling,Wrestling Free.,VERBEEK Tonya Lynn,CAN,Women,- 55kg,W,Silver
+London,2012,Rowing,Rowing,CSIMA Douglas,CAN,Men,eight with coxswain (8+),M,Silver
+London,2012,Rowing,Rowing,MASTRACCI Natalie,CAN,Women,eight with coxswain (8+),W,Silver
+London,2012,Cycling,Cycling Track,O'SHEA Glenn,AUS,Men,"1980 yards Pursuit, Team",M,Silver
+London,2012,Cycling,BMX,WILLOUGHBY Sam,AUS,Men,Individual,M,Silver
+London,2012,Cycling,Cycling Track,BOBRIDGE Jack,AUS,Men,"1980 yards Pursuit, Team",M,Silver
+London,2012,Cycling,Cycling Track,DENNIS Rohan,AUS,Men,"1980 yards Pursuit, Team",M,Silver
+London,2012,Cycling,Cycling Track,HEPBURN Michael,AUS,Men,"1980 yards Pursuit, Team",M,Silver
+London,2012,Rowing,Rowing,MARQUARDT Darcy,CAN,Women,eight with coxswain (8+),W,Silver
+London,2012,Rowing,Rowing,MORIN Andreanne,CAN,Women,eight with coxswain (8+),W,Silver
+London,2012,Rowing,Rowing,THOMPSON-WILLIE Lesley,CAN,Women,eight with coxswain (8+),W,Silver
+London,2012,Rowing,Rowing,VIINBERG Rachelle,CAN,Women,eight with coxswain (8+),W,Silver
+London,2012,Rowing,Rowing,WILKINSON Lauren,CAN,Women,eight with coxswain (8+),W,Silver
+London,2012,Rowing,Rowing,BERGEN Gabriel,CAN,Men,eight with coxswain (8+),M,Silver
+London,2012,Rowing,Rowing,BROWN Jeremiah,CAN,Men,eight with coxswain (8+),M,Silver
+London,2012,Rowing,Rowing,BRZOZOWICZ Ashley,CAN,Women,eight with coxswain (8+),W,Silver
+London,2012,Rowing,Rowing,BYRNES Andrew,CAN,Men,eight with coxswain (8+),M,Silver
+London,2012,Aquatics,Swimming,COCHRANE Ryan,CAN,Men,1500m freestyle,M,Silver
+London,2012,Rowing,Rowing,CROTHERS Will,CAN,Men,eight with coxswain (8+),M,Silver
+London,2012,Rowing,Rowing,GIBSON Rob,CAN,Men,eight with coxswain (8+),M,Silver
+London,2012,Rowing,Rowing,GULOIEN Krista,CAN,Women,eight with coxswain (8+),W,Silver
+London,2012,Rowing,Rowing,HANSON Janine,CAN,Women,eight with coxswain (8+),W,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,van KOEVERDEN Adam,CAN,Men,C-1 1000m (canoe single),M,Silver
+London,2012,Wrestling,Wrestling Free.,HRISTOVA Stanka Zlateva,BUL,Women,66 - 72kg (welterweight),W,Silver
+London,2012,Aquatics,Swimming,PEREIRA Thiago,BRA,Men,400m individual medley,M,Silver
+London,2012,Football,Football,THIAGO SILVA,BRA,Men,football,M,Silver
+London,2012,Football,Football,MARCELO,BRA,Men,football,M,Silver
+London,2012,Football,Football,ALEX SANDRO,BRA,Men,football,M,Silver
+London,2012,Football,Football,SANDRO,BRA,Men,football,M,Silver
+London,2012,Football,Football,GANSO,BRA,Men,football,M,Silver
+London,2012,Football,Football,HULK,BRA,Men,football,M,Silver
+London,2012,Football,Football,LEANDRO DAMIAO,BRA,Men,football,M,Silver
+London,2012,Football,Football,LUCAS,BRA,Men,football,M,Silver
+London,2012,Football,Football,NEYMAR,BRA,Men,football,M,Silver
+London,2012,Football,Football,JUAN JESUS,BRA,Men,football,M,Silver
+London,2012,Football,Football,OSCAR,BRA,Men,football,M,Silver
+London,2012,Football,Football,ROMULO,BRA,Men,football,M,Silver
+London,2012,Football,Football,NETO,BRA,Men,football,M,Silver
+London,2012,Football,Football,RAFAEL,BRA,Men,football,M,Silver
+London,2012,Football,Football,ALEXANDRE PATO,BRA,Men,football,M,Silver
+London,2012,Football,Football,GABRIEL,BRA,Men,football,M,Silver
+London,2012,Football,Football,DANILO,BRA,Men,football,M,Silver
+London,2012,Football,Football,BRUNO UVINI,BRA,Men,football,M,Silver
+London,2012,Volleyball,Volleyball,REZENDE Bruno,BRA,Men,volleyball,M,Silver
+London,2012,Volleyball,Volleyball,VISSOTTO NEVES Leandro,BRA,Men,volleyball,M,Silver
+London,2012,Volleyball,Volleyball,SAATKAMP Lucas,BRA,Men,volleyball,M,Silver
+London,2012,Volleyball,Volleyball,GARCIA Ricardo,BRA,Men,volleyball,M,Silver
+London,2012,Volleyball,Volleyball,SANTOS Sergio,BRA,Men,volleyball,M,Silver
+London,2012,Volleyball,Volleyball,dos SANTOS JUNIOR Sidnei,BRA,Men,volleyball,M,Silver
+London,2012,Volleyball,Volleyball,ALVES Thiago Soares,BRA,Men,volleyball,M,Silver
+London,2012,Volleyball,Volleyball,de SOUZA Wallace,BRA,Men,volleyball,M,Silver
+London,2012,Volleyball,Volleyball,AMARAL Dante,BRA,Men,volleyball,M,Silver
+London,2012,Volleyball,Volleyball,GODOY FILHO Gilberto,BRA,Men,volleyball,M,Silver
+London,2012,Volleyball,Volleyball,ENDRES Murilo,BRA,Men,volleyball,M,Silver
+London,2012,Volleyball,Volleyball,SANTANA Rodrigo,BRA,Men,volleyball,M,Silver
+London,2012,Volleyball,Beach volley.,CERUTTI Alison,BRA,Men,beach volleyball,M,Silver
+London,2012,Volleyball,Beach volley.,REGO Emanuel,BRA,Men,beach volleyball,M,Silver
+London,2012,Athletics,Athletics,MEKHISSI-BENABBAD Mahiedine,FRA,Men,3000m steeplechase,M,Silver
+London,2012,Taekwondo,Taekwondo,OBAME Anthony,GAB,Men,+ 80 kg,M,Silver
+London,2012,Athletics,Athletics,AMOS Nijel,BOT,Men,800m,M,Silver
+London,2012,Aquatics,Swimming,JAMIESON Michael,GBR,Men,200m breaststroke,M,Silver
+London,2012,Modern Pentathlon,Modern Pentath.,MURRAY Samantha,GBR,Women,Individual competition,W,Silver
+London,2012,Athletics,Athletics,OHURUOGU Christine,GBR,Women,400m,W,Silver
+London,2012,Judo,Judo,GIBBONS Gemma,GBR,Women,71 - 78kg (half-middleweight),W,Silver
+London,2012,Wrestling,Wrestling Free.,MODZMANASHVILI Davit,GEO,Men,96 - 120kg,M,Silver
+London,2012,Tennis,Tennis,ROBSON Laura,GBR,Unknown,mixed doubles,X,Silver
+London,2012,Rowing,Rowing,PURCHASE Zac,GBR,Men,lightweight double sculls (2x),M,Silver
+London,2012,Cycling,Cycling Road,ARMITSTEAD Lizzie,GBR,Women,individual road race,W,Silver
+London,2012,Wrestling,Wrestling Free.,KHINCHEGASHVILI Vladimer,GEO,Men,- 55kg,M,Silver
+London,2012,Wrestling,Wrestling Gre-R,LASHKHI Revaz,GEO,Men,- 60kg (featherweight),M,Silver
+London,2012,Equestrian,Eventing,WILSON Nicola,GBR,Unknown,team,X,Silver
+London,2012,Equestrian,Eventing,PHILLIPS Zara,GBR,Unknown,team,X,Silver
+London,2012,Equestrian,Eventing,KING Mary,GBR,Unknown,team,X,Silver
+London,2012,Equestrian,Eventing,FOX - PITT William,GBR,Unknown,team,X,Silver
+London,2012,Judo,Judo,BISCHOF Ole,GER,Men,73 - 81kg (half-middleweight),M,Silver
+London,2012,Judo,Judo,THIELE Kerstin,GER,Women,63 - 70kg (half-middleweight),W,Silver
+London,2012,Fencing,Fencing,HEIDEMANN Britta,GER,Women,foil individual,W,Silver
+London,2012,Aquatics,Swimming,WU Yiwen,CHN,Women,100m freestyle,W,Silver
+London,2012,Aquatics,Swimming,SUN Wenyan,CHN,Women,100m freestyle,W,Silver
+London,2012,Aquatics,Swimming,JIANG Wenwen,CHN,Women,100m freestyle,W,Silver
+London,2012,Aquatics,Swimming,JIANG Tingting,CHN,Women,100m freestyle,W,Silver
+London,2012,Aquatics,Swimming,CHANG Si,CHN,Women,100m freestyle,W,Silver
+London,2012,Aquatics,Swimming,CHEN Xiaojun,CHN,Women,100m freestyle,W,Silver
+London,2012,Aquatics,Swimming,MALLET Gregory,FRA,Men,4x200m freestyle relay,M,Silver
+London,2012,Boxing,Boxing,EVANS Fred,GBR,Men,61.24 - 65.77kg (welterweight),M,Silver
+London,2012,Rowing,Rowing,WILLIAMS Rob,GBR,Men,lightweight coxless four (4-),M,Silver
+London,2012,Sailing,Sailing,BITHELL Stuart,GBR,Men,470 - Two Person Dinghy,M,Silver
+London,2012,Sailing,Sailing,CLARK Saskia,GBR,Women,470 - Two Person Dinghy,W,Silver
+London,2012,Sailing,Sailing,DEMPSEY Nick,GBR,Men,RS:X - Windsurfer,M,Silver
+London,2012,Sailing,Sailing,MILLS Hannah,GBR,Women,470 - Two Person Dinghy,W,Silver
+London,2012,Sailing,Sailing,PATIENCE Luke,GBR,Men,470 - Two Person Dinghy,M,Silver
+London,2012,Sailing,Sailing,PERCY Iain,GBR,Men,two-person keelboat open (Star),M,Silver
+London,2012,Sailing,Sailing,SIMPSON Andrew,GBR,Men,two-person keelboat open (Star),M,Silver
+London,2012,Rowing,Rowing,HUNTER Mark,GBR,Men,lightweight double sculls (2x),M,Silver
+London,2012,Rowing,Rowing,BARTLEY Chris,GBR,Men,lightweight coxless four (4-),M,Silver
+London,2012,Rowing,Rowing,CHAMBERS Peter,GBR,Men,lightweight coxless four (4-),M,Silver
+London,2012,Rowing,Rowing,CHAMBERS Richard,GBR,Men,lightweight coxless four (4-),M,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,FLORENCE David,GBR,Men,C-2 1000m (canoe double),M,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,HOUNSLOW Richard,GBR,Men,C-2 1000m (canoe double),M,Silver
+London,2012,Taekwondo,Taekwondo,HOU Yuzhuo,CHN,Women,49 - 57 kg,W,Silver
+London,2012,Weightlifting,Weightlifting,LU Haojie,CHN,Men,77kg,M,Silver
+London,2012,Rowing,Rowing,HUANG Wenyi,CHN,Women,lightweight double sculls (2x),W,Silver
+London,2012,Rowing,Rowing,XU Dongxiang,CHN,Women,lightweight double sculls (2x),W,Silver
+London,2012,Aquatics,Diving,QIU Bo,CHN,Men,10m platform,M,Silver
+London,2012,Archery,Archery,CHENG Ming,CHN,Women,team round 60y,W,Silver
+London,2012,Archery,Archery,FANG Yuting,CHN,Women,team round 60y,W,Silver
+London,2012,Archery,Archery,XU Jing,CHN,Women,team round 60y,W,Silver
+London,2012,Weightlifting,Weightlifting,WU Jingbiao,CHN,Men,"- 56kg, total (bantamweight)",M,Silver
+London,2012,Shooting,Shooting,CHEN Ying,CHN,Women,25m army pistol,W,Silver
+London,2012,Shooting,Shooting,WEI Ning,CHN,Women,skeet (125 targets),W,Silver
+London,2012,Boxing,Boxing,REN Cancan,CHN,Women,- 51kg (flyweight),W,Silver
+London,2012,Gymnastics,Artistic G.,SUI Lu,CHN,Women,balance beam,W,Silver
+London,2012,Gymnastics,Artistic G.,HE Kexin,CHN,Women,uneven bars,W,Silver
+London,2012,Aquatics,Swimming,FUJII Takuro,JPN,Men,4x100m medley relay,M,Silver
+London,2012,Athletics,Athletics,GEBREMESKEL Dejen,ETH,Men,5000m team,M,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,CAL FIGUEROA David,ESP,Men,C-1 1000m (canoe single),M,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,CRAVIOTTO RIVERO Saul,ESP,Men,C-1 1000m (canoe single),M,Silver
+London,2012,Wrestling,Wrestling Gre-R,NABI Heiki,EST,Men,96 - 120kg,M,Silver
+London,2012,Basketball,Basketball,CALDERON Jose,ESP,Men,basketball,M,Silver
+London,2012,Basketball,Basketball,CLAVER Victor,ESP,Men,basketball,M,Silver
+London,2012,Basketball,Basketball,FERNANDEZ Rudy,ESP,Men,basketball,M,Silver
+London,2012,Basketball,Basketball,GASOL Marc,ESP,Men,basketball,M,Silver
+London,2012,Basketball,Basketball,GASOL Pau,ESP,Men,basketball,M,Silver
+London,2012,Basketball,Basketball,IBAKA Serge,ESP,Men,basketball,M,Silver
+London,2012,Basketball,Basketball,LLULL Sergio,ESP,Men,basketball,M,Silver
+London,2012,Basketball,Basketball,NAVARRO Juan-Carlos,ESP,Men,basketball,M,Silver
+London,2012,Basketball,Basketball,REYES Felipe,ESP,Men,basketball,M,Silver
+London,2012,Basketball,Basketball,RODRIGUEZ Sergio,ESP,Men,basketball,M,Silver
+London,2012,Basketball,Basketball,SADA Victor,ESP,Men,basketball,M,Silver
+London,2012,Basketball,Basketball,SAN EMETERIO Fernando,ESP,Men,basketball,M,Silver
+London,2012,Aquatics,Swimming,LUO Xi,CHN,Women,100m freestyle,W,Silver
+London,2012,Aquatics,Water polo,BACH PASCUAL Marta,ESP,Women,water polo,W,Silver
+London,2012,Aquatics,Water polo,BLAS MARTINEZ Andrea,ESP,Women,water polo,W,Silver
+London,2012,Aquatics,Water polo,COPADO AMOROS Ana,ESP,Women,water polo,W,Silver
+London,2012,Aquatics,Water polo,ESPAR LLAQUET Anni,ESP,Women,water polo,W,Silver
+London,2012,Aquatics,Water polo,ESTER RAMOS Laura,ESP,Women,water polo,W,Silver
+London,2012,Aquatics,Water polo,GARCIA Maica,ESP,Women,water polo,W,Silver
+London,2012,Aquatics,Water polo,LOPEZ VENTOSA Laura,ESP,Women,water polo,W,Silver
+London,2012,Aquatics,Water polo,MESEGUER FLAQUE Ona,ESP,Women,water polo,W,Silver
+London,2012,Aquatics,Water polo,MIRANDA DORADO Lorena,ESP,Women,water polo,W,Silver
+London,2012,Aquatics,Water polo,ORTIZ REYES Matilde,ESP,Women,water polo,W,Silver
+London,2012,Aquatics,Water polo,PAREJA Jennifer,ESP,Women,water polo,W,Silver
+London,2012,Aquatics,Water polo,PENA CARRASCO Pilar,ESP,Women,water polo,W,Silver
+London,2012,Aquatics,Water polo,TARRAGO AYMERICH Roser,ESP,Women,water polo,W,Silver
+London,2012,Cycling,Cycling Track,COQUARD Bryan,FRA,Men,12-hour race,M,Silver
+London,2012,Cycling,Cycling Track,D'ALMEIDA Michael,FRA,Men,Team Sprint,M,Silver
+London,2012,Cycling,Cycling Track,SIREAU Kevin,FRA,Men,Team Sprint,M,Silver
+London,2012,Aquatics,Swimming,LU Ying,CHN,Women,100m butterfly,W,Silver
+London,2012,Sailing,Sailing,PETAJA Tuuli,FIN,Women,RS:X - Windsurfer,W,Silver
+London,2012,Tennis,Tennis,LLODRA Michael,FRA,Men,doubles,M,Silver
+London,2012,Tennis,Tennis,TSONGA Jo-Wilfried,FRA,Men,doubles,M,Silver
+London,2012,Shooting,Shooting,GOBERVILLE Celine,FRA,Women,10m air pistol (40 shots),W,Silver
+London,2012,Basketball,Basketball,BEIKES Clemence,FRA,Women,basketball,W,Silver
+London,2012,Basketball,Basketball,DIGBEU Jennifer,FRA,Women,basketball,W,Silver
+London,2012,Basketball,Basketball,DUMERC Celine,FRA,Women,basketball,W,Silver
+London,2012,Basketball,Basketball,GODIN Elodie,FRA,Women,basketball,W,Silver
+London,2012,Basketball,Basketball,GRUDA Sandrine,FRA,Women,basketball,W,Silver
+London,2012,Basketball,Basketball,GOMIS Emilie,FRA,Women,basketball,W,Silver
+London,2012,Basketball,Basketball,LABORDE Marion,FRA,Women,basketball,W,Silver
+London,2012,Basketball,Basketball,LAWSON-WADE Edwige,FRA,Women,basketball,W,Silver
+London,2012,Basketball,Basketball,LEPRON Florence,FRA,Women,basketball,W,Silver
+London,2012,Basketball,Basketball,MIYEM Endene,FRA,Women,basketball,W,Silver
+London,2012,Basketball,Basketball,NDONGUE Emmeline,FRA,Women,basketball,W,Silver
+London,2012,Basketball,Basketball,YACOUBOU Isabelle,FRA,Women,basketball,W,Silver
+London,2012,Rowing,Rowing,CHARDIN Germain,FRA,Men,pair-oared shell with coxswain (2+),M,Silver
+London,2012,Rowing,Rowing,MORTELETTE Dorian,FRA,Men,pair-oared shell with coxswain (2+),M,Silver
+London,2012,Taekwondo,Taekwondo,GRAFFE Anne-Caroline,FRA,Women,+ 67 kg,W,Silver
+London,2012,Wrestling,Wrestling Gre-R,HIRAOKA Hiroaki,JPN,Men,- 60kg (featherweight),M,Silver
+London,2012,Judo,Judo,SUGIMOTO Mika,JPN,Women,+ 78kg (heavyweight),W,Silver
+London,2012,Judo,Judo,NAKAYA Riki,JPN,Men,66 - 73kg (lightweight),M,Silver
+London,2012,Athletics,Athletics,CALVERT Schillonie,JAM,Women,4x100m relay,W,Silver
+London,2012,Gymnastics,Artistic G.,TANAKA Kazuhito,JPN,Men,"team, horizontal bar",M,Silver
+London,2012,Gymnastics,Artistic G.,YAMAMURO Koji,JPN,Men,"team, horizontal bar",M,Silver
+London,2012,Gymnastics,Artistic G.,TANAKA Yusuke,JPN,Men,"team, horizontal bar",M,Silver
+London,2012,Gymnastics,Artistic G.,KATO Ryohei,JPN,Men,"team, horizontal bar",M,Silver
+London,2012,Football,Football,IWABUCHI Mana,JPN,Women,football,W,Silver
+London,2012,Football,Football,IWASHIMIZU Azusa,JPN,Women,football,W,Silver
+London,2012,Football,Football,SAKAGUCHI Mizuho,JPN,Women,football,W,Silver
+London,2012,Football,Football,KAIHORI Ayumi,JPN,Women,football,W,Silver
+London,2012,Football,Football,KINGA Yukari,JPN,Women,football,W,Silver
+London,2012,Football,Football,KAWASUMI Nahomi,JPN,Women,football,W,Silver
+London,2012,Football,Football,TAKASE Megumi,JPN,Women,football,W,Silver
+London,2012,Football,Football,OHNO Shinobu,JPN,Women,football,W,Silver
+London,2012,Football,Football,TANAKA Asuna,JPN,Women,football,W,Silver
+London,2012,Football,Football,SAWA Homare,JPN,Women,football,W,Silver
+London,2012,Football,Football,MARUYAMA Karina,JPN,Women,football,W,Silver
+London,2012,Football,Football,YANO Kyoko,JPN,Women,football,W,Silver
+London,2012,Football,Football,FUKUMOTO Miho,JPN,Women,football,W,Silver
+London,2012,Football,Football,MIYAMA Aya,JPN,Women,football,W,Silver
+London,2012,Football,Football,KUMAGAI Saki,JPN,Women,football,W,Silver
+London,2012,Football,Football,ANDO Kozue,JPN,Women,football,W,Silver
+London,2012,Football,Football,OGIMI Yuki,JPN,Women,football,W,Silver
+London,2012,Football,Football,SAMESHIMA Aya,JPN,Women,football,W,Silver
+London,2012,Boxing,Boxing,RUSSO Clemente,ITA,Men,+ 91kg (super heavyweight),M,Silver
+London,2012,Boxing,Boxing,CAMMARELLE Roberto,ITA,Men,+ 91kg (super heavyweight),M,Silver
+London,2012,Aquatics,Water polo,PREMUS Danijel,ITA,Men,water polo,M,Silver
+London,2012,Boxing,Boxing,NEVIN John Joe,IRL,Men,47.63 - 52.16kg (bantamweight),M,Silver
+London,2012,Sailing,Sailing,BOUWMEESTER Marit,NED,Women,Laser Radial - One Person Dinghy,W,Silver
+London,2012,Athletics,Athletics,HENRY-ROBINSON Samantha,JAM,Women,4x100m relay,W,Silver
+London,2012,Archery,Archery,FURUKAWA Takaharu,JPN,Men,individual FITA round,M,Silver
+London,2012,Fencing,Fencing,OTA Yuki,JPN,Men,foil team,M,Silver
+London,2012,Fencing,Fencing,CHIDA Kenta,JPN,Men,foil team,M,Silver
+London,2012,Fencing,Fencing,AWAJI Suguru,JPN,Men,foil team,M,Silver
+London,2012,Fencing,Fencing,MIYAKE Ryo,JPN,Men,foil team,M,Silver
+London,2012,Table Tennis,Table Tennis,ISHIKAWA Kasumi,JPN,Women,team,W,Silver
+London,2012,Table Tennis,Table Tennis,FUKUHARA Ai,JPN,Women,team,W,Silver
+London,2012,Table Tennis,Table Tennis,HIRANO Sayaka,JPN,Women,team,W,Silver
+London,2012,Badminton,Badminton,FUJII Mizuki,JPN,Women,doubles,W,Silver
+London,2012,Badminton,Badminton,KAKIIWA Reika,JPN,Women,doubles,W,Silver
+London,2012,Weightlifting,Weightlifting,MIYAKE Hiromi,JPN,Women,48kg,W,Silver
+London,2012,Athletics,Athletics,SIMPSON Sherone,JAM,Women,4x100m relay,W,Silver
+London,2012,Athletics,Athletics,STEWART Kerron,JAM,Women,4x100m relay,W,Silver
+London,2012,Hockey,Hockey,WEUSTHOF Roderick,NED,Men,hockey,M,Silver
+London,2012,Hockey,Hockey,de WIJN Sander,NED,Men,hockey,M,Silver
+London,2012,Hockey,Hockey,DE NOOIJER Teun,NED,Men,hockey,M,Silver
+London,2012,Hockey,Hockey,STOCKMANN Jaap,NED,Men,hockey,M,Silver
+London,2012,Hockey,Hockey,VERGA Valentin,NED,Men,hockey,M,Silver
+London,2012,Hockey,Hockey,VERMEULEN Klaas,NED,Men,hockey,M,Silver
+London,2012,Hockey,Hockey,de VOOGD Bob,NED,Men,hockey,M,Silver
+London,2012,Hockey,Hockey,van der WEERDEN Mink,NED,Men,hockey,M,Silver
+London,2012,Hockey,Hockey,KEMPERMAN Robbert,NED,Men,hockey,M,Silver
+London,2012,Hockey,Hockey,EVERS Floris,NED,Men,hockey,M,Silver
+London,2012,Hockey,Hockey,van der HORST Robert,NED,Men,hockey,M,Silver
+London,2012,Hockey,Hockey,JENNISKENS Tim,NED,Men,hockey,M,Silver
+London,2012,Hockey,Hockey,JOLIE Wouter,NED,Men,hockey,M,Silver
+London,2012,Aquatics,Swimming,LEZAK Jason,USA,Men,4x100m freestyle relay,M,Silver
+London,2012,Athletics,Athletics,BARRETT Brigetta,USA,Women,high jump,W,Silver
+London,2012,Volleyball,Volleyball,DAVIS Nicole,USA,Women,volleyball,W,Silver
+London,2012,Athletics,Athletics,KYNARD Erik,USA,Men,high jump,M,Silver
+London,2012,Volleyball,Volleyball,LARSON Jordan,USA,Women,volleyball,W,Silver
+London,2012,Aquatics,Diving,JOHNSTON Abigail,USA,Women,3m springboard,W,Silver
+London,2012,Volleyball,Beach volley.,ROSS April,USA,Women,beach volleyball,W,Silver
+London,2012,Volleyball,Beach volley.,KESSY Jennifer,USA,Women,beach volleyball,W,Silver
+London,2012,Athletics,Athletics,HARPER Dawn,USA,Women,100m hurdles,W,Silver
+London,2012,Athletics,Athletics,PATTON Darvis,USA,Men,4x100m relay,M,Silver
+London,2012,Archery,Archery,ELLISON Brady,USA,Men,team round 60y,M,Silver
+London,2012,Volleyball,Volleyball,THOMPSON Courtney,USA,Women,volleyball,W,Silver
+London,2012,Athletics,Athletics,DEMUS Lashinda,USA,Women,400m hurdles,W,Silver
+London,2012,Athletics,Athletics,MANZANO Leonel,USA,Men,1500m,M,Silver
+London,2012,Athletics,Athletics,BAILEY Ryan,USA,Men,4x100m relay,M,Silver
+London,2012,Volleyball,Volleyball,MIYASHIRO Tamari,USA,Women,volleyball,W,Silver
+London,2012,Archery,Archery,WUKIE Jacob,USA,Men,team round 60y,M,Silver
+London,2012,Boxing,Boxing,PONGPRAYOON Kaeo,THA,Men,- 48kg (light-flyweight),M,Silver
+London,2012,Weightlifting,Weightlifting,HSU Shu-Ching,TPE,Women,53kg,W,Silver
+London,2012,Weightlifting,Weightlifting,SIRIKAEW Pimsiri,THA,Women,58kg,W,Silver
+London,2012,Shooting,Shooting,STEFECEKOVA Zuzana,SVK,Women,trap (125 targets),W,Silver
+London,2012,Athletics,Athletics,NORDEN Lisa,SWE,Women,triathlon (long jump / shot put / 100 yards),W,Silver
+London,2012,Equestrian,Eventing,ALGOTSSON OSTHOLT Sara,SWE,Unknown,individual,X,Silver
+London,2012,Shooting,Shooting,DAHLBY Hakan,SWE,Men,double trap (120 targets),M,Silver
+London,2012,Handball,Handball,ZAKRISSON Mattias,SWE,Men,handball,M,Silver
+London,2012,Handball,Handball,SJOSTRAND Johan,SWE,Men,handball,M,Silver
+London,2012,Handball,Handball,PETERSEN Fredrik,SWE,Men,handball,M,Silver
+London,2012,Handball,Handball,NILSSON Andreas,SWE,Men,handball,M,Silver
+London,2012,Handball,Handball,LARHOLM Jonas,SWE,Men,handball,M,Silver
+London,2012,Handball,Handball,KALLMAN Jonas,SWE,Men,handball,M,Silver
+London,2012,Handball,Handball,KARLSSON Tobias,SWE,Men,handball,M,Silver
+London,2012,Handball,Handball,JERNEMYR Magnus,SWE,Men,handball,M,Silver
+London,2012,Handball,Handball,JAKOBSSON Johan,SWE,Men,handball,M,Silver
+London,2012,Handball,Handball,GUSTAFSSON Mattias,SWE,Men,handball,M,Silver
+London,2012,Handball,Handball,EKBERG Niclas,SWE,Men,handball,M,Silver
+London,2012,Handball,Handball,DODER Dalibor,SWE,Men,handball,M,Silver
+London,2012,Handball,Handball,ANDERSSON Mattias,SWE,Men,handball,M,Silver
+London,2012,Handball,Handball,ANDERSSON Kim,SWE,Men,handball,M,Silver
+London,2012,Handball,Handball,EKDAHL du RIETZ Kim,SWE,Men,handball,M,Silver
+London,2012,Cycling,Mountain Bike,SCHURTER Nino,SUI,Men,cross-country,M,Silver
+London,2012,Shooting,Shooting,MAKSIMOVIC Ivana,SRB,Women,50m rifle 3 positions (3x40 shots),W,Silver
+London,2012,Wrestling,Wrestling Free.,ANDRIITSEV Valerii,UKR,Men,84 - 96kg,M,Silver
+London,2012,Tennis,Tennis,FEDERER Roger,SUI,Men,singles,M,Silver
+London,2012,Athletics,Athletics,BULUT Gamze,TUR,Women,1500m,W,Silver
+London,2012,Athletics,Athletics,KOZMUS Primoz,SLO,Men,hammer throw,M,Silver
+London,2012,Taekwondo,Taekwondo,TATAR Nur,TUR,Women,57 - 67 kg,W,Silver
+London,2012,Athletics,Athletics,GHRIBI Habiba,TUN,Women,3000m steeplechase,W,Silver
+London,2012,Athletics,Athletics,PYATNYTSYA Oleksandr,UKR,Men,javelin throw,M,Silver
+London,2012,Boxing,Boxing,BERINCHYK Denys,UKR,Men,60 - 63.5kg (light-welterweight),M,Silver
+London,2012,Athletics,Athletics,MANCE Joshua,USA,Men,4x400m relay,M,Silver
+London,2012,Athletics,Athletics,TAYLOR Angelo,USA,Men,4x400m relay,M,Silver
+London,2012,Athletics,Athletics,KIMMONS Trell,USA,Men,4x100m relay,M,Silver
+London,2012,Aquatics,Swimming,ANDERSON Haley,USA,Women,marathon 10km,W,Silver
+London,2012,Athletics,Athletics,GAY Tyson,USA,Men,4x100m relay,M,Silver
+London,2012,Archery,Archery,KAMINSKI Jake,USA,Men,team round 60y,M,Silver
+London,2012,Athletics,Athletics,MITCHELL Manteo,USA,Men,4x400m relay,M,Silver
+London,2012,Athletics,Athletics,NELLUM Bryshon,USA,Men,4x400m relay,M,Silver
+London,2012,Athletics,Athletics,RUPP Galen,USA,Men,10miles walk (16093m),M,Silver
+London,2012,Volleyball,Volleyball,AKINRADEWO Foluke,USA,Women,volleyball,W,Silver
+London,2012,Volleyball,Volleyball,SCOTT-ARRUDA Danielle,USA,Women,volleyball,W,Silver
+London,2012,Aquatics,Diving,BRYANT Kelci,USA,Women,3m springboard,W,Silver
+London,2012,Cycling,Cycling Track,REED Jennie,USA,Women,"1980 yards Pursuit, Team",W,Silver
+London,2012,Athletics,Athletics,RICHARDSON Jason,USA,Men,110m hurdles,M,Silver
+London,2012,Athletics,Athletics,HARDEE Trey,USA,Unknown,decathlon,X,Silver
+London,2012,Cycling,Cycling Track,BAUSCH Dotsie,USA,Women,"1980 yards Pursuit, Team",W,Silver
+London,2012,Aquatics,Swimming,FEIGEN James,USA,Men,4x100m freestyle relay,M,Silver
+London,2012,Volleyball,Volleyball,HANEEF-PARK Tayyiba,USA,Women,volleyball,W,Silver
+London,2012,Cycling,Cycling Track,TAMAYO Lauren,USA,Women,"1980 yards Pursuit, Team",W,Silver
+London,2012,Volleyball,Volleyball,HOOKER Destinee,USA,Women,volleyball,W,Silver
+London,2012,Volleyball,Volleyball,BERG Lindsey,USA,Women,volleyball,W,Silver
+London,2012,Volleyball,Volleyball,HODGE Megan,USA,Women,volleyball,W,Silver
+London,2012,Volleyball,Volleyball,HARMOTTO Christa,USA,Women,volleyball,W,Silver
+London,2012,Athletics,Athletics,DEMPS Jeffery,USA,Men,4x100m relay,M,Silver
+London,2012,Athletics,Athletics,McQUAY Tony,USA,Men,4x400m relay,M,Silver
+London,2012,Aquatics,Swimming,EVANS Blair,AUS,Women,4x200m freestyle relay,W,Silver
+London,2012,Aquatics,Swimming,JONES Leisel,AUS,Women,4x100m medley relay,W,Silver
+London,2012,Athletics,Athletics,TINSLEY Michael,USA,Men,400m hurdles,M,Silver
+London,2012,Volleyball,Volleyball,TOM Logan,USA,Women,volleyball,W,Silver
+London,2012,Badminton,Badminton,XU Chen,CHN,Unknown,doubles,X,Silver
+London,2012,Aquatics,Swimming,NEILSEN Jade,AUS,Women,4x200m freestyle relay,W,Silver
+London,2012,Aquatics,Swimming,PALMER Kylie,AUS,Women,4x200m freestyle relay,W,Silver
+London,2012,Cycling,Cycling Track,GONG Jinjie,CHN,Women,Team Sprint,W,Silver
+London,2012,Badminton,Badminton,YIHAN Wang,CHN,Women,singles,W,Silver
+London,2012,Gymnastics,Trampoline,HUANG Shanshan,CHN,Women,individual,W,Silver
+London,2012,Shooting,Shooting,COX Lionel,BEL,Men,50m rifle prone (60 shots),M,Silver
+London,2012,Badminton,Badminton,MA Jin,CHN,Unknown,doubles,X,Silver
+London,2012,Modern Pentathlon,Modern Pentath.,CAO Zhongrong,CHN,Men,Individual competition,M,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,PIATRUSHENKA Raman,BLR,Men,C-2 1000m (canoe double),M,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,MAKHNEU Vadzim,BLR,Men,C-2 1000m (canoe double),M,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,BAHDANOVICH Aliaksandr,BLR,Men,C-2 1000m (canoe double),M,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,BAHDANOVICH Andrei,BLR,Men,C-2 1000m (canoe double),M,Silver
+London,2012,Gymnastics,Rhythmic G.,TUMILOVICH Alina,BLR,Women,group competition,W,Silver
+London,2012,Gymnastics,Rhythmic G.,LESHCHYK Nataliya,BLR,Women,group competition,W,Silver
+London,2012,Gymnastics,Rhythmic G.,HANCHAROVA Maryna,BLR,Women,group competition,W,Silver
+London,2012,Gymnastics,Rhythmic G.,SANKOVICH Kseniya,BLR,Women,group competition,W,Silver
+London,2012,Gymnastics,Rhythmic G.,IVANKOVA Anastasiya,BLR,Women,group competition,W,Silver
+London,2012,Gymnastics,Rhythmic G.,NARKEVICH Aliaksandra,BLR,Women,group competition,W,Silver
+London,2012,Wrestling,Wrestling Free.,STADNYK Mariya,AZE,Women,- 48kg (light-flyweight),W,Silver
+London,2012,Wrestling,Wrestling Gre-R,BAYRAMOV Rovshan,AZE,Men,- 55kg,M,Silver
+London,2012,Taekwondo,Taekwondo,YAGUE ENRIQUE Brigitte,ESP,Women,- 49 kg,W,Silver
+London,2012,Athletics,Athletics,SANTOS Luguelin,DOM,Men,400m,M,Silver
+London,2012,Badminton,Badminton,MOGENSEN Carsten,DEN,Men,doubles,M,Silver
+London,2012,Taekwondo,Taekwondo,GARCIA HEMME Nicolas,ESP,Men,68 - 80 kg,M,Silver
+London,2012,Fencing,Fencing,ABOUELKASSEM Alaaeldin,EGY,Men,foil individual,M,Silver
+London,2012,Wrestling,Wrestling Gre-R,EBRAHIM Karam Mohamed Gaber,EGY,Men,74 - 84kg,M,Silver
+London,2012,Athletics,Athletics,GOMEZ Javier,ESP,Men,triathlon (long jump / shot put / 100 yards),M,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,HRADILEK Vavrinec,CZE,Men,C-1 1000m (canoe single),M,Silver
+London,2012,Badminton,Badminton,BOE Mathias,DEN,Men,doubles,M,Silver
+London,2012,Sailing,Sailing,HOGH-CHRISTENSEN Jonas,DEN,Men,single-handed dinghy (Finn),M,Silver
+London,2012,Shooting,Shooting,GOLDING Anders,DEN,Men,skeet (125 targets),M,Silver
+London,2012,Rowing,Rowing,ERICHSEN Fie Udby,DEN,Women,single sculls (1x),W,Silver
+London,2012,Rowing,Rowing,SYNEK Ondrej,CZE,Men,single sculls (1x),M,Silver
+London,2012,Sailing,Sailing,KONTIDES Pavlos,CYP,Men,single-handed dinghy open (Laser),M,Silver
+London,2012,Tennis,Tennis,HLAVACKOVA Andrea,CZE,Women,doubles,W,Silver
+London,2012,Tennis,Tennis,HRADECKA Lucie,CZE,Women,doubles,W,Silver
+London,2012,Athletics,Athletics,SILVA Yarisley,CUB,Women,pole vault,W,Silver
+London,2012,Judo,Judo,GONZALEZ Asley,CUB,Men,81 - 90kg (middleweight),M,Silver
+London,2012,Rowing,Rowing,SAIN David,CRO,Men,quadruple sculls with coxswain (4x),M,Silver
+London,2012,Judo,Judo,BERMOY ACOSTA Yanet,CUB,Women,48 - 52kg (half-lightweight),W,Silver
+London,2012,Athletics,Athletics,IBARGUEN Caterine,COL,Women,triple jump,W,Silver
+London,2012,Rowing,Rowing,McCABE Conlin,CAN,Men,eight with coxswain (8+),M,Silver
+London,2012,Wrestling,Wrestling Free.,JING Ruixue,CHN,Women,57 - 63kg (featherweight),W,Silver
+London,2012,Cycling,Cycling Road,URAN URAN Rigoberto,COL,Men,individual road race,M,Silver
+London,2012,Weightlifting,Weightlifting,FIGUEROA MOSQUERA Oscar Albeiro,COL,Men,62kg,M,Silver
+London,2012,Rowing,Rowing,SINKOVIC Martin,CRO,Men,quadruple sculls with coxswain (4x),M,Silver
+London,2012,Rowing,Rowing,SINKOVIC Valent,CRO,Men,quadruple sculls with coxswain (4x),M,Silver
+London,2012,Rowing,Rowing,MARTIN Damir,CRO,Men,quadruple sculls with coxswain (4x),M,Silver
+London,2012,Judo,Judo,XU Lili,CHN,Women,- 63kg (lightweight),W,Silver
+London,2012,Aquatics,Diving,BROBEN Brittany,AUS,Women,10m platform,W,Silver
+London,2012,Canoe / Kayak,Canoe / Kayak F,FOX Jessica,AUS,Women,C-1 1000m (canoe single),W,Silver
+London,2012,Athletics,Athletics,TALLENT Jared,AUS,Men,50km walk,M,Silver
+London,2012,Athletics,Athletics,WATT Mitchell,AUS,Men,long jump,M,Silver
+London,2012,Wrestling,Wrestling Gre-R,JULFALAKYAN Arsen,ARM,Men,68 - 74kg (welterweight),M,Silver
+London,2012,Aquatics,Swimming,TERAKAWA Aya,JPN,Women,100m backstroke,W,Bronze
+London,2012,Aquatics,Swimming,TERAKAWA Aya,JPN,Women,4x100m medley relay,W,Bronze
+London,2012,Cycling,Cycling Road,ZABELINSKAYA Olga,RUS,Women,individual time trial,W,Bronze
+London,2012,Cycling,Cycling Road,ZABELINSKAYA Olga,RUS,Women,individual road race,W,Bronze
+London,2012,Aquatics,Swimming,ADLINGTON Rebecca,GBR,Women,400m freestyle,W,Bronze
+London,2012,Aquatics,Swimming,ADLINGTON Rebecca,GBR,Women,800m freestyle,W,Bronze
+London,2012,Gymnastics,Artistic G.,WHITLOCK Max,GBR,Men,pommel horse,M,Bronze
+London,2012,Gymnastics,Artistic G.,WHITLOCK Max,GBR,Men,"team, horizontal bar",M,Bronze
+London,2012,Table Tennis,Table Tennis,OVTCHAROV Dimitrij,GER,Men,singles,M,Bronze
+London,2012,Table Tennis,Table Tennis,OVTCHAROV Dimitrij,GER,Men,team,M,Bronze
+London,2012,Shooting,Shooting,KOSTEVYCH Olena,UKR,Women,10m air pistol (40 shots),W,Bronze
+London,2012,Shooting,Shooting,KOSTEVYCH Olena,UKR,Women,25m army pistol,W,Bronze
+London,2012,Athletics,Athletics,GORDON Lalonde,TRI,Men,400m,M,Bronze
+London,2012,Athletics,Athletics,GORDON Lalonde,TRI,Men,4x400m relay,M,Bronze
+London,2012,Table Tennis,Table Tennis,TIANWEI Feng,SIN,Women,singles,W,Bronze
+London,2012,Table Tennis,Table Tennis,TIANWEI Feng,SIN,Women,team,W,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,HARTLEY Bridgitte,RSA,Women,K-1 500m (kayak single),W,Bronze
+London,2012,Judo,Judo,NIFONTOV Ivan,RUS,Men,73 - 81kg (half-middleweight),M,Bronze
+London,2012,Fencing,Fencing,KOVALEV Nikolay,RUS,Men,sabre individual,M,Bronze
+London,2012,Wrestling,Wrestling Free.,VOLOSOVA Lubov,RUS,Women,57 - 63kg (featherweight),W,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,KOROVASHKOV Alexey,RUS,Men,C-2 1000m (canoe double),M,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,PERVUKHIN Ilya,RUS,Men,C-2 1000m (canoe double),M,Bronze
+London,2012,Wrestling,Wrestling Free.,MAKHOV Bilyal,RUS,Men,96 - 120kg,M,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,SHTYL' Ivan,RUS,Men,C-1 1000m (canoe single),M,Bronze
+London,2012,Basketball,Basketball,ANTONOV Semen,RUS,Men,basketball,M,Bronze
+London,2012,Basketball,Basketball,VORONOV Evgeny,RUS,Men,basketball,M,Bronze
+London,2012,Shooting,Shooting,MOSIN Vasily,RUS,Men,double trap (120 targets),M,Bronze
+London,2012,Basketball,Basketball,KARASEV Sergey,RUS,Men,basketball,M,Bronze
+London,2012,Basketball,Basketball,KAUN Sasha,RUS,Men,basketball,M,Bronze
+London,2012,Basketball,Basketball,KIRILENKO Andrei,RUS,Men,basketball,M,Bronze
+London,2012,Basketball,Basketball,MOZGOV Timofey,RUS,Men,basketball,M,Bronze
+London,2012,Basketball,Basketball,MONYA Sergey,RUS,Men,basketball,M,Bronze
+London,2012,Basketball,Basketball,PONKRASHOV Anton,RUS,Men,basketball,M,Bronze
+London,2012,Basketball,Basketball,FRIDZON Vitaliy,RUS,Men,basketball,M,Bronze
+London,2012,Basketball,Basketball,KHVOSTOV Dmitry,RUS,Men,basketball,M,Bronze
+London,2012,Basketball,Basketball,KHRYAPA Victor,RUS,Men,basketball,M,Bronze
+London,2012,Basketball,Basketball,SHVED Alexey,RUS,Men,basketball,M,Bronze
+London,2012,Wrestling,Wrestling Free.,TSARGUSH Denis,RUS,Men,68 - 74kg (welterweight),M,Bronze
+London,2012,Wrestling,Wrestling Gre-R,KURAMAGOMEDOV Zaur,RUS,Men,- 60kg (featherweight),M,Bronze
+London,2012,Badminton,Badminton,VISLOVA Nina,RUS,Women,doubles,W,Bronze
+London,2012,Badminton,Badminton,SOROKINA Valeria,RUS,Women,doubles,W,Bronze
+London,2012,Boxing,Boxing,ALOIAN Misha,RUS,Men,- 47.63kg (flyweight),M,Bronze
+London,2012,Boxing,Boxing,ZAMKOVOY Andrey,RUS,Men,61.24 - 65.77kg (welterweight),M,Bronze
+London,2012,Aquatics,Swimming,GRECHIN Andrey,RUS,Men,4x100m freestyle relay,M,Bronze
+London,2012,Taekwondo,Taekwondo,BARYSHNIKOVA Anastasia,RUS,Women,+ 67 kg,W,Bronze
+London,2012,Taekwondo,Taekwondo,DENISENKO Alexey,RUS,Men,- 58 kg,M,Bronze
+London,2012,Wrestling,Wrestling Gre-R,SEMENOV Mingiyan,RUS,Men,- 55kg,M,Bronze
+London,2012,Athletics,Athletics,POISTOGOVA Ekaterina,RUS,Women,800m,W,Bronze
+London,2012,Athletics,Athletics,ISINBAYEVA Yelena,RUS,Women,pole vault,W,Bronze
+London,2012,Athletics,Athletics,SHKOLINA Svetlana,RUS,Women,high jump,W,Bronze
+London,2012,Boxing,Boxing,AYRAPETYAN David,RUS,Men,- 48kg (light-flyweight),M,Bronze
+London,2012,Tennis,Tennis,KIRILENKO Maria,RUS,Women,doubles,W,Bronze
+London,2012,Tennis,Tennis,PETROVA Nadia,RUS,Women,doubles,W,Bronze
+London,2012,Aquatics,Swimming,IZOTOV Danila,RUS,Men,4x100m freestyle relay,M,Bronze
+London,2012,Aquatics,Swimming,LAGUNOV Evgeny,RUS,Men,4x100m freestyle relay,M,Bronze
+London,2012,Aquatics,Swimming,LOBINTSEV Nikita,RUS,Men,4x100m freestyle relay,M,Bronze
+London,2012,Aquatics,Swimming,FESIKOV Sergei,RUS,Men,4x100m freestyle relay,M,Bronze
+London,2012,Aquatics,Swimming,EFIMOVA Iuliia,RUS,Women,200m breaststroke,W,Bronze
+London,2012,Aquatics,Swimming,MOROZOV Vladimir,RUS,Men,4x100m freestyle relay,M,Bronze
+London,2012,Athletics,Athletics,CHERNOVA Tatyana,RUS,Unknown,heptathlon,X,Bronze
+London,2012,Athletics,Athletics,PETROVA ARKHIPOVA Tatyana,RUS,Women,marathon,W,Bronze
+London,2012,Weightlifting,Weightlifting,ALBEGOV Ruslan,RUS,Men,+ 105kg,M,Bronze
+London,2012,Cycling,Cycling Road,KRISTOFF Alexander,NOR,Men,individual road race,M,Bronze
+London,2012,Equestrian,Dressage,GAL Edward,NED,Unknown,team,X,Bronze
+London,2012,Equestrian,Dressage,VAN GRUNSVEN Anky,NED,Unknown,team,X,Bronze
+London,2012,Rowing,Rowing,HAIGH Juliette,NZL,Women,pair-oared shell with coxswain (2+),W,Bronze
+London,2012,Rowing,Rowing,SCOWN Rebecca,NZL,Women,pair-oared shell with coxswain (2+),W,Bronze
+London,2012,Cycling,Cycling Track,BEWLEY Sam,NZL,Men,"1980 yards Pursuit, Team",M,Bronze
+London,2012,Cycling,Cycling Track,GATE Aaron,NZL,Men,"1980 yards Pursuit, Team",M,Bronze
+London,2012,Cycling,Cycling Track,GOUGH Westley,NZL,Men,"1980 yards Pursuit, Team",M,Bronze
+London,2012,Cycling,Cycling Track,RYAN Marc,NZL,Men,"1980 yards Pursuit, Team",M,Bronze
+London,2012,Cycling,Cycling Track,SERGENT Jesse,NZL,Men,"1980 yards Pursuit, Team",M,Bronze
+London,2012,Cycling,Cycling Track,van VELTHOOVEN Simon,NZL,Men,Keirin,M,Bronze
+London,2012,Equestrian,Eventing,NICHOLSON Andrew,NZL,Unknown,team,X,Bronze
+London,2012,Equestrian,Eventing,PAGET Jonathan,NZL,Unknown,team,X,Bronze
+London,2012,Equestrian,Eventing,POWELL Caroline,NZL,Unknown,team,X,Bronze
+London,2012,Equestrian,Eventing,RICHARDS Jonelle,NZL,Unknown,team,X,Bronze
+London,2012,Equestrian,Eventing,TODD Mark,NZL,Unknown,team,X,Bronze
+London,2012,Sailing,Sailing,MIARCZYNSKI Przemyslaw,POL,Men,RS:X - Windsurfer,M,Bronze
+London,2012,Sailing,Sailing,NOCETI-KLEPACKA Zofia,POL,Women,RS:X - Windsurfer,W,Bronze
+London,2012,Rowing,Rowing,TAYLOR Peter,NZL,Men,lightweight double sculls (2x),M,Bronze
+London,2012,Rowing,Rowing,URU Storm,NZL,Men,lightweight double sculls (2x),M,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,MIKOLAJCZYK Beata,POL,Women,K-2 500m (kayak double),W,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,NAJA Karolina,POL,Women,K-2 500m (kayak double),W,Bronze
+London,2012,Rowing,Rowing,MICHALSKA Julia,POL,Women,double sculls (2x),W,Bronze
+London,2012,Rowing,Rowing,FULARCZYK Magdalena,POL,Women,double sculls (2x),W,Bronze
+London,2012,Weightlifting,Weightlifting,BONK Bartlomiej Wojciech,POL,Men,+ 105kg,M,Bronze
+London,2012,Wrestling,Wrestling Gre-R,JANIKOWSKI Damian,POL,Men,74 - 84kg,M,Bronze
+London,2012,Weightlifting,Weightlifting,RYANG Chun Hwa,PRK,Women,48kg,W,Bronze
+London,2012,Wrestling,Wrestling Free.,YANG Kyong Il,PRK,Men,- 55kg,M,Bronze
+London,2012,Weightlifting,Weightlifting,MARTIN Razvan Constantin,ROU,Men,69kg,M,Bronze
+London,2012,Shooting,Shooting,AL-ATTIYAH Nasser,QAT,Men,skeet (125 targets),M,Bronze
+London,2012,Athletics,Athletics,BARSHIM Mutaz Essa,QAT,Men,high jump,M,Bronze
+London,2012,Athletics,Athletics,CULSON Javier,PUR,Men,400m hurdles,M,Bronze
+London,2012,Athletics,Athletics,KIPROTICH Wilson Kipsang,KEN,Men,marathon,M,Bronze
+London,2012,Athletics,Athletics,KITUM Timothy,KEN,Men,800m,M,Bronze
+London,2012,Athletics,Athletics,MUTAI Abel Kiprop,KEN,Men,3000m steeplechase,M,Bronze
+London,2012,Football,Football,BAEK Sungdong,KOR,Men,football,M,Bronze
+London,2012,Football,Football,HWANG Seokho,KOR,Men,football,M,Bronze
+London,2012,Football,Football,JI Dongwon,KOR,Men,football,M,Bronze
+London,2012,Football,Football,JUNG Sungryong,KOR,Men,football,M,Bronze
+London,2012,Football,Football,JUNG Wooyoung,KOR,Men,football,M,Bronze
+London,2012,Football,Football,KI Sungyueng,KOR,Men,football,M,Bronze
+London,2012,Football,Football,KIM Bokyung,KOR,Men,football,M,Bronze
+London,2012,Football,Football,KIM Changsoo,KOR,Men,football,M,Bronze
+London,2012,Football,Football,KIM Hyunsung,KOR,Men,football,M,Bronze
+London,2012,Football,Football,KIM Keehee,KOR,Men,football,M,Bronze
+London,2012,Football,Football,KIM Younggwon,KOR,Men,football,M,Bronze
+London,2012,Football,Football,KOO Jacheol,KOR,Men,football,M,Bronze
+London,2012,Football,Football,LEE Bumyoung,KOR,Men,football,M,Bronze
+London,2012,Football,Football,NAM Taehee,KOR,Men,football,M,Bronze
+London,2012,Football,Football,OH Jaesuk,KOR,Men,football,M,Bronze
+London,2012,Football,Football,PARK Chuyoung,KOR,Men,football,M,Bronze
+London,2012,Football,Football,PARK Jongwoo,KOR,Men,football,M,Bronze
+London,2012,Football,Football,YUN Sukyoung,KOR,Men,football,M,Bronze
+London,2012,Badminton,Badminton,CHUNG Jae Sung,KOR,Men,doubles,M,Bronze
+London,2012,Badminton,Badminton,LEE Yong Dae,KOR,Men,doubles,M,Bronze
+London,2012,Gymnastics,Artistic G.,BULIMAR Diana Laura,ROU,Women,"team, horizontal bar",W,Bronze
+London,2012,Gymnastics,Artistic G.,CHELARU Diana Maria,ROU,Women,"team, horizontal bar",W,Bronze
+London,2012,Gymnastics,Artistic G.,IORDACHE Larisa Andreea,ROU,Women,"team, horizontal bar",W,Bronze
+London,2012,Athletics,Athletics,LONGOSIWA Thomas Pkemei,KEN,Men,5000m team,M,Bronze
+London,2012,Aquatics,Swimming,KATO Yuka,JPN,Women,4x100m medley relay,W,Bronze
+London,2012,Aquatics,Swimming,HOSHI Natsumi,JPN,Women,200m butterfly,W,Bronze
+London,2012,Boxing,Boxing,DYCHKO Ivan,KAZ,Men,+ 91kg (super heavyweight),M,Bronze
+London,2012,Wrestling,Wrestling Free.,MANYUROVA Guzel,KAZ,Women,66 - 72kg (welterweight),W,Bronze
+London,2012,Wrestling,Wrestling Gre-R,GAJIYEV Danyal,KAZ,Men,74 - 84kg,M,Bronze
+London,2012,Wrestling,Wrestling Free.,TANATAROV Akzhurek,KAZ,Men,61 - 66kg (lightweight),M,Bronze
+London,2012,Fencing,Fencing,NAM Hyun Hee,KOR,Women,foil team,W,Bronze
+London,2012,Fencing,Fencing,JEON Hee Sook,KOR,Women,foil team,W,Bronze
+London,2012,Fencing,Fencing,OH Ha Na,KOR,Women,foil team,W,Bronze
+London,2012,Fencing,Fencing,JUNG Gil Ok,KOR,Women,foil team,W,Bronze
+London,2012,Fencing,Fencing,CHOI Byungchul,KOR,Men,foil individual,M,Bronze
+London,2012,Fencing,Fencing,JUNG Jinsun,KOR,Men,foil individual,M,Bronze
+London,2012,Judo,Judo,CHO Jun-Ho,KOR,Men,61 - 66kg (middleweight),M,Bronze
+London,2012,Rowing,Rowing,ACHTERBERG Chantal,NED,Women,eight with coxswain (8+),W,Bronze
+London,2012,Rowing,Rowing,BELDERBOS Claudia,NED,Women,eight with coxswain (8+),W,Bronze
+London,2012,Rowing,Rowing,BOUW Carline,NED,Women,eight with coxswain (8+),W,Bronze
+London,2012,Rowing,Rowing,de GROOT Sytske,NED,Women,eight with coxswain (8+),W,Bronze
+London,2012,Rowing,Rowing,de HAAN Annemiek,NED,Women,eight with coxswain (8+),W,Bronze
+London,2012,Rowing,Rowing,KINGMA Nienke,NED,Women,eight with coxswain (8+),W,Bronze
+London,2012,Rowing,Rowing,REPELAER van DRIEL Roline,NED,Women,eight with coxswain (8+),W,Bronze
+London,2012,Rowing,Rowing,SCHELLEKENS Anne,NED,Women,eight with coxswain (8+),W,Bronze
+London,2012,Rowing,Rowing,VEENHOVEN Jacobine,NED,Women,eight with coxswain (8+),W,Bronze
+London,2012,Archery,Archery,DONG-HYUN Im,KOR,Men,team round 60y,M,Bronze
+London,2012,Archery,Archery,KIM Bubmin,KOR,Men,team round 60y,M,Bronze
+London,2012,Aquatics,Swimming,HAGINO Kosuke,JPN,Men,400m individual medley,M,Bronze
+London,2012,Aquatics,Swimming,UEDA Haruka,JPN,Women,4x100m medley relay,W,Bronze
+London,2012,Aquatics,Swimming,TATEISHI Ryo,JPN,Men,200m breaststroke,M,Bronze
+London,2012,Boxing,Boxing,VOLNOVA Marina,KAZ,Women,65.77 - 71.67kg (middleweight),W,Bronze
+London,2012,Judo,Judo,FORCINITI Rosalba,ITA,Women,48 - 52kg (half-lightweight),W,Bronze
+London,2012,Fencing,Fencing,MONTANO Aldo,ITA,Men,sabre team,M,Bronze
+London,2012,Athletics,Athletics,STAHL Linda,GER,Women,javelin throw,W,Bronze
+London,2012,Athletics,Athletics,HEIDLER Betty,GER,Women,hammer throw,W,Bronze
+London,2012,Athletics,Athletics,HOLZDEPPE Raphael,GER,Men,pole vault,M,Bronze
+London,2012,Rowing,Rowing,GIAZITZIDOU Christina,GRE,Women,lightweight double sculls (2x),W,Bronze
+London,2012,Rowing,Rowing,TSIAVOU Alexandra,GRE,Women,lightweight double sculls (2x),W,Bronze
+London,2012,Judo,Judo,ILIADIS Ilias,GRE,Men,81 - 90kg (middleweight),M,Bronze
+London,2012,Cycling,Cycling Track,LEE Wai Sze,HKG,Women,Keirin,W,Bronze
+London,2012,Cycling,Cycling Track,ENDERS Rene,GER,Men,Team Sprint,M,Bronze
+London,2012,Cycling,Cycling Track,FORSTEMANN Robert,GER,Men,Team Sprint,M,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,HOFF Max,GER,Men,C-1 1000m (canoe single),M,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,HOLLSTEIN Martin,GER,Men,C-2 1000m (canoe double),M,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,IHLE Andreas,GER,Men,C-2 1000m (canoe double),M,Bronze
+London,2012,Table Tennis,Table Tennis,STEGER Bastian,GER,Men,team,M,Bronze
+London,2012,Wrestling,Wrestling Gre-R,MODOS Peter,HUN,Men,- 55kg,M,Bronze
+London,2012,Aquatics,Swimming,CSEH Laszlo,HUN,Men,200m individual medley,M,Bronze
+London,2012,Wrestling,Wrestling Free.,DUTT Yogeshwar,IND,Men,- 60kg (featherweight),M,Bronze
+London,2012,Shooting,Shooting,NARANG Gagan,IND,Men,10m air rifle (40 shots),M,Bronze
+London,2012,Boxing,Boxing,MARY KOM MC,IND,Women,- 51kg (flyweight),W,Bronze
+London,2012,Modern Pentathlon,Modern Pentath.,MAROSI Adam,HUN,Men,Individual competition,M,Bronze
+London,2012,Weightlifting,Weightlifting,EKO YULI Irawan,INA,Men,62kg,M,Bronze
+London,2012,Judo,Judo,CSERNOVICZKI Eva,HUN,Women,- 48kg (extra-lightweight),W,Bronze
+London,2012,Badminton,Badminton,NEHWAL Saina,IND,Women,singles,W,Bronze
+London,2012,Weightlifting,Weightlifting,ROSTAMI Kianoush,IRI,Men,85kg,M,Bronze
+London,2012,Wrestling,Wrestling Free.,GHASEMI Komeil,IRI,Men,96 - 120kg,M,Bronze
+London,2012,Wrestling,Wrestling Free.,LASHGARI Ehsan Naser,IRI,Men,74 - 84kg,M,Bronze
+London,2012,Aquatics,Swimming,GRIMALDI Martina,ITA,Women,marathon 10km,W,Bronze
+London,2012,Cycling,Mountain Bike,FONTANA Marco Aurelio,ITA,Men,cross-country,M,Bronze
+London,2012,Boxing,Boxing,BARNES Paddy,IRL,Men,- 48kg (light-flyweight),M,Bronze
+London,2012,Boxing,Boxing,CONLAN Michael,IRL,Men,- 47.63kg (flyweight),M,Bronze
+London,2012,Equestrian,Jumping,O'CONNOR Cian,IRL,Unknown,individual,X,Bronze
+London,2012,Gymnastics,Artistic G.,MORANDI Matteo,ITA,Men,rings,M,Bronze
+London,2012,Equestrian,Jumping,AL SAUD HRH Prince Abdullah,KSA,Unknown,team,X,Bronze
+London,2012,Equestrian,Jumping,AL DUHAMI Ramzy,KSA,Unknown,team,X,Bronze
+London,2012,Equestrian,Jumping,BAHAMDAN Kamal,KSA,Unknown,team,X,Bronze
+London,2012,Equestrian,Jumping,SHARBATLY Abdullah Waleed,KSA,Unknown,team,X,Bronze
+London,2012,Shooting,Shooting,ALDEEHANI Fehaid,KUW,Men,trap (125 targets),M,Bronze
+London,2012,Volleyball,Beach volley.,PLAVINS Martins,LAT,Men,beach volleyball,M,Bronze
+London,2012,Volleyball,Volleyball,SAVANI Cristian,ITA,Men,volleyball,M,Bronze
+London,2012,Volleyball,Volleyball,PARODI Simone,ITA,Men,volleyball,M,Bronze
+London,2012,Volleyball,Volleyball,ZAYTSEV Ivan,ITA,Men,volleyball,M,Bronze
+London,2012,Volleyball,Volleyball,LASKO Michal,ITA,Men,volleyball,M,Bronze
+London,2012,Volleyball,Volleyball,TRAVICA Dragan,ITA,Men,volleyball,M,Bronze
+London,2012,Volleyball,Volleyball,BONINFANTE Dante,ITA,Men,volleyball,M,Bronze
+London,2012,Volleyball,Volleyball,FEI Alessandro,ITA,Men,volleyball,M,Bronze
+London,2012,Volleyball,Volleyball,MASTRANGELO Luigi,ITA,Men,volleyball,M,Bronze
+London,2012,Volleyball,Volleyball,BIRARELLI Emanuele,ITA,Men,volleyball,M,Bronze
+London,2012,Volleyball,Volleyball,BARI Andrea,ITA,Men,volleyball,M,Bronze
+London,2012,Volleyball,Volleyball,GIOVI Andrea,ITA,Men,volleyball,M,Bronze
+London,2012,Volleyball,Volleyball,PAPI Samuele,ITA,Men,volleyball,M,Bronze
+London,2012,Taekwondo,Taekwondo,SARMIENTO Mauro,ITA,Men,68 - 80 kg,M,Bronze
+London,2012,Volleyball,Beach volley.,SMEDINS Janis,LAT,Men,beach volleyball,M,Bronze
+London,2012,Weightlifting,Weightlifting,IOVU Cristina,MDA,Women,53kg,W,Bronze
+London,2012,Weightlifting,Weightlifting,CIRICU Anatoli,MDA,Men,94kg,M,Bronze
+London,2012,Aquatics,Diving,SANCHEZ SOTO Laura,MEX,Women,3m springboard,W,Bronze
+London,2012,Archery,Archery,AVITIA Mariana,MEX,Women,individual FITA round,W,Bronze
+London,2012,Wrestling,Wrestling Gre-R,KAZAKEVIC Aleksandr,LTU,Men,68 - 74kg (welterweight),M,Bronze
+London,2012,Boxing,Boxing,PETRAUSKAS Evaldas,LTU,Men,57 - 60kg (lightweight),M,Bronze
+London,2012,Judo,Judo,SAINJARGAL Nyam-Ochir,MGL,Men,66 - 73kg (lightweight),M,Bronze
+London,2012,Boxing,Boxing,URANCHIMEG Munkh-Erdene,MGL,Men,60 - 63.5kg (light-welterweight),M,Bronze
+London,2012,Cycling,Cycling Track,MULDER Teun,NED,Men,Keirin,M,Bronze
+London,2012,Cycling,BMX,SMULDERS Laura,NED,Women,Individual,W,Bronze
+London,2012,Wrestling,Wrestling Free.,SORONZONBOLD Battsetseg,MGL,Women,57 - 63kg (featherweight),W,Bronze
+London,2012,Athletics,Athletics,IGUIDER Abdalaati,MAR,Men,1500m,M,Bronze
+London,2012,Aquatics,Diving,PAMG Pandelela Rinong,MAS,Women,10m platform,W,Bronze
+London,2012,Taekwondo,Taekwondo,ESPINOZA Maria del Rosario,MEX,Women,+ 67 kg,W,Bronze
+London,2012,Sailing,Sailing,BERKHOUT Lobke,NED,Women,470 - Two Person Dinghy,W,Bronze
+London,2012,Athletics,Athletics,WHYTE Rosemarie,JAM,Women,4x400m relay,W,Bronze
+London,2012,Athletics,Athletics,WILLIAMS Shericka,JAM,Women,4x400m relay,W,Bronze
+London,2012,Athletics,Athletics,WILLIAMS-MILLS Novlene,JAM,Women,4x400m relay,W,Bronze
+London,2012,Sailing,Sailing,WESTERHOF Lisa,NED,Women,470 - Two Person Dinghy,W,Bronze
+London,2012,Judo,Judo,BOSCH Edith,NED,Women,63 - 70kg (half-middleweight),W,Bronze
+London,2012,Judo,Judo,GROL Henk,NED,Men,90 - 100kg (half-heavyweight),M,Bronze
+London,2012,Athletics,Athletics,LLOYD Shereefa,JAM,Women,4x400m relay,W,Bronze
+London,2012,Archery,Archery,KAWANAKA Kaori,JPN,Women,team round 60y,W,Bronze
+London,2012,Archery,Archery,KANIE Miki,JPN,Women,team round 60y,W,Bronze
+London,2012,Archery,Archery,HAYAKAWA Ren,JPN,Women,team round 60y,W,Bronze
+London,2012,Athletics,Athletics,DAY Christine,JAM,Women,4x400m relay,W,Bronze
+London,2012,Wrestling,Wrestling Gre-R,MATSUMOTO Ryutaro,JPN,Men,- 60kg (featherweight),M,Bronze
+London,2012,Athletics,Athletics,PARCHMENT Hansle,JAM,Men,110m hurdles,M,Bronze
+London,2012,Athletics,Athletics,WEIR Warren,JAM,Men,200m,M,Bronze
+London,2012,Wrestling,Wrestling Free.,YUMOTO Shinichi,JPN,Men,- 55kg,M,Bronze
+London,2012,Fencing,Fencing,TARANTINO Luigi,ITA,Men,sabre team,M,Bronze
+London,2012,Fencing,Fencing,SAMELE Luigi,ITA,Men,sabre team,M,Bronze
+London,2012,Gymnastics,Rhythmic G.,BLANCHI Elisa,ITA,Women,group competition,W,Bronze
+London,2012,Gymnastics,Rhythmic G.,SANTONI Elisa,ITA,Women,group competition,W,Bronze
+London,2012,Gymnastics,Rhythmic G.,LAURITO Romina,ITA,Women,group competition,W,Bronze
+London,2012,Gymnastics,Rhythmic G.,SAVRAYUK Anzhelika,ITA,Women,group competition,W,Bronze
+London,2012,Gymnastics,Rhythmic G.,PAGNINI Marta,ITA,Women,group competition,W,Bronze
+London,2012,Gymnastics,Rhythmic G.,STEFANESCU Andreea,ITA,Women,group competition,W,Bronze
+London,2012,Athletics,Athletics,DONATO Fabrizio,ITA,Men,triple jump,M,Bronze
+London,2012,Boxing,Boxing,MANGIACAPRE Vincenzo,ITA,Men,60 - 63.5kg (light-welterweight),M,Bronze
+London,2012,Judo,Judo,NISHIYAMA Masashi,JPN,Men,81 - 90kg (middleweight),M,Bronze
+London,2012,Volleyball,Volleyball,TAKESHITA Yoshie,JPN,Women,volleyball,W,Bronze
+London,2012,Volleyball,Volleyball,NAKAMICHI Hitomi,JPN,Women,volleyball,W,Bronze
+London,2012,Volleyball,Volleyball,OTOMO Ai,JPN,Women,volleyball,W,Bronze
+London,2012,Volleyball,Volleyball,INOUE Kaori,JPN,Women,volleyball,W,Bronze
+London,2012,Volleyball,Volleyball,ARAKI Erika,JPN,Women,volleyball,W,Bronze
+London,2012,Volleyball,Volleyball,YAMAGUCHI Mai,JPN,Women,volleyball,W,Bronze
+London,2012,Volleyball,Volleyball,KIMURA Saori,JPN,Women,volleyball,W,Bronze
+London,2012,Volleyball,Volleyball,SAKODA Saori,JPN,Women,volleyball,W,Bronze
+London,2012,Volleyball,Volleyball,KANO Maiko,JPN,Women,volleyball,W,Bronze
+London,2012,Volleyball,Volleyball,EBATA Yukiko,JPN,Women,volleyball,W,Bronze
+London,2012,Volleyball,Volleyball,SHINNABE Risa,JPN,Women,volleyball,W,Bronze
+London,2012,Volleyball,Volleyball,SANO Yuko,JPN,Women,volleyball,W,Bronze
+London,2012,Judo,Judo,EBINUMA Masashi,JPN,Men,61 - 66kg (middleweight),M,Bronze
+London,2012,Boxing,Boxing,SHIMIZU Satoshi,JPN,Men,47.63 - 52.16kg (bantamweight),M,Bronze
+London,2012,Judo,Judo,UENO Yoshie,JPN,Women,- 63kg (lightweight),W,Bronze
+London,2012,Athletics,Athletics,MUROFUSHI Koji,JPN,Men,hammer throw,M,Bronze
+London,2012,Taekwondo,Taekwondo,HARNOIS Marlene,FRA,Women,49 - 57 kg,W,Bronze
+London,2012,Tennis,Tennis,BENNETEAU Julien,FRA,Men,doubles,M,Bronze
+London,2012,Tennis,Tennis,GASQUET Richard,FRA,Men,doubles,M,Bronze
+London,2012,Athletics,Athletics,RUUSKANEN Antti,FIN,Men,javelin throw,M,Bronze
+London,2012,Sailing,Sailing,KANERVA Silja,FIN,Women,6m,W,Bronze
+London,2012,Sailing,Sailing,LEHTINEN Silja,FIN,Women,6m,W,Bronze
+London,2012,Judo,Judo,GNETO Priscilla,FRA,Women,48 - 52kg (half-lightweight),W,Bronze
+London,2012,Judo,Judo,LEGRAND Ugo,FRA,Men,66 - 73kg (lightweight),M,Bronze
+London,2012,Judo,Judo,PAVIA Automne,FRA,Women,52 - 57kg (lightweight),W,Bronze
+London,2012,Judo,Judo,EMANE Gevrise,FRA,Women,- 63kg (lightweight),W,Bronze
+London,2012,Shooting,Shooting,REAU Delphine,FRA,Women,trap (125 targets),W,Bronze
+London,2012,Sailing,Sailing,LOBERT Jonathan,FRA,Men,single-handed dinghy (Finn),M,Bronze
+London,2012,Wrestling,Wrestling Gre-R,GUENOT Steeve,FRA,Men,61 - 66kg (lightweight),M,Bronze
+London,2012,Sailing,Sailing,WULFF Mikaela,FIN,Women,6m,W,Bronze
+London,2012,Gymnastics,Artistic G.,SABOT Hamilton,FRA,Men,parallel bars,M,Bronze
+London,2012,Judo,Judo,TCHEUMEO Audrey,FRA,Women,71 - 78kg (half-middleweight),W,Bronze
+London,2012,Aquatics,Swimming,TANG Yi,CHN,Women,100m freestyle,W,Bronze
+London,2012,Aquatics,Swimming,DAI Jun,CHN,Men,4x200m freestyle relay,M,Bronze
+London,2012,Aquatics,Swimming,HAO Yun,CHN,Men,4x200m freestyle relay,M,Bronze
+London,2012,Aquatics,Swimming,JIANG Haiqi,CHN,Men,4x200m freestyle relay,M,Bronze
+London,2012,Aquatics,Swimming,LI Yunqi,CHN,Men,4x200m freestyle relay,M,Bronze
+London,2012,Aquatics,Swimming,LU Zhiwu,CHN,Men,4x200m freestyle relay,M,Bronze
+London,2012,Aquatics,Swimming,HENRIQUEZ TORRES Thais,ESP,Women,100m freestyle,W,Bronze
+London,2012,Aquatics,Swimming,KLAMBURG ROQUE Paula,ESP,Women,100m freestyle,W,Bronze
+London,2012,Aquatics,Swimming,MONTRUCCHIO BEAUS Irene,ESP,Women,100m freestyle,W,Bronze
+London,2012,Aquatics,Swimming,PONS ARENAS Laia,ESP,Women,100m freestyle,W,Bronze
+London,2012,Aquatics,Diving,HE Chong,CHN,Men,3m springboard,M,Bronze
+London,2012,Aquatics,Swimming,LI Xuanxu,CHN,Women,400m individual medley,W,Bronze
+London,2012,Handball,Handball,AGUILAR DIAZ Macarena,ESP,Women,handball,W,Bronze
+London,2012,Handball,Handball,ALBERTO FRANCISCA Nely,ESP,Women,handball,W,Bronze
+London,2012,Handball,Handball,ALONSO BERNARDO Jessica,ESP,Women,handball,W,Bronze
+London,2012,Handball,Handball,AMOROS QUILES Vanessa,ESP,Women,handball,W,Bronze
+London,2012,Handball,Handball,BARNO SAN MARTIN Andrea,ESP,Women,handball,W,Bronze
+London,2012,Handball,Handball,CIOBANU CIOBANU Mihaela,ESP,Women,handball,W,Bronze
+London,2012,Handball,Handball,CUADRADO DEHESA Veronica,ESP,Women,handball,W,Bronze
+London,2012,Handball,Handball,ELORZA EGUIARA Patricia,ESP,Women,handball,W,Bronze
+London,2012,Handball,Handball,FERNANDEZ IBANEZ Beatriz,ESP,Women,handball,W,Bronze
+London,2012,Handball,Handball,FERNANDEZ MOLINOS Begona,ESP,Women,handball,W,Bronze
+London,2012,Handball,Handball,LOPEZ HERRERO Marta,ESP,Women,handball,W,Bronze
+London,2012,Handball,Handball,MANGUE GONZALEZ Marta,ESP,Women,handball,W,Bronze
+London,2012,Handball,Handball,NAVARRO JIMENEZ Silvia,ESP,Women,handball,W,Bronze
+London,2012,Handball,Handball,PINEDO SAENZ Elisabeth,ESP,Women,handball,W,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,CHOURRAUT Maialen,ESP,Women,C-1 1000m (canoe single),W,Bronze
+London,2012,Athletics,Athletics,KANTER Gerd,EST,Men,discus throw,M,Bronze
+London,2012,Athletics,Athletics,ASSEFA Sofia,ETH,Women,3000m steeplechase,W,Bronze
+London,2012,Athletics,Athletics,BEKELE Tariku,ETH,Men,10miles walk (16093m),M,Bronze
+London,2012,Shooting,Shooting,WANG Zhiwei,CHN,Men,50m pistol (60 shots),M,Bronze
+London,2012,Shooting,Shooting,DING Feng,CHN,Men,25m rapid fire pistol (60 shots),M,Bronze
+London,2012,Boxing,Boxing,LI Jinzi,CHN,Women,65.77 - 71.67kg (middleweight),W,Bronze
+London,2012,Shooting,Shooting,YU Dan,CHN,Women,10m air rifle (40 shots),W,Bronze
+London,2012,Archery,Archery,DAI Xiaoxiang,CHN,Men,individual FITA round,M,Bronze
+London,2012,Taekwondo,Taekwondo,LIU Xiaobo,CHN,Men,+ 80 kg,M,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,SCHOFIELD Jon,GBR,Men,C-2 1000m (canoe double),M,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,HEATH Liam,GBR,Men,C-2 1000m (canoe double),M,Bronze
+London,2012,Rowing,Rowing,EGINGTON Richard,GBR,Men,eight with coxswain (8+),M,Bronze
+London,2012,Rowing,Rowing,FOAD James,GBR,Men,eight with coxswain (8+),M,Bronze
+London,2012,Rowing,Rowing,HILL Phelan,GBR,Men,eight with coxswain (8+),M,Bronze
+London,2012,Rowing,Rowing,SATCH Will,GBR,Men,pair-oared shell with coxswain (2+),M,Bronze
+London,2012,Rowing,Rowing,SBIHI Mohamed,GBR,Men,eight with coxswain (8+),M,Bronze
+London,2012,Rowing,Rowing,SEARLE Greg,GBR,Men,eight with coxswain (8+),M,Bronze
+London,2012,Rowing,Rowing,LANGRIDGE Matthew,GBR,Men,eight with coxswain (8+),M,Bronze
+London,2012,Rowing,Rowing,LOULOUDIS Constantine,GBR,Men,eight with coxswain (8+),M,Bronze
+London,2012,Rowing,Rowing,NASH George,GBR,Men,pair-oared shell with coxswain (2+),M,Bronze
+London,2012,Rowing,Rowing,PARTRIDGE Alex,GBR,Men,eight with coxswain (8+),M,Bronze
+London,2012,Athletics,Athletics,BROWNLEE Jonny,GBR,Men,triathlon (long jump / shot put / 100 yards),M,Bronze
+London,2012,Boxing,Boxing,OGOGO Anthony,GBR,Men,65.77 - 71.67kg (middleweight),M,Bronze
+London,2012,Taekwondo,Taekwondo,MUHAMMAD Lutalo,GBR,Men,68 - 80 kg,M,Bronze
+London,2012,Aquatics,Swimming,CRESPI JAUME Margalida,ESP,Women,100m freestyle,W,Bronze
+London,2012,Aquatics,Swimming,BASIANA CANELLAS Clara,ESP,Women,100m freestyle,W,Bronze
+London,2012,Aquatics,Swimming,CABELLO RODILLA Alba,ESP,Women,100m freestyle,W,Bronze
+London,2012,Aquatics,Swimming,BALMY Coralie,FRA,Women,4x200m freestyle relay,W,Bronze
+London,2012,Aquatics,Swimming,LAZARE Mylene,FRA,Women,4x200m freestyle relay,W,Bronze
+London,2012,Table Tennis,Table Tennis,BOLL Timo,GER,Men,team,M,Bronze
+London,2012,Taekwondo,Taekwondo,FROMM Helena,GER,Women,57 - 67 kg,W,Bronze
+London,2012,Aquatics,Swimming,BONNET Charlotte,FRA,Women,4x200m freestyle relay,W,Bronze
+London,2012,Aquatics,Swimming,ETIENNE Ophelie-Cyrielle,FRA,Women,4x200m freestyle relay,W,Bronze
+London,2012,Aquatics,Swimming,FARRELL Margaux,FRA,Women,4x200m freestyle relay,W,Bronze
+London,2012,Fencing,Fencing,JOPPICH Peter,GER,Men,foil team,M,Bronze
+London,2012,Fencing,Fencing,KLEIBRINK Benjamin,GER,Men,foil team,M,Bronze
+London,2012,Fencing,Fencing,WESSELS Andre,GER,Men,foil team,M,Bronze
+London,2012,Judo,Judo,TOELZER Andreas,GER,Men,+ 100kg (heavyweight),M,Bronze
+London,2012,Fencing,Fencing,BACHMANN Sebastian,GER,Men,foil team,M,Bronze
+London,2012,Judo,Judo,PETERS Dimitri,GER,Men,90 - 100kg (half-heavyweight),M,Bronze
+London,2012,Rowing,Rowing,CAMPBELL Alan,GBR,Men,single sculls (1x),M,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,AIGNER Hannes,GER,Men,C-1 1000m (canoe single),M,Bronze
+London,2012,Wrestling,Wrestling Free.,MARSAGISHVILI Dato,GEO,Men,74 - 84kg,M,Bronze
+London,2012,Wrestling,Wrestling Gre-R,TSKHADAIA Manuchar,GEO,Men,61 - 66kg (lightweight),M,Bronze
+London,2012,Wrestling,Wrestling Free.,GOGSHELIDZE George,GEO,Men,84 - 96kg,M,Bronze
+London,2012,Rowing,Rowing,RANSLEY Tom,GBR,Men,eight with coxswain (8+),M,Bronze
+London,2012,Cycling,Cycling Road,FROOME Christopher,GBR,Men,individual time trial,M,Bronze
+London,2012,Hockey,Hockey,TWIGG Georgie,GBR,Women,hockey,W,Bronze
+London,2012,Hockey,Hockey,UNSWORTH Laura,GBR,Women,hockey,W,Bronze
+London,2012,Hockey,Hockey,MACLEOD Hannah,GBR,Women,hockey,W,Bronze
+London,2012,Hockey,Hockey,PANTER Anne,GBR,Women,hockey,W,Bronze
+London,2012,Hockey,Hockey,BALL Ashleigh,GBR,Women,hockey,W,Bronze
+London,2012,Hockey,Hockey,BARTLETT Laura,GBR,Women,hockey,W,Bronze
+London,2012,Hockey,Hockey,CULLEN Crista,GBR,Women,hockey,W,Bronze
+London,2012,Hockey,Hockey,DANSON Alex,GBR,Women,hockey,W,Bronze
+London,2012,Hockey,Hockey,MAGUIRE Emily,GBR,Women,hockey,W,Bronze
+London,2012,Hockey,Hockey,RICHARDSON Helen,GBR,Women,hockey,W,Bronze
+London,2012,Hockey,Hockey,ROGERS Chloe,GBR,Women,hockey,W,Bronze
+London,2012,Hockey,Hockey,STORRY Beth,GBR,Women,hockey,W,Bronze
+London,2012,Hockey,Hockey,THOMAS Sarah,GBR,Women,hockey,W,Bronze
+London,2012,Hockey,Hockey,WALSH Kate,GBR,Women,hockey,W,Bronze
+London,2012,Hockey,Hockey,WALTON Sally,GBR,Women,hockey,W,Bronze
+London,2012,Hockey,Hockey,WHITE Nicola,GBR,Women,hockey,W,Bronze
+London,2012,Aquatics,Diving,DALEY Tom,GBR,Men,10m platform,M,Bronze
+London,2012,Judo,Judo,BRYANT Karina,GBR,Women,+ 78kg (heavyweight),W,Bronze
+London,2012,Gymnastics,Artistic G.,OLDHAM Sam,GBR,Men,"team, horizontal bar",M,Bronze
+London,2012,Gymnastics,Artistic G.,PURVIS Daniel,GBR,Men,"team, horizontal bar",M,Bronze
+London,2012,Athletics,Athletics,GRABARZ Robert,GBR,Men,high jump,M,Bronze
+London,2012,Modern Pentathlon,Modern Pentath.,MARQUES Yane,BRA,Women,Individual competition,W,Bronze
+London,2012,Boxing,Boxing,ARAUJO Adriana,BRA,Women,57 - 60kg (lightweight),W,Bronze
+London,2012,Boxing,Boxing,FALCAO FLORENTINO Yamaguchi,BRA,Men,75 - 81kg (light-heavyweight),M,Bronze
+London,2012,Volleyball,Beach volley.,FRANCA Larissa,BRA,Women,beach volleyball,W,Bronze
+London,2012,Sailing,Sailing,PRADA Bruno,BRA,Men,two-person keelboat open (Star),M,Bronze
+London,2012,Sailing,Sailing,SCHEIDT Robert,BRA,Men,two-person keelboat open (Star),M,Bronze
+London,2012,Athletics,Athletics,JAMAL Maryam Yusuf,BRN,Women,1500m,W,Bronze
+London,2012,Wrestling,Wrestling Gre-R,KITADAI Felipe,BRA,Men,- 60kg (featherweight),M,Bronze
+London,2012,Judo,Judo,AGUIAR Mayra,BRA,Women,71 - 78kg (half-middleweight),W,Bronze
+London,2012,Judo,Judo,SILVA Rafael,BRA,Men,+ 100kg (heavyweight),M,Bronze
+London,2012,Gymnastics,Artistic G.,THOMAS Kristian,GBR,Men,"team, horizontal bar",M,Bronze
+London,2012,Gymnastics,Artistic G.,TWEDDLE Beth,GBR,Women,uneven bars,W,Bronze
+London,2012,Boxing,Boxing,PULEV Tervel,BUL,Men,+ 91kg (super heavyweight),M,Bronze
+London,2012,Athletics,Athletics,DROUIN Derek,CAN,Men,high jump,M,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,de JONGE Mark,CAN,Men,C-1 1000m (canoe single),M,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,OLDERSHAW Mark,CAN,Men,C-1 1000m (canoe single),M,Bronze
+London,2012,Volleyball,Beach volley.,FELISBERTA Juliana,BRA,Women,beach volleyball,W,Bronze
+London,2012,Aquatics,Swimming,CIELO FILHO Cesar,BRA,Men,50m freestyle,M,Bronze
+London,2012,Cycling,Cycling Track,WHITTEN Tara,CAN,Women,"1980 yards Pursuit, Team",W,Bronze
+London,2012,Cycling,Cycling Track,CARLETON Gillian,CAN,Women,"1980 yards Pursuit, Team",W,Bronze
+London,2012,Cycling,Cycling Track,GLAESSER Jasmin,CAN,Women,"1980 yards Pursuit, Team",W,Bronze
+London,2012,Aquatics,Diving,FILION Roseline,CAN,Women,10m platform,W,Bronze
+London,2012,Football,Football,BOOTH Melanie,CAN,Women,football,W,Bronze
+London,2012,Football,Football,GAYLE Robyn,CAN,Women,football,W,Bronze
+London,2012,Football,Football,KYLE Kaylyn,CAN,Women,football,W,Bronze
+London,2012,Football,Football,LEBLANC Karina,CAN,Women,football,W,Bronze
+London,2012,Football,Football,MATHESON Diana,CAN,Women,football,W,Bronze
+London,2012,Football,Football,McLEOD Erin,CAN,Women,football,W,Bronze
+London,2012,Football,Football,MOSCATO Carmelina,CAN,Women,football,W,Bronze
+London,2012,Football,Football,PARKER Kelly,CAN,Women,football,W,Bronze
+London,2012,Football,Football,SCHMIDT Sophie,CAN,Women,football,W,Bronze
+London,2012,Football,Football,SCOTT Desiree,CAN,Women,football,W,Bronze
+London,2012,Football,Football,SESSELMANN Lauren,CAN,Women,football,W,Bronze
+London,2012,Football,Football,SINCLAIR Christine,CAN,Women,football,W,Bronze
+London,2012,Football,Football,TANCREDI Melissa,CAN,Women,football,W,Bronze
+London,2012,Football,Football,TIMKO Brittany,CAN,Women,football,W,Bronze
+London,2012,Football,Football,WILKINSON Rhian,CAN,Women,football,W,Bronze
+London,2012,Aquatics,Swimming,HAYDEN Brent,CAN,Men,100m freestyle,M,Bronze
+London,2012,Weightlifting,Weightlifting,GIRARD Christine,CAN,Women,63kg,W,Bronze
+London,2012,Wrestling,Wrestling Free.,HUYNH Carol,CAN,Women,- 48kg (light-flyweight),W,Bronze
+London,2012,Judo,Judo,VALOIS-FORTIER Antoine,CAN,Men,73 - 81kg (half-middleweight),M,Bronze
+London,2012,Hockey,Hockey,KAVANAGH Fergus,AUS,Men,hockey,M,Bronze
+London,2012,Hockey,Hockey,CARROLL Joel,AUS,Men,hockey,M,Bronze
+London,2012,Hockey,Hockey,CIRIELLO Christopher,AUS,Men,hockey,M,Bronze
+London,2012,Hockey,Hockey,DEAVIN Timothy,AUS,Men,hockey,M,Bronze
+London,2012,Hockey,Hockey,BURGERS Nathan,AUS,Men,hockey,M,Bronze
+London,2012,Hockey,Hockey,DWYER Jamie,AUS,Men,hockey,M,Bronze
+London,2012,Hockey,Hockey,ORCHARD Simon,AUS,Men,hockey,M,Bronze
+London,2012,Hockey,Hockey,KNOWLES Mark,AUS,Men,hockey,M,Bronze
+London,2012,Hockey,Hockey,SWANN Matthew,AUS,Men,hockey,M,Bronze
+London,2012,Hockey,Hockey,OCKENDEN Edward,AUS,Men,hockey,M,Bronze
+London,2012,Hockey,Hockey,BUTTURINI Matthew,AUS,Men,hockey,M,Bronze
+London,2012,Hockey,Hockey,De YOUNG Liam,AUS,Men,hockey,M,Bronze
+London,2012,Hockey,Hockey,GOVERS Kieran,AUS,Men,hockey,M,Bronze
+London,2012,Hockey,Hockey,GOHDES Matt,AUS,Men,hockey,M,Bronze
+London,2012,Hockey,Hockey,FORD Russell,AUS,Men,hockey,M,Bronze
+London,2012,Hockey,Hockey,TURNER Glenn,AUS,Men,hockey,M,Bronze
+London,2012,Aquatics,Diving,BENFEITO Meaghan,CAN,Women,10m platform,W,Bronze
+London,2012,Aquatics,Diving,HEYMANS Emilie,CAN,Women,3m springboard,W,Bronze
+London,2012,Aquatics,Swimming,WEINBERGER Richard,CAN,Men,marathon 10km,M,Bronze
+London,2012,Football,Football,CHAPMAN Candace,CAN,Women,football,W,Bronze
+London,2012,Football,Football,NAULT Marie-Eve,CAN,Women,football,W,Bronze
+London,2012,Football,Football,STEWART Chelsea,CAN,Women,football,W,Bronze
+London,2012,Football,Football,ZURRER Emily,CAN,Women,football,W,Bronze
+London,2012,Football,Football,FILIGNO Jonelle,CAN,Women,football,W,Bronze
+London,2012,Aquatics,Diving,ABEL Jennifer,CAN,Women,3m springboard,W,Bronze
+London,2012,Rowing,Rowing,FORSTERLING Karsten,AUS,Men,quadruple sculls with coxswain (4x),M,Bronze
+London,2012,Sailing,Sailing,CALABRESE Lucas,ARG,Men,470 - Two Person Dinghy,M,Bronze
+London,2012,Sailing,Sailing,de la FUENTE Juan,ARG,Men,470 - Two Person Dinghy,M,Bronze
+London,2012,Weightlifting,Weightlifting,KHURSHUDYAN Hripsime,ARM,Women,+ 75kg,W,Bronze
+London,2012,Rowing,Rowing,McRAE James,AUS,Men,quadruple sculls with coxswain (4x),M,Bronze
+London,2012,Rowing,Rowing,MORGAN Christopher,AUS,Men,quadruple sculls with coxswain (4x),M,Bronze
+London,2012,Rowing,Rowing,NOONAN Daniel,AUS,Men,quadruple sculls with coxswain (4x),M,Bronze
+London,2012,Taekwondo,Taekwondo,NIKPAI Rohullah,AFG,Men,58 - 68 kg,M,Bronze
+London,2012,Cycling,Cycling Track,PERKINS Shane,AUS,Men,Sprint indivual,M,Bronze
+London,2012,Cycling,Cycling Track,MCCULLOCH Kaarle,AUS,Women,Team Sprint,W,Bronze
+London,2012,Athletics,Athletics,DENSHAM Erin,AUS,Women,triathlon (long jump / shot put / 100 yards),W,Bronze
+London,2012,Wrestling,Wrestling Gre-R,ALEKSANYAN Artur,ARM,Men,84 - 96kg,M,Bronze
+London,2012,Aquatics,Water polo,BEADSWORTH Gemma,AUS,Women,water polo,W,Bronze
+London,2012,Aquatics,Water polo,BROWN Victoria,AUS,Women,water polo,W,Bronze
+London,2012,Aquatics,Water polo,GYNTHER Kate,AUS,Women,water polo,W,Bronze
+London,2012,Aquatics,Water polo,KNOX Bronwen,AUS,Women,water polo,W,Bronze
+London,2012,Aquatics,Water polo,LINCOLN-SMITH Holly,AUS,Women,water polo,W,Bronze
+London,2012,Aquatics,Water polo,McCORMACK Alicia,AUS,Women,water polo,W,Bronze
+London,2012,Aquatics,Water polo,MORAN Jane,AUS,Women,water polo,W,Bronze
+London,2012,Aquatics,Water polo,RALPH Glencora,AUS,Women,water polo,W,Bronze
+London,2012,Aquatics,Water polo,RIPPON Mel,AUS,Women,water polo,W,Bronze
+London,2012,Aquatics,Water polo,SMITH Sophie,AUS,Women,water polo,W,Bronze
+London,2012,Aquatics,Water polo,SOUTHERN Ash,AUS,Women,water polo,W,Bronze
+London,2012,Aquatics,Water polo,WEBSTER Rowie,AUS,Women,water polo,W,Bronze
+London,2012,Aquatics,Water polo,ZAGAME Nicola,AUS,Women,water polo,W,Bronze
+London,2012,Basketball,Basketball,BATKOVIC Suzy,AUS,Women,basketball,W,Bronze
+London,2012,Basketball,Basketball,BISHOP Abby,AUS,Women,basketball,W,Bronze
+London,2012,Basketball,Basketball,CAMBAGE Elizabeth,AUS,Women,basketball,W,Bronze
+London,2012,Basketball,Basketball,HODGES Laura,AUS,Women,basketball,W,Bronze
+London,2012,Basketball,Basketball,JACKSON Lauren,AUS,Women,basketball,W,Bronze
+London,2012,Basketball,Basketball,JARRY Rachel,AUS,Women,basketball,W,Bronze
+London,2012,Basketball,Basketball,MACLEOD Kathleen,AUS,Women,basketball,W,Bronze
+London,2012,Basketball,Basketball,O'HEA Jenna,AUS,Women,basketball,W,Bronze
+London,2012,Basketball,Basketball,RICHARDS Samantha,AUS,Women,basketball,W,Bronze
+London,2012,Basketball,Basketball,SCREEN Jennifer,AUS,Women,basketball,W,Bronze
+London,2012,Basketball,Basketball,SNELL Belinda,AUS,Women,basketball,W,Bronze
+London,2012,Basketball,Basketball,HARROWER Kristi,AUS,Women,basketball,W,Bronze
+London,2012,Tennis,Tennis,DEL POTRO Juan Martin,ARG,Men,singles,M,Bronze
+London,2012,Judo,Judo,TONG Wen,CHN,Women,+ 78kg (heavyweight),W,Bronze
+London,2012,Athletics,Athletics,WANG Zhen,CHN,Men,20km walk,M,Bronze
+London,2012,Athletics,Athletics,SI Tianfeng,CHN,Men,50km walk,M,Bronze
+London,2012,Athletics,Athletics,QIEYANG Shenjie,CHN,Women,20km walk,W,Bronze
+London,2012,Athletics,Athletics,GONG Lijiao,CHN,Women,shot put,W,Bronze
+London,2012,Athletics,Athletics,LI Yanfeng,CHN,Women,discus throw,W,Bronze
+London,2012,Handball,Handball,ALILOVIC Mirko,CRO,Men,handball,M,Bronze
+London,2012,Handball,Handball,LOSERT Venio,CRO,Men,handball,M,Bronze
+London,2012,Handball,Handball,STRLEK Manuel,CRO,Men,handball,M,Bronze
+London,2012,Handball,Handball,NINCEVIC Ivan,CRO,Men,handball,M,Bronze
+London,2012,Handball,Handball,CUPIC Ivan,CRO,Men,handball,M,Bronze
+London,2012,Handball,Handball,HORVAT Zlatko,CRO,Men,handball,M,Bronze
+London,2012,Handball,Handball,VORI Igor,CRO,Men,handball,M,Bronze
+London,2012,Handball,Handball,BALIC Ivano,CRO,Men,handball,M,Bronze
+London,2012,Handball,Handball,LACKOVIC Blazenko,CRO,Men,handball,M,Bronze
+London,2012,Handball,Handball,DUVNJAK Domagoj,CRO,Men,handball,M,Bronze
+London,2012,Handball,Handball,BICANIC Damir,CRO,Men,handball,M,Bronze
+London,2012,Handball,Handball,VUKOVIC Drago,CRO,Men,handball,M,Bronze
+London,2012,Handball,Handball,GOJUN Jakov,CRO,Men,handball,M,Bronze
+London,2012,Handball,Handball,BUNTIC Denis,CRO,Men,handball,M,Bronze
+London,2012,Taekwondo,Taekwondo,ZANINOVIC Lucija,CRO,Women,- 49 kg,W,Bronze
+London,2012,Weightlifting,Weightlifting,CAMBAR RODRIGUEZ Ivan,CUB,Men,77kg,M,Bronze
+London,2012,Wrestling,Wrestling Free.,RENTERIA CASTILLO Jackeline,COL,Women,- 55kg,W,Bronze
+London,2012,Handball,Handball,KOPLJAR Marko,CRO,Men,handball,M,Bronze
+London,2012,Taekwondo,Taekwondo,MUNOZ OVIEDO Oscar,COL,Men,- 58 kg,M,Bronze
+London,2012,Wrestling,Wrestling Free.,LOPEZ AZCUY Livan,CUB,Men,61 - 66kg (lightweight),M,Bronze
+London,2012,Taekwondo,Taekwondo,DESPAIGNE Robelis,CUB,Men,+ 80 kg,M,Bronze
+London,2012,Cycling,BMX,OQUENDO ZABALA Carlos Mario,COL,Men,Individual,M,Bronze
+London,2012,Judo,Judo,ALVEAR Yuri,COL,Women,63 - 70kg (half-middleweight),W,Bronze
+London,2012,Athletics,Athletics,SUAREZ Leonel,CUB,Unknown,decathlon,X,Bronze
+London,2012,Boxing,Boxing,ESTRADA Lazaro Jorge Alvarez,CUB,Men,47.63 - 52.16kg (bantamweight),M,Bronze
+London,2012,Boxing,Boxing,TOLEDO LOPEZ Yasniel,CUB,Men,57 - 60kg (lightweight),M,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,TREFIL Lukas,CZE,Men,K-4 1000m (kayak four),M,Bronze
+London,2012,Badminton,Badminton,PEDERSEN Christinna,DEN,Unknown,doubles,X,Bronze
+London,2012,Sailing,Sailing,LANG Peter,DEN,Men,49er - Skiff,M,Bronze
+London,2012,Rowing,Rowing,EBBESEN Eskild,DEN,Men,lightweight coxless four (4-),M,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,DOSTAL Josef,CZE,Men,K-4 1000m (kayak four),M,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,HAVEL Daniel,CZE,Men,K-4 1000m (kayak four),M,Bronze
+London,2012,Shooting,Shooting,SYKOROVA Adela,CZE,Women,50m rifle 3 positions (3x40 shots),W,Bronze
+London,2012,Athletics,Athletics,HEJNOVA Zuzana,CZE,Women,400m hurdles,W,Bronze
+London,2012,Rowing,Rowing,WINTHER Kasper,DEN,Men,lightweight coxless four (4-),M,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,STERBA Jan,CZE,Men,K-4 1000m (kayak four),M,Bronze
+London,2012,Wrestling,Wrestling Free.,UNDA Maider,ESP,Women,66 - 72kg (welterweight),W,Bronze
+London,2012,Sailing,Sailing,NORREGAARD Allan,DEN,Men,49er - Skiff,M,Bronze
+London,2012,Badminton,Badminton,FISCHER Joachim,DEN,Unknown,doubles,X,Bronze
+London,2012,Rowing,Rowing,BARSOE Jacob,DEN,Men,lightweight coxless four (4-),M,Bronze
+London,2012,Rowing,Rowing,JORGENSEN Morten,DEN,Men,lightweight coxless four (4-),M,Bronze
+London,2012,Aquatics,Swimming,STOECKEL Hayden,AUS,Men,4x100m medley relay,M,Bronze
+London,2012,Cycling,Cycling Track,EDMONDSON Annette,AUS,Women,12-hour race,W,Bronze
+London,2012,Boxing,Boxing,MAMMADOV Teymur,AZE,Men,+ 91kg (super heavyweight),M,Bronze
+London,2012,Boxing,Boxing,MEDZHIDOV Magomedrasul,AZE,Men,+ 91kg (super heavyweight),M,Bronze
+London,2012,Weightlifting,Weightlifting,HRISTOV Valentin,AZE,Men,"- 56kg, total (bantamweight)",M,Bronze
+London,2012,Wrestling,Wrestling Gre-R,AHMADOV Emin,AZE,Men,68 - 74kg (welterweight),M,Bronze
+London,2012,Wrestling,Wrestling Free.,RATKEVICH Yuliya,AZE,Women,- 55kg,W,Bronze
+London,2012,Wrestling,Wrestling Free.,GAZYUMOV Khetag,AZE,Men,84 - 96kg,M,Bronze
+London,2012,Weightlifting,Weightlifting,SHKERMANKOVA Maryna,BLR,Women,69kg,W,Bronze
+London,2012,Weightlifting,Weightlifting,KULESHA Iryna,BLR,Women,"67.5 - 75kg, one-two hand 3 events (middleweight)",W,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,PAUTARAN Maryna,BLR,Women,K-4 500m (kayak four),W,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,KHUDZENKA Volha,BLR,Women,K-4 500m (kayak four),W,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,PAPOK Nadzeya,BLR,Women,K-4 500m (kayak four),W,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,PAMIALOVA Iryna,BLR,Women,K-4 500m (kayak four),W,Bronze
+London,2012,Gymnastics,Trampoline,LU Chunlong,CHN,Men,individual,M,Bronze
+London,2012,Sailing,Sailing,Van ACKER Evi,BEL,Women,Laser Radial - One Person Dinghy,W,Bronze
+London,2012,Judo,Judo,van SNICK Charline,BEL,Women,- 48kg (extra-lightweight),W,Bronze
+London,2012,Gymnastics,Rhythmic G.,CHARKASHYNA Liubou,BLR,Women,individual all-round,W,Bronze
+London,2012,Gymnastics,Trampoline,HE Wenna,CHN,Women,individual,W,Bronze
+London,2012,Badminton,Badminton,CHEN Long,CHN,Men,singles,M,Bronze
+London,2012,Aquatics,Swimming,RICKARD Brenton,AUS,Men,4x100m medley relay,M,Bronze
+London,2012,Aquatics,Swimming,TARGETT Matt,AUS,Men,4x100m medley relay,M,Bronze
+London,2012,Aquatics,Swimming,D'ORSOGNA Tommaso,AUS,Men,4x100m medley relay,M,Bronze
+London,2012,Rowing,Rowing,DELL Natalie,USA,Women,quadruple sculls with coxswain (4x),W,Bronze
+London,2012,Fencing,Fencing,HURLEY Courtney,USA,Women,foil team,W,Bronze
+London,2012,Athletics,Athletics,HOFFA Reese,USA,Men,shot put,M,Bronze
+London,2012,Aquatics,Swimming,WEIR Amanda,USA,Women,4x100m freestyle relay,W,Bronze
+London,2012,Aquatics,Swimming,VANDERKAAY Peter,USA,Men,400m freestyle,M,Bronze
+London,2012,Wrestling,Wrestling Free.,SCOTT Coleman,USA,Men,- 60kg (featherweight),M,Bronze
+London,2012,Judo,Judo,MALLOY Marti,USA,Women,52 - 57kg (lightweight),W,Bronze
+London,2012,Boxing,Boxing,ESPARZA Marlen,USA,Women,- 51kg (flyweight),W,Bronze
+London,2012,Shooting,Shooting,EMMONS Matt,USA,Men,50m rifle 3 positions (3x40 shots),M,Bronze
+London,2012,Aquatics,Diving,DUMAIS Troy,USA,Men,3m springboard,M,Bronze
+London,2012,Aquatics,Swimming,COUGHLIN Natalie,USA,Women,4x100m freestyle relay,W,Bronze
+London,2012,Cycling,Mountain Bike,GOULD Georgia,USA,Women,cross-country,W,Bronze
+London,2012,Aquatics,Swimming,NEAL Lia,USA,Women,4x100m freestyle relay,W,Bronze
+London,2012,Rowing,Rowing,RUMMEL Henrik,USA,Men,four-oared shell with coxswain (4-),M,Bronze
+London,2012,Fencing,Fencing,SCANLAN Susie,USA,Women,foil team,W,Bronze
+London,2012,Rowing,Rowing,MARTELLI Adrienne,USA,Women,quadruple sculls with coxswain (4x),W,Bronze
+London,2012,Athletics,Athletics,WELLS Kellie,USA,Women,100m hurdles,W,Bronze
+London,2012,Wrestling,Wrestling Gre-R,SOBIROV Rishod,UZB,Men,- 60kg (featherweight),M,Bronze
+London,2012,Wrestling,Wrestling Free.,TIGIEV Soslan,UZB,Men,68 - 74kg (welterweight),M,Bronze
+London,2012,Boxing,Boxing,ATOEV Abbos,UZB,Men,65.77 - 71.67kg (middleweight),M,Bronze
+London,2012,Boxing,Boxing,GVOZDYK Oleksandr,UKR,Men,75 - 81kg (light-heavyweight),M,Bronze
+London,2012,Boxing,Boxing,SHELESTYUK Taras,UKR,Men,61.24 - 65.77kg (welterweight),M,Bronze
+London,2012,Athletics,Athletics,SALADUHA Olha,UKR,Women,triple jump,W,Bronze
+London,2012,Athletics,Athletics,POVH Olesya,UKR,Women,4x100m relay,W,Bronze
+London,2012,Athletics,Athletics,RYEMYEN Mariya,UKR,Women,4x100m relay,W,Bronze
+London,2012,Athletics,Athletics,STUY Hrystyna,UKR,Women,4x100m relay,W,Bronze
+London,2012,Fencing,Fencing,KHARLAN Olga,UKR,Women,sabre individual,W,Bronze
+London,2012,Athletics,Athletics,BRYZGINA Elyzaveta,UKR,Women,4x100m relay,W,Bronze
+London,2012,Rowing,Rowing,KOHLER Kara,USA,Women,quadruple sculls with coxswain (4x),W,Bronze
+London,2012,Athletics,Athletics,ALLEYNE-FORTE Ade,TRI,Men,4x400m relay,M,Bronze
+London,2012,Gymnastics,Artistic G.,RADIVILOV Igor,UKR,Men,vault,M,Bronze
+London,2012,Table Tennis,Table Tennis,WANG Yuegu,SIN,Women,team,W,Bronze
+London,2012,Table Tennis,Table Tennis,LI Jiawei,SIN,Women,team,W,Bronze
+London,2012,Athletics,Athletics,LENDORE Deon,TRI,Men,4x400m relay,M,Bronze
+London,2012,Athletics,Athletics,SOLOMON Jarrin,TRI,Men,4x400m relay,M,Bronze
+London,2012,Athletics,Athletics,THOMPSON Richard,TRI,Men,4x100m relay,M,Bronze
+London,2012,Wrestling,Wrestling Gre-R,KAYAALP Riza,TUR,Men,96 - 120kg,M,Bronze
+London,2012,Rowing,Rowing,SPIK Luka,SLO,Men,double sculls (2x),M,Bronze
+London,2012,Weightlifting,Weightlifting,KALINA Yuliya,UKR,Women,58kg,W,Bronze
+London,2012,Rowing,Rowing,COP Iztok,SLO,Men,double sculls (2x),M,Bronze
+London,2012,Shooting,Shooting,DEBEVEC Rajmond,SLO,Men,50m rifle prone (60 shots),M,Bronze
+London,2012,Shooting,Shooting,ZLATIC Andrija,SRB,Men,10m air pistol (40 shots),M,Bronze
+London,2012,Shooting,Shooting,BARTEKOVA Danka,SVK,Women,skeet (125 targets),W,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,HOCHSCHORNER Pavol,SVK,Men,C-2 1000m (canoe double),M,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,HOCHSCHORNER Peter,SVK,Men,C-2 1000m (canoe double),M,Bronze
+London,2012,Canoe / Kayak,Canoe / Kayak F,MARTIKAN Michal,SVK,Men,C-1 1000m (canoe single),M,Bronze
+London,2012,Aquatics,Water polo,UDOVICIC Vanja,SRB,Men,water polo,M,Bronze
+London,2012,Aquatics,Water polo,SAPONJIC Aleksa,SRB,Men,water polo,M,Bronze
+London,2012,Aquatics,Water polo,PIJETLOVIC Dusko,SRB,Men,water polo,M,Bronze
+London,2012,Aquatics,Water polo,FILIPOVIC Filip,SRB,Men,water polo,M,Bronze
+London,2012,Aquatics,Water polo,MITROVIC Stefan,SRB,Men,water polo,M,Bronze
+London,2012,Aquatics,Water polo,PIJETLOVIC Gojko,SRB,Men,water polo,M,Bronze
+London,2012,Aquatics,Water polo,MANDIC Dusan,SRB,Men,water polo,M,Bronze
+London,2012,Aquatics,Water polo,SORO Slobodan,SRB,Men,water polo,M,Bronze
+London,2012,Aquatics,Water polo,GOCIC Zivko,SRB,Men,water polo,M,Bronze
+London,2012,Aquatics,Water polo,NIKIC Slobodan,SRB,Men,water polo,M,Bronze
+London,2012,Aquatics,Water polo,ALEKSIC Milan,SRB,Men,water polo,M,Bronze
+London,2012,Aquatics,Water polo,RADEN Nikola,SRB,Men,water polo,M,Bronze
+London,2012,Aquatics,Water polo,PRLAINOVIC Andrija,SRB,Men,water polo,M,Bronze
+London,2012,Wrestling,Wrestling Gre-R,EUREN Johan,SWE,Men,96 - 120kg,M,Bronze
+London,2012,Wrestling,Wrestling Gre-R,LIDBERG Jimmy,SWE,Men,84 - 96kg,M,Bronze
+London,2012,Taekwondo,Taekwondo,SONKHAM Chanatip,THA,Women,- 49 kg,W,Bronze
+London,2012,Sailing,Sailing,MYRGREN Rasmus,SWE,Men,single-handed dinghy open (Laser),M,Bronze
+London,2012,Taekwondo,Taekwondo,TSENG Li-Cheng,TPE,Women,49 - 57 kg,W,Bronze
+London,2012,Athletics,Athletics,BLEDMAN Keston,TRI,Men,4x100m relay,M,Bronze
+London,2012,Athletics,Athletics,BURNS Marc,TRI,Men,4x100m relay,M,Bronze
+London,2012,Athletics,Athletics,CALLENDER Emmanuel,TRI,Men,4x100m relay,M,Bronze
+London,2012,Boxing,Boxing,CHORIEVA Mavzuna,TJK,Women,57 - 60kg (lightweight),W,Bronze
+London,2012,Aquatics,Diving,McCRORY Nicholas,USA,Men,10m platform,M,Bronze
+London,2012,Taekwondo,Taekwondo,McPHERSON Paige,USA,Women,57 - 67 kg,W,Bronze
+London,2012,Rowing,Rowing,COLE Charles,USA,Men,four-oared shell with coxswain (4-),M,Bronze
+London,2012,Rowing,Rowing,OCHAL Glenn,USA,Men,four-oared shell with coxswain (4-),M,Bronze
+London,2012,Fencing,Fencing,HURLEY Kelley,USA,Women,foil team,W,Bronze
+London,2012,Wrestling,Wrestling Free.,CHUN Clarissa Kyoko Mei Ling,USA,Women,- 48kg (light-flyweight),W,Bronze
+London,2012,Taekwondo,Taekwondo,JENNINGS Terrence,USA,Men,58 - 68 kg,M,Bronze
+London,2012,Fencing,Fencing,LAWRENCE Maya,USA,Women,foil team,W,Bronze
+London,2012,Rowing,Rowing,KALMOE Megan,USA,Women,quadruple sculls with coxswain (4x),W,Bronze
+London,2012,Aquatics,Diving,IPSEN Kristian,USA,Men,3m springboard,M,Bronze
+London,2012,Tennis,Tennis,RAYMOND Lisa,USA,Unknown,mixed doubles,X,Bronze
+London,2012,Aquatics,Swimming,LEVERENZ Caitlin,USA,Women,200m individual medley,W,Bronze
+London,2012,Gymnastics,Artistic G.,LEYVA Danell,USA,Men,individual all-round,M,Bronze
+London,2012,Athletics,Athletics,DELOACH Janay,USA,Women,long jump,W,Bronze
+London,2012,Rowing,Rowing,GAULT Scott,USA,Men,four-oared shell with coxswain (4-),M,Bronze
