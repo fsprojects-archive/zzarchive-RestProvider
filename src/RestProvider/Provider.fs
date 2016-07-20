@@ -5,12 +5,14 @@ open Microsoft.FSharp.Core.CompilerServices
 open Microsoft.FSharp.Quotations
 open Microsoft.FSharp.Reflection
 open System
+open System.Reflection
 open FSharp.Data
 open System.Threading.Tasks
 open ProviderImplementation.QuotationBuilder
 
 type MemberQuery = JsonProvider<"""
   [ { "name":"United Kingdom", "returns":{"kind":"nested", "endpoint":"/country"}, "trace":["country", "UK"],
+      "parameters":[ {"name":"count", "type":null}, {"name":"another", "type":null} ],
       "documentation":"can be a plain string" }, 
     { "name":"United Kingdom", "returns":{"kind":"nested", "endpoint":"/country"},
       "documentation":{"endpoint":"/or-a-url-to-call"} }, 
@@ -25,31 +27,38 @@ type TypeInfo = JsonProvider<"""
 module Helpers = 
   type Message =
     | SetTimeout of int
-    | Download of string * AsyncReplyChannel<Choice<string, exn>>
+    | Download of string * string * AsyncReplyChannel<Choice<string, exn>>
+
+  let parseCookieString (s:string) = 
+    s.Split([|'&'|], StringSplitOptions.RemoveEmptyEntries) |> Array.choose (fun s -> 
+      match s.Split('=') |> List.ofSeq with 
+      | [] -> None
+      | [ s ] -> Some (s, "")
+      | k::v::_ -> Some(k, v) )
 
   let agent = MailboxProcessor.Start(fun inbox -> async {
-    let cache = Collections.Generic.Dictionary<string, DateTime * string>()
+    let cache = Collections.Generic.Dictionary<string * string, DateTime * string>()
     let mutable timeout = 3600
     while true do
       let! msg = inbox.Receive()
       match msg with 
       | SetTimeout t -> timeout <- t
-      | Download(url, repl) ->
+      | Download(url, cookies, repl) ->
         try 
-          match cache.TryGetValue(url) with
+          match cache.TryGetValue( (url, cookies) ) with
           | true, (dt, res) when (DateTime.Now - dt).TotalSeconds < float timeout -> 
               repl.Reply(Choice1Of2(res))
           | _ ->
-            let! res = Http.AsyncRequestString(url)
-            cache.[url] <- (DateTime.Now, res)
+            let! res = Http.AsyncRequestString(url, cookies=parseCookieString cookies)
+            cache.[(url, cookies)] <- (DateTime.Now, res)
             repl.Reply(Choice1Of2 res)
         with e ->
           repl.Reply(Choice2Of2 e) })
   
   let setTimeout t = agent.Post(SetTimeout t)
 
-  let cachedMemberQuery url = async {
-    let! res = agent.PostAndAsyncReply(fun r -> Download(url, r))
+  let cachedMemberQuery url cookies = async {
+    let! res = agent.PostAndAsyncReply(fun r -> Download(url, cookies, r))
     match res with
     | Choice1Of2 body -> return MemberQuery.Parse(body)
     | Choice2Of2 e -> return raise e }
@@ -60,18 +69,27 @@ type RuntimeValue =
   member x.AsJson() = 
     match x with Json j -> j | String s -> JsonValue.Parse s
 
-type RuntimeContext(root:string, trace:string) = 
+type RuntimeContext(root:string, cookies:string, trace:string) = 
   member x.Root = root
   member x.Trace = trace
+  member x.AddTraces(names:string[], suffixes:obj[]) = 
+    Array.zip names suffixes
+    |> Seq.fold (fun (x:RuntimeContext) (n, v) -> x.AddTrace(n + "=" + v.ToString())) x
   member x.AddTrace(suffix) = 
     let traces = 
       [ if not (String.IsNullOrEmpty trace) then yield trace
         if not (String.IsNullOrEmpty suffix) then yield suffix ]
-    RuntimeContext(root, String.concat "&" traces)
+    RuntimeContext(root, cookies, String.concat "&" traces)
   member x.GetValue(endpoint:string) =     
-    Http.RequestString(root.TrimEnd('/') + "/" + endpoint.TrimStart('/'), httpMethod="POST", body=TextRequest trace)
+    Http.RequestString
+      ( root.TrimEnd('/') + "/" + endpoint.TrimStart('/'), httpMethod="POST", body=TextRequest trace, 
+        cookies=Helpers.parseCookieString cookies )
     |> String
-    
+
+module Parsers = 
+  let (|AsInt32|_|) s = match Int32.TryParse(s) with true, r -> Some r | _ -> None
+  let (|AsFloat|_|) s = match Double.TryParse(s) with true, r -> Some r | _ -> None
+
 type Runtime = 
   static member SplitSequence<'T>(input:RuntimeValue, f:RuntimeValue -> 'T) =
     match input.AsJson() with
@@ -84,12 +102,14 @@ type Runtime =
   static member ParseFloat(input:RuntimeValue) = 
     match input with
     | String s -> float s
+    | Json(JsonValue.String (Parsers.AsFloat f))
     | Json(JsonValue.Float f) -> f
     | Json(JsonValue.Number n) -> float n
     | _ -> failwith "ParseFloat: Expected number or float"
   static member ParseInt(input:RuntimeValue) = 
     match input with
     | String s -> int s
+    | Json(JsonValue.String(Parsers.AsInt32 n)) -> n
     | Json(JsonValue.Float f) -> int f
     | Json(JsonValue.Number n) -> int n
     | _ -> failwith "ParseInt: Expected number"
@@ -202,7 +222,14 @@ type public RestProvider() as this =
         this.Invalidate()
         lastRefresh <- DateTime.Now })
 
-  let provideType typeName (source:string) timeout = 
+  let checkMethodParameters (pars:MemberQuery.Parameter[]) = 
+    pars |> Array.map (fun p ->
+      match ResultType.fromJson p.Type.JsonValue with
+      | Primitive "int" -> ProvidedParameter(p.Name, typeof<int>)
+      | Primitive "string" -> ProvidedParameter(p.Name, typeof<string>)
+      | _ -> failwith "Only int or string parameters are supported." )
+
+  let provideType typeName (source:string) timeout cookies = 
     invalidator.Post(timeout)
     Helpers.setTimeout (timeout / 2)
     
@@ -229,31 +256,53 @@ type public RestProvider() as this =
                 let typ, erasedTyp, parser = ResultType.getTypeAndParser { DomainType = types; Records = records } (ResultType.fromJson membr.Returns.Type.JsonValue)
                 typ, "primitive", fun ctx -> parser (runtimeContext?GetValue () (ctx, endpoint))
             | t -> failwithf "Unknown type: %s" t
-          let p = 
-            ProvidedProperty
-              ( membr.Name, typ, IsStatic = statc,
-                GetterCode = (fun args -> 
-                  if statc then getter <@ RuntimeContext(source, "").AddTrace(trace) @>
-                  else getter <@ (unbox<RuntimeContext> %%(List.head args)).AddTrace(trace) @> ))
+          
+          let mi, addDoc, addDocDelay = 
+            if membr.Parameters.Length = 0 then
+              let p = 
+                ProvidedProperty
+                  ( membr.Name, typ, IsStatic = statc,
+                    GetterCode = (fun args -> 
+                      if statc then getter <@ RuntimeContext(source, cookies, "").AddTrace(trace) @>
+                      else getter <@ (unbox<RuntimeContext> %%(List.head args)).AddTrace(trace) @> ))
+              p :> MemberInfo, p.AddXmlDoc, p.AddXmlDocComputed
+            else 
+              let pars = checkMethodParameters membr.Parameters |> List.ofSeq
+              let m = 
+                ProvidedMethod
+                  ( membr.Name, pars, typ, IsStaticMethod = statc, 
+                    InvokeCode = (fun args ->      
+                      let methArgs = if statc then args else List.tail args
+                      let methArgsObjs = methArgs |> List.map (fun e -> Expr.Coerce(e, typeof<obj>))
+                      let methArgsExpr = Expr.NewArray(typeof<obj>, methArgsObjs)
+                      let parNamesExpr = Expr.NewArray(typeof<string>, [ for p in pars -> Expr.Value(p.Name) ])
+                      if statc then 
+                        getter <@ RuntimeContext(source, cookies, "").AddTrace(trace).AddTraces(%%parNamesExpr, %%methArgsExpr) @>
+                      else getter <@ (unbox<RuntimeContext> %%(List.head args)).AddTrace(trace).AddTraces(%%parNamesExpr, %%methArgsExpr) @> ))
+              m :> MemberInfo, m.AddXmlDoc, m.AddXmlDocComputed
+
           match membr.Documentation.Record, membr.Documentation.String with
           | Some recd, _ -> 
               let doc = Http.AsyncRequestString(recd.Endpoint) |> Async.StartAsTask
-              p.AddXmlDocDelayed(fun _ -> "<summary>" + doc.Result + "</summary>")
-          | _, Some str -> p.AddXmlDoc("<summary>" + str + "</summary>")
-          | _ -> p.AddXmlDoc("<summary>/" + altdoc + "</summary>")
-          p ]
+              addDocDelay(fun _ -> "<summary>" + doc.Result + "</summary>")
+          | _, Some str -> addDoc ("<summary>" + str + "</summary>")
+          | _ -> addDoc ("<summary>/" + altdoc + "</summary>")
+          mi ]
 
     and provideType (source:string) (endpoint:string) =
       let url = source.TrimEnd('/') + "/" + endpoint.TrimStart('/')
       knownTypes.GetOrAdd(url, fun url ->
         let name = endpoint.Split('/') |> Seq.last
         let ty = ProvidedTypeDefinition(NiceNames.niceName name, Some typeof<obj>, HideObjectMethods=true)
-        let members = Helpers.cachedMemberQuery url |> Async.StartAsTask
+        let members = Helpers.cachedMemberQuery url cookies |> Async.StartAsTask
         types.AddMember(ty)
         ty.AddMembersDelayed(fun () -> provideMembers source false members)
         ty :> System.Type )
 
-    let members = MemberQuery.AsyncLoad(source) |> Async.StartAsTask
+    let members = async {
+      let! data = Http.AsyncRequestString(source, cookies=Helpers.parseCookieString cookies)
+      return MemberQuery.Parse(data) } |> Async.StartAsTask
+
     root.AddMembersDelayed (fun () -> provideMembers source true members)
     root
 
@@ -264,7 +313,8 @@ type public RestProvider() as this =
       (thisAssembly, rootNamespace, "RestProvider", Some(typeof<obj>), HideObjectMethods = true)
   let staticParams = 
     [ ProvidedStaticParameter("Source", typeof<string>, "")
-      ProvidedStaticParameter("Timeout", typeof<int>, 3600) ]
+      ProvidedStaticParameter("Timeout", typeof<int>, 3600)
+      ProvidedStaticParameter("Cookies", typeof<string>, "") ]
 
   
   let helpText = """
@@ -275,7 +325,8 @@ type public RestProvider() as this =
   do gammaType.DefineStaticParameters(staticParams, fun typeName providerArgs -> 
         let source = (providerArgs.[0] :?> string)
         let timeout = (providerArgs.[1] :?> int)
-        provideType typeName source timeout)
+        let cookies = (providerArgs.[2] :?> string)
+        provideType typeName source timeout cookies)
   do base.AddNamespace(rootNamespace, [ gammaType ])
 
 [<TypeProviderAssembly>]

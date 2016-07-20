@@ -61,11 +61,12 @@ type Facet<'T> =
   | Choice of seq<string * string * Facet<'T>>
 
 module Data = 
-  let [<Literal>] Root = __SOURCE_DIRECTORY__ + "/medals-merged.csv"
-  type Medals = CsvProvider<Root>
+  let [<Literal>] Root = __SOURCE_DIRECTORY__ + "/medals-expanded.csv"
+  type Medals = CsvProvider<Root, Schema="Gold=int, Silver=int, Bronze=int">
   let olympics = Medals.GetSample().Rows
-
-  type Codes = FSharp.Data.HtmlProvider<"http://www.topendsports.com/events/summer/countries/country-codes.htm">
+  
+  // http://www.topendsports.com/events/summer/countries/country-codes.htm
+  type Codes = FSharp.Data.HtmlProvider<const(__SOURCE_DIRECTORY__ + "/countrycodes.html")>
   let countries = 
     [ yield "SRB", "Serbia"
       for r in Codes.GetSample().Tables.``3-Digit Country Codes``.Rows do 
@@ -127,6 +128,9 @@ let (</>) (a:string) (b:string) =
   elif b = "" then "/" + a
   else "/" + a + "/" + b
 
+let intFields = set ["Edition"; "Gold"; "Silver"; "Bronze"]
+let (|Let|) a v = a, v
+
 let app =
   request (fun r ->
     let selected = r.url.LocalPath.Split([|'/'|], StringSplitOptions.RemoveEmptyEntries) |> List.ofSeq
@@ -137,13 +141,16 @@ let app =
           data.Split([|'&'|], StringSplitOptions.RemoveEmptyEntries) 
           |> Array.map (fun kvp -> 
               let kv = kvp.Split('=') in 
-              Data.findFacet (List.ofSeq (kv.[0].Split('/'))), System.Web.HttpUtility.UrlDecode(kv.[1]))
-        
+              (List.ofSeq (kv.[0].Split('/'))), System.Web.HttpUtility.UrlDecode(kv.[1]))
+          |> Seq.groupBy fst
+          |> Seq.map (fun (facet, values) ->
+              Data.findFacet facet, set (Seq.map snd values))
+
         Data.olympics
         |> Seq.filter (fun r ->
-            constraints |> Seq.forall (fun (f, v) -> 
+            constraints |> Seq.forall (fun (f, vs) -> 
               match f with 
-              | Filter f -> f r = Some v
+              | Filter f -> match f r with Some v -> vs.Contains v | _ -> false
               | _ -> false))
         |> Seq.map (fun r -> 
             let flds = Microsoft.FSharp.Reflection.FSharpValue.GetTupleFields(r) |> List.ofSeq
@@ -161,15 +168,22 @@ let app =
         |> string        
         |> Successful.OK
 
-    | SplitBy "pick" (rest, path) ->
+    | Let true (nested, SplitBy "and-pick" (rest, path))
+    | Let false (nested, SplitBy "pick" (rest, path)) ->
+        let prefix = if nested then "or " else ""
         match Data.findFacet path with
         | Filter f ->
             Data.olympics
             |> Seq.choose f
             |> Seq.distinct
             |> Seq.map (fun value ->
-                { name=value; returns= {kind="nested"; endpoint=(List.fold (</>) "" rest) </> List.head path }
+                { name=prefix + value; returns = {kind="nested"; 
+                  endpoint=(List.fold (</>) "" rest) </> "and-pick" </> (List.fold (</>) "" path) }
                   trace=[| String.concat "/" path + "=" + System.Web.HttpUtility.UrlEncode value |] })
+            |> Seq.append 
+                ( if not nested then [] else
+                  [ { name="done"; returns = {kind="nested"; endpoint=(List.fold (</>) "" rest) </> List.head path }
+                      trace=[| |] } ] )
             |> Array.ofSeq |> toJson |> Successful.OK 
         | Choice c ->
             c
@@ -187,7 +201,7 @@ let app =
               trace=[| |] })
         |> Seq.append [
             ( let headers = Data.Medals.GetSample().Headers.Value
-              let flds = [| for h in headers -> { name=h; ``type``=if h="Edition" then "int" else "string" }  |]
+              let flds = [| for h in headers -> { name=h; ``type``=if intFields.Contains h then "int" else "string" }  |]
               let typ = { name="seq"; ``params``=[| { name="record"; fields=flds } |] }
               { name="data"; returns= {kind="primitive"; ``type``=typ; endpoint="/data"}
                 trace=[| |] } ) ]

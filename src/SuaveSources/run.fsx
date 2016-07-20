@@ -85,8 +85,9 @@ let handlePage s =
 
 let app =
   Writers.setHeader  "Access-Control-Allow-Origin" "*"
-  >=> Writers.setHeader "Access-Control-Allow-Headers" "content-type"
-  >=> choose [ Filters.pathScan "/%s/%s" (fst >> handlePage)  
+  >=> Writers.setHeader "Access-Control-Allow-Headers" "content-type,x-cookie"
+  >=> choose [ Filters.OPTIONS >=> Successful.OK "CORS approved"
+               Filters.pathScan "/%s/%s" (fst >> handlePage)  
                Filters.pathScan "/%s" handlePage ]
 let port = 10042
 let _, server = startWebServerAsync (getLocalServerConfig port) app
