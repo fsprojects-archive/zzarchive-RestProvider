@@ -1,4 +1,5 @@
-﻿#I "../../../packages/samples"
+﻿#nowarn "1104"
+#I "../../../packages/samples"
 #r "System.Xml.Linq.dll"
 #r "FSharp.Data/lib/net40/FSharp.Data.dll"
 #r "Newtonsoft.Json/lib/net40/Newtonsoft.Json.dll"
@@ -43,10 +44,17 @@ open Suave
 open Suave.Filters
 open Suave.Operators
 
+type ThingSchema = { ``@context``:string; ``@type``:string; name:string; }
 type GenericType = { name:string; ``params``:obj[] }
 type TypePrimitive = { kind:string; ``type``:obj; endpoint:string }
 type TypeNested = { kind:string; endpoint:string }
-type Member = { name:string; returns:obj; trace:string[] }
+type Member = { name:string; returns:obj; trace:string[]; schema:ThingSchema }
+
+let noSchema = Unchecked.defaultof<ThingSchema>
+let makeSchemaThing kind name =
+  { ``@context`` = "http://schema.org/"; ``@type`` = kind; name = name }
+let makeSchemaExt kind name =
+  { ``@context`` = "http://thegamma.net/worldbank"; ``@type`` = kind; name = name }
 
 let memberPath s f = 
   path s >=> request (fun _ -> f() |> Array.ofSeq |> toJson |> Successful.OK)
@@ -63,24 +71,24 @@ let app =
   choose [ 
     memberPath "/" (fun () ->
       [ { name="byYear"; returns= {kind="nested"; endpoint="/pickYear"}
-          trace=[| |] } 
+          trace=[| |]; schema = noSchema } 
         { name="byCountry"; returns= {kind="nested"; endpoint="/pickCountry"}
-          trace=[| |] } ])
+          trace=[| |]; schema = noSchema } ])
 
     memberPath "/pickCountry" (fun () ->
       [ for (KeyValue(id, country)) in worldBank.Value.Countries ->
           { name=country.Name; returns={kind="nested"; endpoint="/byCountry/pickTopic"}
-            trace=[|"country=" + id |] } ])
+            trace=[|"country=" + id |]; schema = makeSchemaThing "Country" country.Name } ])
 
     memberPath "/pickYear" (fun () ->
       [ for (KeyValue(id, year)) in worldBank.Value.Years ->
           { name=year.Year; returns={kind="nested"; endpoint="/byYear/pickTopic"}
-            trace=[|"year=" + id |] } ])
+            trace=[|"year=" + id |]; schema = makeSchemaExt "Year" year.Year } ])
 
     memberPathf "/%s/pickTopic" (fun by ->
       [ for (KeyValue(id, top)) in worldBank.Value.Topics ->
           { name=top.Name; returns={kind="nested"; endpoint="/" + by + "/pickIndicator/" + id}
-            trace=[||] } ])
+            trace=[||]; schema = makeSchemaExt "Topic" top.Name } ])
 
     memberPathf "/%s/pickIndicator/%s" (fun (by, topic) ->
       [ for ikey in worldBank.Value.Topics.[topic].Indicators ->
@@ -91,7 +99,7 @@ let app =
               else failwith "bad request"
           let typ = { name="seq"; ``params``=[| typ |]}
           { name=ind.Name; returns={ kind="primitive"; ``type``= typ; endpoint="/data"}
-            trace=[|"indicator=" + ikey |] } ])
+            trace=[|"indicator=" + ikey |]; schema = makeSchemaExt "Indicator" ind.Name } ])
 
     path "/data" >=> request (fun r ->
       let trace = 

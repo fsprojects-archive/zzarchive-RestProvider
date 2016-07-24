@@ -258,7 +258,7 @@ type public RestProvider() as this =
             | t -> failwithf "Unknown type: %s" t
           
           let mi, addDoc, addDocDelay = 
-            if membr.Parameters.Length = 0 then
+            if membr.JsonValue.TryGetProperty("parameters") = None then
               let p = 
                 ProvidedProperty
                   ( membr.Name, typ, IsStatic = statc,

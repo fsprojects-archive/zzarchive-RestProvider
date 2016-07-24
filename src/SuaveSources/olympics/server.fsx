@@ -1,4 +1,5 @@
-﻿#I "../../../packages/samples"
+﻿#nowarn "1104"
+#I "../../../packages/samples"
 #r "System.Xml.Linq.dll"
 #r "FSharp.Data/lib/net40/FSharp.Data.dll"
 #r "Newtonsoft.Json/lib/net40/Newtonsoft.Json.dll"
@@ -38,12 +39,15 @@ open Suave
 open Suave.Filters
 open Suave.Operators
 
+type ThingSchema = { ``@context``:string; ``@type``:string; name:string; }
+
 type RecordField = { name:string; ``type``:obj }
 type GenericType = { name:string; ``params``:obj[] }
 type RecordType = { name:string (* = record *); fields:RecordField[] }
 type TypePrimitive = { kind:string; ``type``:obj; endpoint:string }
 type TypeNested = { kind:string; endpoint:string }
-type Member = { name:string; returns:obj; trace:string[] }
+type Member = { name:string; returns:obj; trace:string[]; schema:ThingSchema }
+
 
 let memberPath s f = 
   path s >=> request (fun _ -> f() |> Array.ofSeq |> toJson |> Successful.OK)
@@ -56,9 +60,10 @@ let (|Lookup|_|) k (dict:IDictionary<_,_>) =
   | true, v -> Some v
   | _ -> None
 
+
 type Facet<'T> = 
-  | Filter of ('T -> option<string>)
-  | Choice of seq<string * string * Facet<'T>>
+  | Filter of multichoice:bool * ('T -> option<string * ThingSchema>)
+  | Choice of seq<string * string * ThingSchema * Facet<'T>>
 
 module Data = 
   let [<Literal>] Root = __SOURCE_DIRECTORY__ + "/medals-expanded.csv"
@@ -86,17 +91,38 @@ module Data =
     |> Seq.mapi (fun i s -> sprintf "noc-%d" i, s)
     |> dict
   
+  let makeSchemaThing kind name =
+    { ``@context`` = "http://schema.org/"; ``@type`` = kind; name = name }
+  let noSchema = Unchecked.defaultof<ThingSchema>
+
   let facets : list<string * Facet<Medals.Row>> = 
-    [ "city", Filter(fun r -> Some(sprintf "%s (%d)" r.City r.Edition))
-      "medal", Filter(fun r -> Some(r.Medal))
-      "gender", Filter(fun r -> Some(r.Gender))
-      "country", Filter(fun r -> Some(countries.[r.NOC]))
-      "athlete", Choice [ 
-        for (KeyValue(k,v)) in nocs -> 
-          k, countries.[v], Filter(fun r -> if r.NOC = v then Some(r.Athlete) else None) ]
-      "sport", Choice [ 
-        for (KeyValue(k,v)) in sports -> 
-          k, v, Filter(fun r -> if r.Sport = v then Some(r.Event) else None) ] ]
+    [ // Single-choice 
+      yield "city", Filter(false, fun r -> Some(sprintf "%s (%d)" r.City r.Edition, makeSchemaThing "City" r.City))
+      yield "medal", Filter(false, fun r -> Some(r.Medal, noSchema))
+      yield "gender", Filter(false, fun r -> Some(r.Gender, noSchema))
+      yield "country", Filter(false, fun r -> let c = countries.[r.NOC] in Some(c, makeSchemaThing "Country" c))
+
+      // Multi-choice
+      yield "cities", Filter(true, fun r -> Some(sprintf "%s (%d)" r.City r.Edition, makeSchemaThing "City" r.City))
+      yield "medals", Filter(true, fun r -> Some(r.Medal, noSchema))
+      yield "countries", Filter(true, fun r -> let c = countries.[r.NOC] in Some(c, makeSchemaThing "Country" c))
+
+      // Multi-level facet with/without multi-choice
+      let athleteChoice multi =  
+        [ for (KeyValue(k,v)) in nocs -> 
+            let c = countries.[v]
+            k, c, makeSchemaThing "Country" c, Filter(multi, fun (r:Medals.Row) -> 
+              if r.NOC = v then Some(r.Athlete, makeSchemaThing "Person" r.Athlete) else None) ]
+      let sportChoice multi = 
+        [ for (KeyValue(k,v)) in sports -> 
+            k, v, makeSchemaThing "SportsEvent" v, Filter(true, fun (r:Medals.Row) ->  
+              if r.Sport = v then Some(r.Event, makeSchemaThing "SportsEvent" r.Event) else None) ]
+
+      yield "athlete", Choice(athleteChoice false)
+      yield "athletes", Choice(athleteChoice true)
+      yield "sport", Choice (sportChoice false)
+      yield "sports", Choice (sportChoice true) ]
+
 
   let facetsLookup = dict facets
 
@@ -104,9 +130,9 @@ module Data =
     match path, facet with
     | [], f -> f
     | p::ps, Choice choices -> 
-        match choices |> Seq.tryPick (fun (k, _, f) -> if p = k  then Some(findFilter ps f) else None) with
+        match choices |> Seq.tryPick (fun (k, _, _, f) -> if p = k  then Some(findFilter ps f) else None) with
         | Some f -> f
-        | None -> failwithf "Could not find filter '%s' in choices '%A'" p [ for c, _, _ in choices -> c ]
+        | None -> failwithf "Could not find filter '%s' in choices '%A'" p [ for c, _, _, _ in choices -> c ]
     | _ -> failwith "Mismatching filter"
 
   let findFacet prefix = 
@@ -150,7 +176,7 @@ let app =
         |> Seq.filter (fun r ->
             constraints |> Seq.forall (fun (f, vs) -> 
               match f with 
-              | Filter f -> match f r with Some v -> vs.Contains v | _ -> false
+              | Filter(_, f) -> match f r with Some(v, _) -> vs.Contains v | _ -> false
               | _ -> false))
         |> Seq.map (fun r -> 
             let flds = Microsoft.FSharp.Reflection.FSharpValue.GetTupleFields(r) |> List.ofSeq
@@ -172,24 +198,27 @@ let app =
     | Let false (nested, SplitBy "pick" (rest, path)) ->
         let prefix = if nested then "or " else ""
         match Data.findFacet path with
-        | Filter f ->
-            Data.olympics
-            |> Seq.choose f
-            |> Seq.distinct
-            |> Seq.map (fun value ->
-                { name=prefix + value; returns = {kind="nested"; 
-                  endpoint=(List.fold (</>) "" rest) </> "and-pick" </> (List.fold (</>) "" path) }
-                  trace=[| String.concat "/" path + "=" + System.Web.HttpUtility.UrlEncode value |] })
-            |> Seq.append 
-                ( if not nested then [] else
-                  [ { name="done"; returns = {kind="nested"; endpoint=(List.fold (</>) "" rest) </> List.head path }
-                      trace=[| |] } ] )
+        | Filter(multichoice, f) ->
+            let options = Data.olympics |> Seq.choose f |> Seq.distinctBy fst
+            let andPickTy = 
+              { kind="nested"; endpoint=(List.fold (</>) "" rest) </> "and-pick" </> (List.fold (</>) "" path) }
+            let thenTy = 
+              { kind="nested"; endpoint=(List.fold (</>) "" rest) </> List.head path }
+
+
+            [ for (value, schema) in options do
+                let ty = if multichoice then andPickTy else thenTy
+                let trace = [| String.concat "/" path + "=" + System.Web.HttpUtility.UrlEncode value |]
+                yield { name=prefix + value; schema=schema; returns=ty; trace=trace }
+              if multichoice && nested then 
+                yield { name="then"; returns=thenTy; schema=Data.noSchema; trace=[| |] } ]
             |> Array.ofSeq |> toJson |> Successful.OK 
-        | Choice c ->
+
+        | Choice(c) ->
             c
-            |> Seq.map (fun (k, v, _) ->
+            |> Seq.map (fun (k, v, s, _) ->
                 { name=v; returns= {kind="nested"; endpoint= (List.fold (</>) "" selected) </> k }
-                  trace=[| |] })
+                  schema=s; trace=[| |] })
             |> Array.ofSeq |> toJson |> Successful.OK             
 
     | selected ->
@@ -198,11 +227,11 @@ let app =
             selected |> Seq.forall (fun sel -> not (sel.StartsWith(facetKey))))
         |> Seq.map (fun (facetKey, _) ->
             { name="by " + facetKey; returns= {kind="nested"; endpoint=r.url.LocalPath </> "pick" </> facetKey}
-              trace=[| |] })
+              schema=Data.noSchema; trace=[| |] })
         |> Seq.append [
             ( let headers = Data.Medals.GetSample().Headers.Value
               let flds = [| for h in headers -> { name=h; ``type``=if intFields.Contains h then "int" else "string" }  |]
               let typ = { name="seq"; ``params``=[| { name="record"; fields=flds } |] }
               { name="data"; returns= {kind="primitive"; ``type``=typ; endpoint="/data"}
-                trace=[| |] } ) ]
+                schema=Data.noSchema; trace=[| |] } ) ]
         |> Array.ofSeq |> toJson |> Successful.OK )

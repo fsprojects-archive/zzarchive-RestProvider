@@ -222,7 +222,28 @@ let makeMethod id name tfs trace pars (doc:string) =
       MemberQuery.StringOrDocumentation(doc) )
 
 let makeProperty id name tfs trace (doc:string) = 
-  makeMethod id name tfs trace [] doc
+  match (makeMethod id name tfs trace [] doc).JsonValue with
+  | JsonValue.Record(flds) -> MemberQuery.Root(JsonValue.Record(flds |> Array.filter (fun (n, _) -> n <> "parameters")))
+  | _ -> failwith "makeProperty: expected record"
+
+let withSchema actTyp fldName listName (m:MemberQuery.Root) = 
+  match m.JsonValue with
+  | JsonValue.Record(props) -> 
+      let schema = 
+        [| "@context", JsonValue.String "http://schema.org/"
+           "@type", JsonValue.String actTyp 
+           fldName, JsonValue.Record [|
+              "@type", JsonValue.String "ItemList"
+              "name", JsonValue.String listName |] |]
+        |> JsonValue.Record
+      let props = Array.append [| ("schema", schema) |] props
+      MemberQuery.Root(JsonValue.Record(props))
+  | _ -> failwith "withSchema: expected record"
+
+let withAddAction collectionName =
+  withSchema "AddAction" "targetCollection" collectionName
+let withCreateAction collectionName =
+  withSchema "CreateAction" "result" collectionName
 
 let membersOk (s:seq<MemberQuery.Root>) = 
   JsonValue.Array([| for a in s -> a.JsonValue |]).ToString() |> Successful.OK
@@ -239,11 +260,11 @@ let makeRecordSeq fields =
   TypeInfo.Record("seq", [||], [| recd.JsonValue |]).JsonValue
 
 let makeDataMember name tfs injectid (doc:string) = 
-  let fields = (getFields injectid).Value.Fields
-  let dataTyp = fields |> List.map snd |> makeRecordSeq
+  let fields = (getFields injectid).Value
+  let finalFields = transformFields fields (List.rev tfs)  
+  let dataTyp = finalFields.Fields |> List.map snd |> makeRecordSeq
   let dataRet = MemberQuery.Returns("primitive", "/pivot/data", dataTyp)
-  let fieldsLookup = dict fields
-  let url = tfs |> renameFields fields |> Transform.toUrl  
+  let url = tfs |> renameFields fields.Fields |> Transform.toUrl  
   let trace = [| "pivot-tfs=" + url |]
   MemberQuery.Root("get the data", dataRet, trace, [||], MemberQuery.StringOrDocumentation(doc))            
 
@@ -412,7 +433,8 @@ let handleDropRequest injectid { Fields = fields } rest dropped =
     for fldid, field in fields do
       if not (droppedFields.Contains fldid) then
         let doc = sprintf "Removes the field '%s' from the returned data set" field.Name
-        yield makeProperty injectid ("drop " + field.Name) (DropColumns(fldid::dropped)::rest) [] doc ]
+        yield makeProperty injectid ("drop " + field.Name) (DropColumns(fldid::dropped)::rest) [] doc
+              |> withAddAction "Dropped fields" ]
   |> membersOk    
 
 let handleSortRequest injectid { Fields = fields } rest keys = 
@@ -423,13 +445,16 @@ let handleSortRequest injectid { Fields = fields } rest keys =
         let doc = sprintf "Use the field '%s' as the next sorting keys" field.Name
         let prefix = if keys = [] then "by " else "and by "
         yield makeProperty injectid (prefix + field.Name) (SortBy((fldid, Ascending)::keys)::rest) [] doc 
-        yield makeProperty injectid (prefix + field.Name + " descending") (SortBy((fldid, Descending)::keys)::rest) [] doc ]
+              |> withAddAction "Fields used for sorting"
+        yield makeProperty injectid (prefix + field.Name + " descending") (SortBy((fldid, Descending)::keys)::rest) [] doc 
+              |> withAddAction "Fields used for sorting" ]
   |> membersOk    
 
 let handleGroupRequest injectid { Fields = fields } rest = 
   [ for fldid, field in fields ->
       let doc = sprintf "Groupd data by field '%s' and then aggregate groups" field.Name
-      makeProperty injectid ("by " + field.Name) (GroupBy(fldid, [GroupKey])::rest) [] doc ]
+      makeProperty injectid ("by " + field.Name) (GroupBy(fldid, [GroupKey])::rest) [] doc
+      |> withCreateAction "Aggregation operations" ]
   |> membersOk  
 
 let handleGroupAggRequest injectid { Fields = fields } rest fld aggs =
@@ -439,6 +464,7 @@ let handleGroupAggRequest injectid { Fields = fields } rest fld aggs =
 
   let makeAggMember name agg doc = 
     makeProperty injectid name (GroupBy(fld,agg::aggs)::rest) [] doc
+    |> withAddAction "Aggregation operations"
 
   [ yield makeProperty injectid "then" (Empty::GroupBy(fld, aggs)::rest) [] "Get data or perform another transformation"
     if not containsCountAll then 
@@ -483,6 +509,7 @@ let handleProxyRequest source local ctx = async {
 // ----------------------------------------------------------------------------
 
 let withSource f ctx =
+  printfn "%O" ctx.request.url
   let cookies = 
     ctx.request.headers |> Seq.tryFind (fun (h, _) -> h.ToLower() = "x-cookie") 
     |> Option.map (snd >> Cookie.parseCookies)
@@ -511,7 +538,9 @@ let app = withSource (fun source ->
           let pgid = rest |> Seq.sumBy (function Paging _ -> 1 | _ -> 0) |> sprintf "pgid-%d"  
           [ makeProperty injectid "group data" (GroupBy("!", [])::rest) [] "Lets you perform pivot table aggregations."
             makeProperty injectid "sort data" (SortBy([])::rest) [] "Lets you sort data in the table by given column(s)."
+            |> withCreateAction "Fields used for sorting"
             makeProperty injectid "filter columns" (DropColumns([])::rest) [] "Lets you remove some of the columns from the table." 
+            |> withCreateAction "Dropped fields"
             makeProperty injectid "paging" (Paging(pgid, [])::rest) [] "Take a number of rows or skip a number of rows." 
             makeDataMember "get the data" rest injectid "Returns the transformed data" ]
           |> membersOk    
