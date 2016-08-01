@@ -40,13 +40,16 @@ open Suave.Filters
 open Suave.Operators
 
 type ThingSchema = { ``@context``:string; ``@type``:string; name:string; }
+type CollectionSchema = { ``@type``:string; name:string }
+type AddActionSchema = { ``@context``:string; ``@type``:string; targetCollection:CollectionSchema }
+type CreateActionSchema = { ``@context``:string; ``@type``:string; result:CollectionSchema }
 
 type RecordField = { name:string; ``type``:obj }
 type GenericType = { name:string; ``params``:obj[] }
 type RecordType = { name:string (* = record *); fields:RecordField[] }
 type TypePrimitive = { kind:string; ``type``:obj; endpoint:string }
 type TypeNested = { kind:string; endpoint:string }
-type Member = { name:string; returns:obj; trace:string[]; schema:ThingSchema }
+type Member = { name:string; returns:obj; trace:string[]; schema:obj }
 
 
 let memberPath s f = 
@@ -91,32 +94,38 @@ module Data =
     |> Seq.mapi (fun i s -> sprintf "noc-%d" i, s)
     |> dict
   
-  let makeSchemaThing kind name =
+  let makeThingSchema kind name =
     { ``@context`` = "http://schema.org/"; ``@type`` = kind; name = name }
+  let makeCreateSchema name =
+    let col = { CollectionSchema.``@type`` = "ItemList"; name=name }
+    { ``@context`` = "http://schema.org/"; ``@type`` = "CreateAction"; result = col }
+  let makeAddSchema name =
+    let col = { CollectionSchema.``@type`` = "ItemList"; name=name }
+    { ``@context`` = "http://schema.org/"; ``@type`` = "AddAction"; targetCollection = col }
   let noSchema = Unchecked.defaultof<ThingSchema>
 
   let facets : list<string * Facet<Medals.Row>> = 
     [ // Single-choice 
-      yield "city", Filter(false, fun r -> Some(sprintf "%s (%d)" r.City r.Edition, makeSchemaThing "City" r.City))
+      yield "city", Filter(false, fun r -> Some(sprintf "%s (%d)" r.City r.Edition, makeThingSchema "City" r.City))
       yield "medal", Filter(false, fun r -> Some(r.Medal, noSchema))
       yield "gender", Filter(false, fun r -> Some(r.Gender, noSchema))
-      yield "country", Filter(false, fun r -> let c = countries.[r.NOC] in Some(c, makeSchemaThing "Country" c))
+      yield "country", Filter(false, fun r -> let c = countries.[r.NOC] in Some(c, makeThingSchema "Country" c))
 
       // Multi-choice
-      yield "cities", Filter(true, fun r -> Some(sprintf "%s (%d)" r.City r.Edition, makeSchemaThing "City" r.City))
+      yield "cities", Filter(true, fun r -> Some(sprintf "%s (%d)" r.City r.Edition, makeThingSchema "City" r.City))
       yield "medals", Filter(true, fun r -> Some(r.Medal, noSchema))
-      yield "countries", Filter(true, fun r -> let c = countries.[r.NOC] in Some(c, makeSchemaThing "Country" c))
+      yield "countries", Filter(true, fun r -> let c = countries.[r.NOC] in Some(c, makeThingSchema "Country" c))
 
       // Multi-level facet with/without multi-choice
       let athleteChoice multi =  
         [ for (KeyValue(k,v)) in nocs -> 
             let c = countries.[v]
-            k, c, makeSchemaThing "Country" c, Filter(multi, fun (r:Medals.Row) -> 
-              if r.NOC = v then Some(r.Athlete, makeSchemaThing "Person" r.Athlete) else None) ]
+            k, c, makeThingSchema "Country" c, Filter(multi, fun (r:Medals.Row) -> 
+              if r.NOC = v then Some(r.Athlete, makeThingSchema "Person" r.Athlete) else None) ]
       let sportChoice multi = 
         [ for (KeyValue(k,v)) in sports -> 
-            k, v, makeSchemaThing "SportsEvent" v, Filter(true, fun (r:Medals.Row) ->  
-              if r.Sport = v then Some(r.Event, makeSchemaThing "SportsEvent" r.Event) else None) ]
+            k, v, makeThingSchema "SportsEvent" v, Filter(multi, fun (r:Medals.Row) ->  
+              if r.Sport = v then Some(r.Event, makeThingSchema "SportsEvent" r.Event) else None) ]
 
       yield "athlete", Choice(athleteChoice false)
       yield "athletes", Choice(athleteChoice true)
@@ -205,29 +214,40 @@ let app =
             let thenTy = 
               { kind="nested"; endpoint=(List.fold (</>) "" rest) </> List.head path }
 
-
             [ for (value, schema) in options do
+                let schema = 
+                  if multichoice then Data.makeAddSchema (List.head path) |> box
+                  else schema |> box
+
                 let ty = if multichoice then andPickTy else thenTy
                 let trace = [| String.concat "/" path + "=" + System.Web.HttpUtility.UrlEncode value |]
                 yield { name=prefix + value; schema=schema; returns=ty; trace=trace }
-              if multichoice && nested then 
+              if multichoice then 
                 yield { name="then"; returns=thenTy; schema=Data.noSchema; trace=[| |] } ]
             |> Array.ofSeq |> toJson |> Successful.OK 
 
         | Choice(c) ->
             c
-            |> Seq.map (fun (k, v, s, _) ->
+            |> Seq.map (fun (k, v, s, facet) ->
+                let schema = 
+                  match facet with
+                  | Filter(true, _) -> Data.makeCreateSchema k |> box
+                  | _ -> s |> box
                 { name=v; returns= {kind="nested"; endpoint= (List.fold (</>) "" selected) </> k }
-                  schema=s; trace=[| |] })
+                  schema=schema; trace=[| |] })
             |> Array.ofSeq |> toJson |> Successful.OK             
 
     | selected ->
         Data.facets 
         |> Seq.filter (fun (facetKey, _) -> 
             selected |> Seq.forall (fun sel -> not (sel.StartsWith(facetKey))))
-        |> Seq.map (fun (facetKey, _) ->
+        |> Seq.map (fun (facetKey, facet) ->
+            let schema = 
+              match facet with
+              | Filter(true, _) -> Data.makeCreateSchema facetKey |> box
+              | _ -> Data.noSchema |> box
             { name="by " + facetKey; returns= {kind="nested"; endpoint=r.url.LocalPath </> "pick" </> facetKey}
-              schema=Data.noSchema; trace=[| |] })
+              schema=schema; trace=[| |] })
         |> Seq.append [
             ( let headers = Data.Medals.GetSample().Headers.Value
               let flds = [| for h in headers -> { name=h; ``type``=if intFields.Contains h then "int" else "string" }  |]

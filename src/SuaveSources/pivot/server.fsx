@@ -56,6 +56,7 @@ type Transformation =
   | SortBy of (string * SortDirection) list
   | GroupBy of string * Aggregation list
   | Paging of string * Paging list
+  | GetSeries of string * string
   | Empty
 
 module Transform = 
@@ -84,6 +85,7 @@ module Transform =
     | "sort"::columns -> SortBy(columns |> List.chunkBySize 2 |> List.map (function [f; "asc"] -> f, Ascending | [f; "desc"] -> f, Descending | _ -> failwith "Invalid sort by order"))
     | "group"::field::aggs -> GroupBy(field, parseAggs [] aggs)
     | "page"::pgid::ops -> Paging(pgid, List.map (function "take" -> Take | "skip" -> Skip | _ -> failwith "Wrong paging operation") ops)
+    | "series"::k::v::[] -> GetSeries(k, v)
     | [] -> Empty
     | ch -> failwith (sprintf "Not a valid transformation: %s" (String.concat "/" ch))
 
@@ -109,6 +111,7 @@ module Transform =
         | SortBy(columns) -> "sort"::(List.collect (fun (c, o) -> [c; (if o = Ascending then "asc" else "desc")]) columns)
         | GroupBy(fld, aggs) -> "group"::fld::(List.collect formatAgg aggs)
         | Paging(pgid, ops) -> "page"::pgid::(List.map (function Take _ -> "take" | Skip _ -> "skip") ops)
+        | GetSeries(k, v) -> "series"::k::v::[]
         | Empty -> [] ]
     |> List.mapi (fun i l -> if i = 0 then l else "then"::l)
     |> List.concat
@@ -169,6 +172,9 @@ let singleTransformFields fields = function
   | Empty -> fields
   | SortBy _ -> fields
   | Paging _ -> fields
+  | GetSeries(k, v) -> 
+      [ fields |> List.find (fst >> (=) k)
+        fields |> List.find (fst >> (=) v) ]
   | DropColumns(drop) ->
       let dropped = set drop
       fields |> List.filter (fst >> dropped.Contains >> not)
@@ -188,6 +194,7 @@ let transformFields fields tfs =
   { Fields = tfs |> List.fold singleTransformFields fields.Fields }
 
 let mapTransformFields f = function
+  | GetSeries(k, v) -> GetSeries(f k, f v)
   | Paging(pgid, ops) -> Paging(pgid, ops)
   | DropColumns cols -> DropColumns (List.map f cols)
   | SortBy cols -> SortBy (List.map (fun (fld, o) -> (f fld, o)) cols)
@@ -221,10 +228,13 @@ let makeMethod id name tfs trace pars (doc:string) =
       [| for n, t in pars -> MemberQuery.Parameter(n, JsonValue.String t) |], 
       MemberQuery.StringOrDocumentation(doc) )
 
-let makeProperty id name tfs trace (doc:string) = 
-  match (makeMethod id name tfs trace [] doc).JsonValue with
+let dropParameters (mq:MemberQuery.Root) = 
+  match mq.JsonValue with
   | JsonValue.Record(flds) -> MemberQuery.Root(JsonValue.Record(flds |> Array.filter (fun (n, _) -> n <> "parameters")))
   | _ -> failwith "makeProperty: expected record"
+
+let makeProperty id name tfs trace (doc:string) = 
+  makeMethod id name tfs trace [] doc |> dropParameters
 
 let withSchema actTyp fldName listName (m:MemberQuery.Root) = 
   match m.JsonValue with
@@ -259,14 +269,25 @@ let makeRecordSeq fields =
   let recd = TypeInfo.Record("record", Array.ofSeq fields, [||])
   TypeInfo.Record("seq", [||], [| recd.JsonValue |]).JsonValue
 
+let makeTupleSeq tyas = 
+  let recd = TypeInfo.Record("tuple", [||], Array.ofSeq tyas)
+  TypeInfo.Record("seq", [||], [| recd.JsonValue |]).JsonValue
+
 let makeDataMember name tfs injectid (doc:string) = 
   let fields = (getFields injectid).Value
   let finalFields = transformFields fields (List.rev tfs)  
-  let dataTyp = finalFields.Fields |> List.map snd |> makeRecordSeq
+  let dataTyp = 
+    match tfs with 
+    | (GetSeries _)::_ -> 
+        match finalFields.Fields with
+        | [_, kf; _, vf] -> makeTupleSeq [kf.Type.JsonValue; vf.Type.JsonValue]
+        | _ -> failwith "makeDataMember: Series should have key and value"
+    | _ -> finalFields.Fields |> List.map snd |> makeRecordSeq
+
   let dataRet = MemberQuery.Returns("primitive", "/pivot/data", dataTyp)
   let url = tfs |> renameFields fields.Fields |> Transform.toUrl  
   let trace = [| "pivot-tfs=" + url |]
-  MemberQuery.Root("get the data", dataRet, trace, [||], MemberQuery.StringOrDocumentation(doc))            
+  MemberQuery.Root(name, dataRet, trace, [||], MemberQuery.StringOrDocumentation(doc)) |> dropParameters
 
 
 
@@ -329,7 +350,11 @@ module Seq =
 // Filtering or grouping data at runtime
 // ----------------------------------------------------------------------------
 
-let inline pickField name obj = 
+let (|JsonRecord|) = function
+  | JsonValue.Record r -> r 
+  | _ -> failwith "Expected a record"
+
+let inline pickField name (JsonRecord(obj)) = 
   Array.pick (fun (n, v) -> if n = name then Some v else None) obj
 
 let applyAggregation (kfld, kval) group = function
@@ -351,16 +376,21 @@ let compareFields o1 o2 (fld, order) =
   | JsonValue.String s1, JsonValue.String s2 -> reverse * compare s1 s2
   | _ -> failwith "Cannot compare values"
 
-let transformJson lookupRuntimeArg (objs:seq<(string*JsonValue)[]>) = function
+let transformJson lookupRuntimeArg (objs:seq<JsonValue>) = function
   | Empty -> objs
+  | GetSeries(k, v) ->
+      objs |> Seq.map (fun (JsonRecord(obj)) ->
+        let _, kval = Array.find (fst >> (=) k) obj
+        let _, vval = Array.find (fst >> (=) v) obj
+        JsonValue.Array [| kval; vval; |] )
   | Paging(pgid, pgops) ->
       pgops |> Seq.fold (fun objs -> function
         | Take -> objs |> Seq.take (lookupRuntimeArg pgid "take" "count" |> int)
         | Skip -> objs |> Seq.skip (lookupRuntimeArg pgid "skip" "count" |> int)) objs
   | DropColumns(flds) ->
       let dropped = set flds
-      objs |> Seq.map (fun obj ->
-        obj |> Array.filter (fst >> dropped.Contains >> not))
+      objs |> Seq.map (fun (JsonRecord(obj)) ->
+        obj |> Array.filter (fst >> dropped.Contains >> not) |> JsonValue.Record)
   | SortBy(flds) ->
       let flds = List.rev flds
       objs |> Seq.sortWith (fun o1 o2 ->
@@ -373,7 +403,8 @@ let transformJson lookupRuntimeArg (objs:seq<(string*JsonValue)[]>) = function
       |> Seq.map (fun (kval, group) ->
         aggs 
         |> List.map (applyAggregation (fld, kval) group)
-        |> Array.ofSeq )
+        |> Array.ofSeq
+        |> JsonValue.Record )
 
 let mutable cache = Map.empty
 
@@ -405,9 +436,8 @@ let handleDataRequest source ctx = async {
         return data }
 
   printfn "Transforming data"
-  let recds = data |> Seq.map (function JsonValue.Record r -> r | _ -> failwith "Expected array of records")
-  let data = tfs |> List.rev |> List.fold (transformJson lookupRuntimeArg) recds
-  let res = JsonValue.Array(data |> Seq.map JsonValue.Record |> Array.ofSeq).ToString()
+  let data = tfs |> List.rev |> List.fold (transformJson lookupRuntimeArg) (Seq.ofArray data)
+  let res = JsonValue.Array(data |> Array.ofSeq).ToString()
 
   printfn "Returning data"
   return! Successful.OK res ctx }
@@ -416,6 +446,19 @@ let handleDataRequest source ctx = async {
 // Transformations
 // ----------------------------------------------------------------------------
 
+let handleGetSeriesRequest injectid { Fields = fields } rest k v = 
+  match k, v with
+  | "!", "!" ->
+    [ for fldid, field in fields ->
+        makeProperty injectid ("with key " + field.Name) (GetSeries(fldid, "!")::rest) [] "Use the field as a key." ]
+    |> membersOk
+  | k, "!" ->
+    [ for fldid, field in fields ->
+        makeDataMember ("and value " + field.Name) (GetSeries(k, fldid)::rest) injectid "Use the field as a value and get the data." ]
+    |> membersOk
+  | _ -> 
+    failwith "handleGetSeriesRequest: Should not happen"
+  
 let handlePagingRequest injectid { Fields = fields } rest pgid ops =
   let takeDoc = "Take the specified number of rows and drop the rest"
   let takeMemb = makeMethod injectid ("take") (Empty::Paging(pgid, List.rev (Take::ops))::rest) ["pivot-take=" + pgid] ["count", "int"] takeDoc
@@ -542,9 +585,12 @@ let app = withSource (fun source ->
             makeProperty injectid "filter columns" (DropColumns([])::rest) [] "Lets you remove some of the columns from the table." 
             |> withCreateAction "Dropped fields"
             makeProperty injectid "paging" (Paging(pgid, [])::rest) [] "Take a number of rows or skip a number of rows." 
+            makeProperty injectid "get series" (GetSeries("!","!")::rest) [] "Get a single key-value series from the data set." 
             makeDataMember "get the data" rest injectid "Returns the transformed data" ]
           |> membersOk    
       // 
+      | GetSeries(k, v) ->
+          handleGetSeriesRequest injectid fields rest k v
       | Paging(pgid, ops) ->
           handlePagingRequest injectid fields rest pgid ops
       | SortBy(keys) ->

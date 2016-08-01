@@ -37,7 +37,8 @@ let app =
   choose [
     path "/" >=> 
       ( [| { name="London"; returns={kind="nested"; endpoint="/city"}; trace=[|"London"|] };
-           { name="New York"; returns={kind="nested"; endpoint="/city"}; trace=[|"NYC"|] } |]
+           { name="New York"; returns={kind="nested"; endpoint="/city"}; trace=[|"NYC"|] }
+           { name="Cambrdige"; returns={kind="nested"; endpoint="/city"}; trace=[|"NYC"|] } |]
         |> toJson |> Successful.OK )
 
     path "/city" >=>

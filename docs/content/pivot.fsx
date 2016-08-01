@@ -23,6 +23,6 @@ let r =
         .``by Gold descending``
         .``and by Silver descending``
         .``and by Bronze descending``.``then``
-      .paging.skip(1).take(10).``get the data``
+      .paging.skip(1).take(10).``get the data``()
 
-for r in r do printfn "%A" r
+for r in r do printfn "%A" r.Bronze
