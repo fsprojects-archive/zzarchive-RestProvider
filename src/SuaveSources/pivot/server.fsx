@@ -20,7 +20,7 @@ open Suave.Cookie
 type MemberQuery = JsonProvider<"""
   [ { "name":"United Kingdom", "returns":{"kind":"nested", "endpoint":"/country"}, "trace":["country", "UK"],
       "parameters":[ {"name":"count", "type":null}, {"name":"another", "type":null} ],
-      "documentation":"can be a plain string" }, 
+      "documentation":{"title":"Some short thing", "details":"more text"} }, 
     { "name":"United Kingdom", "returns":{"kind":"nested", "endpoint":"/country"},
       "documentation":{"endpoint":"/or-a-url-to-call"} }, 
     { "name":"Population", "returns":{"kind":"primitive", "type":null, "endpoint":"/data"}, "trace":["indicator", "POP"] } ] """>
@@ -222,19 +222,26 @@ let renameFields fields tfs =
 //
 // ----------------------------------------------------------------------------
 
-let makeMethod id name tfs trace pars (doc:string) = 
+let makeMethod id name tfs trace pars = 
   MemberQuery.Root
     ( name, Transform.toReturns id tfs, Array.ofSeq trace, 
-      [| for n, t in pars -> MemberQuery.Parameter(n, JsonValue.String t) |], 
-      MemberQuery.StringOrDocumentation(doc) )
+      [| for n, t in pars -> MemberQuery.Parameter(n, JsonValue.String t) |], None )
 
 let dropParameters (mq:MemberQuery.Root) = 
   match mq.JsonValue with
   | JsonValue.Record(flds) -> MemberQuery.Root(JsonValue.Record(flds |> Array.filter (fun (n, _) -> n <> "parameters")))
   | _ -> failwith "makeProperty: expected record"
 
-let makeProperty id name tfs trace (doc:string) = 
-  makeMethod id name tfs trace [] doc |> dropParameters
+let makeProperty id name tfs trace = 
+  makeMethod id name tfs trace [] |> dropParameters
+
+let withDocs title details (m:MemberQuery.Root) = 
+  match m.JsonValue with 
+  | JsonValue.Record(flds) ->
+      let fld = MemberQuery.Documentation(Some title, Some details, None).JsonValue
+      let flds = flds |> Array.filter (fun (k, _) -> k <> "documentation")
+      MemberQuery.Root(JsonValue.Record(Array.append [|"documentation", fld|] flds))
+  | _ -> failwith "withDocs: expected record"
 
 let withSchema actTyp fldName listName (m:MemberQuery.Root) = 
   match m.JsonValue with
@@ -255,6 +262,19 @@ let withAddAction collectionName =
 let withCreateAction collectionName =
   withSchema "CreateAction" "result" collectionName
 
+let withThingSchema thingType thingName (m:MemberQuery.Root) = 
+  match m.JsonValue with
+  | JsonValue.Record(props) -> 
+      let schema = 
+        [| "@context", JsonValue.String "http://schema.org/"
+           "@type", JsonValue.String thingType
+           "name", JsonValue.String thingName |]
+        |> JsonValue.Record
+      let props = Array.append [| ("schema", schema) |] props
+      MemberQuery.Root(JsonValue.Record(props))
+  | _ -> failwith "withSchema: expected record"
+
+
 let membersOk (s:seq<MemberQuery.Root>) = 
   JsonValue.Array([| for a in s -> a.JsonValue |]).ToString() |> Successful.OK
 
@@ -273,7 +293,7 @@ let makeTupleSeq tyas =
   let recd = TypeInfo.Record("tuple", [||], Array.ofSeq tyas)
   TypeInfo.Record("seq", [||], [| recd.JsonValue |]).JsonValue
 
-let makeDataMember name tfs injectid (doc:string) = 
+let makeDataMember name tfs injectid = 
   let fields = (getFields injectid).Value
   let finalFields = transformFields fields (List.rev tfs)  
   let dataTyp = 
@@ -287,7 +307,7 @@ let makeDataMember name tfs injectid (doc:string) =
   let dataRet = MemberQuery.Returns("primitive", "/pivot/data", dataTyp)
   let url = tfs |> renameFields fields.Fields |> Transform.toUrl  
   let trace = [| "pivot-tfs=" + url |]
-  MemberQuery.Root(name, dataRet, trace, [||], MemberQuery.StringOrDocumentation(doc)) |> dropParameters
+  MemberQuery.Root(name, dataRet, trace, [||], None) |> dropParameters
 
 
 
@@ -450,21 +470,29 @@ let handleGetSeriesRequest injectid { Fields = fields } rest k v =
   match k, v with
   | "!", "!" ->
     [ for fldid, field in fields ->
-        makeProperty injectid ("with key " + field.Name) (GetSeries(fldid, "!")::rest) [] "Use the field as a key." ]
+        makeProperty injectid ("with key " + field.Name) (GetSeries(fldid, "!")::rest) [] 
+        |> withDocs "Get the data" "Here, we select one of the attribute of the data set as the 'key' and one as a 'value'. In the first list, you can choose the key." 
+        |> withThingSchema "ListItem" "series key" ]
     |> membersOk
   | k, "!" ->
     [ for fldid, field in fields ->
-        makeDataMember ("and value " + field.Name) (GetSeries(k, fldid)::rest) injectid "Use the field as a value and get the data." ]
+        makeDataMember ("and value " + field.Name) (GetSeries(k, fldid)::rest) injectid 
+        |> withDocs "Get the data" "In the second list, choose attribute that you want to use as the value."
+        |> withThingSchema "ListItem" "series value" ]
     |> membersOk
   | _ -> 
     failwith "handleGetSeriesRequest: Should not happen"
   
 let handlePagingRequest injectid { Fields = fields } rest pgid ops =
-  let takeDoc = "Take the specified number of rows and drop the rest"
-  let takeMemb = makeMethod injectid ("take") (Empty::Paging(pgid, List.rev (Take::ops))::rest) ["pivot-take=" + pgid] ["count", "int"] takeDoc
-  let skipDoc = "Skip the specified number of rows and keep the rest"
-  let skipMemb = makeMethod injectid ("skip") (Paging(pgid, Skip::ops)::rest) ["pivot-skip=" + pgid] ["count", "int"] takeDoc
-  let thenMemb = makeProperty injectid "then" (Empty::Paging(pgid, List.rev ops)::rest) [] "Return the data"
+  let takeMemb = 
+    makeMethod injectid ("take") (Empty::Paging(pgid, List.rev (Take::ops))::rest) ["pivot-take=" + pgid] ["count", "int"] 
+    |> withDocs "" "Take the specified number of rows and drop the rest"
+  let skipMemb = 
+    makeMethod injectid ("skip") (Paging(pgid, Skip::ops)::rest) ["pivot-skip=" + pgid] ["count", "int"] 
+    |> withDocs "" "Skip the specified number of rows and keep the rest"
+  let thenMemb = 
+    makeProperty injectid "then" (Empty::Paging(pgid, List.rev ops)::rest) [] 
+    |> withDocs "" "Return the data"
   ( match ops with
     | [] -> [skipMemb; takeMemb]
     | [Skip _] -> [takeMemb; thenMemb]
@@ -472,31 +500,37 @@ let handlePagingRequest injectid { Fields = fields } rest pgid ops =
 
 let handleDropRequest injectid { Fields = fields } rest dropped = 
   let droppedFields = set dropped
-  [ yield makeProperty injectid "then" (Empty::DropColumns(dropped)::rest) [] "Return the data"
+  [ yield makeProperty injectid "then" (Empty::DropColumns(dropped)::rest) [] |> withDocs "" "Return the data"
     for fldid, field in fields do
       if not (droppedFields.Contains fldid) then
-        let doc = sprintf "Removes the field '%s' from the returned data set" field.Name
-        yield makeProperty injectid ("drop " + field.Name) (DropColumns(fldid::dropped)::rest) [] doc
-              |> withAddAction "Dropped fields" ]
+        yield 
+          makeProperty injectid ("drop " + field.Name) (DropColumns(fldid::dropped)::rest) [] 
+          |> withDocs "" (sprintf "Removes the field '%s' from the returned data set" field.Name)
+          |> withAddAction "Dropped fields" ]
   |> membersOk    
 
 let handleSortRequest injectid { Fields = fields } rest keys = 
   let usedKeys = set (List.map fst keys)
-  [ yield makeProperty injectid "then" (Empty::SortBy(keys)::rest) [] "Return the data"
+  [ yield makeProperty injectid "then" (Empty::SortBy(keys)::rest) [] |> withDocs "" "Return the data"
     for fldid, field in fields do
       if not (usedKeys.Contains fldid) then
         let doc = sprintf "Use the field '%s' as the next sorting keys" field.Name
         let prefix = if keys = [] then "by " else "and by "
-        yield makeProperty injectid (prefix + field.Name) (SortBy((fldid, Ascending)::keys)::rest) [] doc 
+        yield makeProperty injectid (prefix + field.Name) (SortBy((fldid, Ascending)::keys)::rest) [] 
+              |> withDocs "" doc 
               |> withAddAction "Fields used for sorting"
-        yield makeProperty injectid (prefix + field.Name + " descending") (SortBy((fldid, Descending)::keys)::rest) [] doc 
+        yield makeProperty injectid (prefix + field.Name + " descending") (SortBy((fldid, Descending)::keys)::rest) [] 
+              |> withDocs "" doc 
               |> withAddAction "Fields used for sorting" ]
   |> membersOk    
 
 let handleGroupRequest injectid { Fields = fields } rest = 
   [ for fldid, field in fields ->
-      let doc = sprintf "Groupd data by field '%s' and then aggregate groups" field.Name
-      makeProperty injectid ("by " + field.Name) (GroupBy(fldid, [GroupKey])::rest) [] doc
+      makeProperty injectid ("by " + field.Name) (GroupBy(fldid, [GroupKey])::rest) [] 
+      |> withDocs (sprintf "Group by %s" (field.Name.ToLower()))
+          ( "Creates groups based on the value of " + field.Name + " and calculte summary " +
+            "values for each group. You can specify a number of summary calculations in the " + 
+            "following list:")
       |> withCreateAction "Aggregation operations" ]
   |> membersOk  
 
@@ -506,10 +540,10 @@ let handleGroupAggRequest injectid { Fields = fields } rest fld aggs =
     | CountDistinct f | ReturnUnique f | ConcatValues f | Sum f -> f = fld | CountAll | GroupKey -> false)
 
   let makeAggMember name agg doc = 
-    makeProperty injectid name (GroupBy(fld,agg::aggs)::rest) [] doc
+    makeProperty injectid name (GroupBy(fld,agg::aggs)::rest) [] |> withDocs "" doc
     |> withAddAction "Aggregation operations"
 
-  [ yield makeProperty injectid "then" (Empty::GroupBy(fld, aggs)::rest) [] "Get data or perform another transformation"
+  [ yield makeProperty injectid "then" (Empty::GroupBy(fld, aggs)::rest) [] |> withDocs "" "Get data or perform another transformation"
     if not containsCountAll then 
       yield makeAggMember "count all" CountAll "Count the number of items in the group"
     for fldid, fld in fields do
@@ -540,7 +574,8 @@ let handleProxyRequest source local ctx = async {
                     (ctx.request.url.ToString() + "\n" + membr.Name) 
                     { Fields = fields |> Seq.mapi (fun i fld -> sprintf "a_%d" i, fld) |> List.ofSeq }
                 let trace = Array.append [| "pivot-source=" + membr.Returns.Endpoint |] membr.Trace
-                (makeProperty id membr.Name [Empty] trace "Get data and perform pivoting operations on it.").JsonValue
+                ( makeProperty id membr.Name [Empty] trace 
+                  |> withDocs "" "Get data and perform pivoting operations on it." ).JsonValue
             | _ -> membr.JsonValue)
         |> JsonValue.Array
       members.ToString()
@@ -579,14 +614,20 @@ let app = withSource (fun source ->
       // Starting a new pivoting operation
       | Empty ->
           let pgid = rest |> Seq.sumBy (function Paging _ -> 1 | _ -> 0) |> sprintf "pgid-%d"  
-          [ makeProperty injectid "group data" (GroupBy("!", [])::rest) [] "Lets you perform pivot table aggregations."
-            makeProperty injectid "sort data" (SortBy([])::rest) [] "Lets you sort data in the table by given column(s)."
-            |> withCreateAction "Fields used for sorting"
-            makeProperty injectid "filter columns" (DropColumns([])::rest) [] "Lets you remove some of the columns from the table." 
-            |> withCreateAction "Dropped fields"
-            makeProperty injectid "paging" (Paging(pgid, [])::rest) [] "Take a number of rows or skip a number of rows." 
-            makeProperty injectid "get series" (GetSeries("!","!")::rest) [] "Get a single key-value series from the data set." 
-            makeDataMember "get the data" rest injectid "Returns the transformed data" ]
+          [ makeProperty injectid "group data" (GroupBy("!", [])::rest) [] |> withDocs "" "Lets you perform pivot table aggregations."
+            makeProperty injectid "sort data" (SortBy([])::rest) [] 
+              |> withDocs "Sort the data" ("Specify how the data is sorted. You can choose one or more attributes " +
+                  "to use for sorting in the following list. Choose 'descending' to sort the values from largest value " +
+                  "to smallest value.")
+              |> withCreateAction "Fields used for sorting"
+            makeProperty injectid "filter columns" (DropColumns([])::rest) [] 
+              |> withDocs "Filter returned attributes" ("Specify which attributes of the data sets should be returned. " +
+                  "By default you'll get all available attributes, but you can drop uninteresting attributes by listing " +
+                  "them in the following list:")
+              |> withCreateAction "Dropped fields"
+            makeProperty injectid "paging" (Paging(pgid, [])::rest) [] |> withDocs "" "Take a number of rows or skip a number of rows." 
+            makeProperty injectid "get series" (GetSeries("!","!")::rest) [] |> withDocs "" "Get a single key-value series from the data set." 
+            makeDataMember "get the data" rest injectid |> withDocs "" "Returns the transformed data" ]
           |> membersOk    
       // 
       | GetSeries(k, v) ->

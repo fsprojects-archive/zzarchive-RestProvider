@@ -16,7 +16,8 @@ type MemberQuery = JsonProvider<"""
       "documentation":"can be a plain string" }, 
     { "name":"United Kingdom", "returns":{"kind":"nested", "endpoint":"/country"},
       "documentation":{"endpoint":"/or-a-url-to-call"} }, 
-    { "name":"Population", "returns":{"kind":"primitive", "type":null, "endpoint":"/data"}, "trace":["indicator", "POP"] } ] """>
+    { "name":"Population", "returns":{"kind":"primitive", "type":null, "endpoint":"/data"}, "trace":["indicator", "POP"], 
+      "documentation":{"title":"A", "details":"B"}} ] """>
 
 type TypeInfo = JsonProvider<"""
   [ "float",
@@ -282,9 +283,11 @@ type public RestProvider() as this =
               m :> MemberInfo, m.AddXmlDoc, m.AddXmlDocComputed
 
           match membr.Documentation.Record, membr.Documentation.String with
-          | Some recd, _ -> 
-              let doc = Http.AsyncRequestString(recd.Endpoint) |> Async.StartAsTask
+          | Some recd, _ when recd.Endpoint.IsSome -> 
+              let doc = Http.AsyncRequestString(recd.Endpoint.Value) |> Async.StartAsTask
               addDocDelay(fun _ -> "<summary>" + doc.Result + "</summary>")
+          | Some recd, _ when recd.Title.IsSome && recd.Details.IsSome ->
+              addDoc ("<summary>" + recd.Title.Value + "\n" + recd.Details.Value + "</summary>")
           | _, Some str -> addDoc ("<summary>" + str + "</summary>")
           | _ -> addDoc ("<summary>/" + altdoc + "</summary>")
           mi ]

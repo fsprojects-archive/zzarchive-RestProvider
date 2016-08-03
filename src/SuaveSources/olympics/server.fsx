@@ -49,7 +49,8 @@ type GenericType = { name:string; ``params``:obj[] }
 type RecordType = { name:string (* = record *); fields:RecordField[] }
 type TypePrimitive = { kind:string; ``type``:obj; endpoint:string }
 type TypeNested = { kind:string; endpoint:string }
-type Member = { name:string; returns:obj; trace:string[]; schema:obj }
+type Documentation = { title:string; details:string }
+type Member = { name:string; returns:obj; trace:string[]; schema:obj; documentation:obj (*null+Documentation*) }
 
 
 let memberPath s f = 
@@ -65,14 +66,15 @@ let (|Lookup|_|) k (dict:IDictionary<_,_>) =
 
 
 type Facet<'T> = 
-  | Filter of multichoice:bool * ('T -> option<string * ThingSchema>)
-  | Choice of seq<string * string * ThingSchema * Facet<'T>>
+  | Filter of string * multichoice:bool * ('T -> option<string * ThingSchema>)
+  | Choice of string * seq<string * string * ThingSchema * Facet<'T>>
 
 module Data = 
   let [<Literal>] Root = __SOURCE_DIRECTORY__ + "/medals-expanded.csv"
-  type Medals = CsvProvider<Root, Schema="Gold=int, Silver=int, Bronze=int">
+  type Medals = CsvProvider<Root, Schema="Gold=int, Silver=int, Bronze=int, NOC->Country">
   let olympics = Medals.GetSample().Rows
-  
+  let headers = Medals.GetSample().Headers.Value |> Array.map (function "NOC" -> "Country" | s -> s)
+              
   // http://www.topendsports.com/events/summer/countries/country-codes.htm
   type Codes = FSharp.Data.HtmlProvider<const(__SOURCE_DIRECTORY__ + "/countrycodes.html")>
   let countries = 
@@ -89,7 +91,7 @@ module Data =
 
   let nocs = 
     olympics 
-    |> Seq.map (fun o -> o.NOC) 
+    |> Seq.map (fun o -> o.Country) 
     |> Seq.distinct
     |> Seq.mapi (fun i s -> sprintf "noc-%d" i, s)
     |> dict
@@ -106,31 +108,31 @@ module Data =
 
   let facets : list<string * Facet<Medals.Row>> = 
     [ // Single-choice 
-      yield "city", Filter(false, fun r -> Some(sprintf "%s (%d)" r.City r.Edition, makeThingSchema "City" r.City))
-      yield "medal", Filter(false, fun r -> Some(r.Medal, noSchema))
-      yield "gender", Filter(false, fun r -> Some(r.Gender, noSchema))
-      yield "country", Filter(false, fun r -> let c = countries.[r.NOC] in Some(c, makeThingSchema "Country" c))
+      yield "city", Filter("city", false, fun r -> Some(sprintf "%s (%d)" r.City r.Edition, makeThingSchema "City" r.City))
+      yield "medal", Filter("medal", false, fun r -> Some(r.Medal, noSchema))
+      yield "gender", Filter("gender", false, fun r -> Some(r.Gender, noSchema))
+      yield "country", Filter("country", false, fun r -> let c = countries.[r.Country] in Some(c, makeThingSchema "Country" c))
 
       // Multi-choice
-      yield "cities", Filter(true, fun r -> Some(sprintf "%s (%d)" r.City r.Edition, makeThingSchema "City" r.City))
-      yield "medals", Filter(true, fun r -> Some(r.Medal, noSchema))
-      yield "countries", Filter(true, fun r -> let c = countries.[r.NOC] in Some(c, makeThingSchema "Country" c))
+      yield "cities", Filter("city", true, fun r -> Some(sprintf "%s (%d)" r.City r.Edition, makeThingSchema "City" r.City))
+      yield "medals", Filter("medal", true, fun r -> Some(r.Medal, noSchema))
+      yield "countries", Filter("country", true, fun r -> let c = countries.[r.Country] in Some(c, makeThingSchema "Country" c))
 
       // Multi-level facet with/without multi-choice
       let athleteChoice multi =  
         [ for (KeyValue(k,v)) in nocs -> 
             let c = countries.[v]
-            k, c, makeThingSchema "Country" c, Filter(multi, fun (r:Medals.Row) -> 
-              if r.NOC = v then Some(r.Athlete, makeThingSchema "Person" r.Athlete) else None) ]
+            k, c, makeThingSchema "Country" c, Filter("athlete", multi, fun (r:Medals.Row) -> 
+              if r.Country = v then Some(r.Athlete, makeThingSchema "Person" r.Athlete) else None) ]
       let sportChoice multi = 
         [ for (KeyValue(k,v)) in sports -> 
-            k, v, makeThingSchema "SportsEvent" v, Filter(multi, fun (r:Medals.Row) ->  
+            k, v, makeThingSchema "SportsEvent" v, Filter("event", multi, fun (r:Medals.Row) ->  
               if r.Sport = v then Some(r.Event, makeThingSchema "SportsEvent" r.Event) else None) ]
 
-      yield "athlete", Choice(athleteChoice false)
-      yield "athletes", Choice(athleteChoice true)
-      yield "sport", Choice (sportChoice false)
-      yield "sports", Choice (sportChoice true) ]
+      yield "athlete", Choice("country", athleteChoice false)
+      yield "athletes", Choice("country", athleteChoice true)
+      yield "sport", Choice ("sport", sportChoice false)
+      yield "sports", Choice ("sport", sportChoice true) ]
 
 
   let facetsLookup = dict facets
@@ -138,7 +140,7 @@ module Data =
   let rec findFilter path facet = 
     match path, facet with
     | [], f -> f
-    | p::ps, Choice choices -> 
+    | p::ps, Choice(_, choices) -> 
         match choices |> Seq.tryPick (fun (k, _, _, f) -> if p = k  then Some(findFilter ps f) else None) with
         | Some f -> f
         | None -> failwithf "Could not find filter '%s' in choices '%A'" p [ for c, _, _, _ in choices -> c ]
@@ -185,16 +187,15 @@ let app =
         |> Seq.filter (fun r ->
             constraints |> Seq.forall (fun (f, vs) -> 
               match f with 
-              | Filter(_, f) -> match f r with Some(v, _) -> vs.Contains v | _ -> false
+              | Filter(_, _, f) -> match f r with Some(v, _) -> vs.Contains v | _ -> false
               | _ -> false))
         |> Seq.map (fun r -> 
             let flds = Microsoft.FSharp.Reflection.FSharpValue.GetTupleFields(r) |> List.ofSeq
-            let headers = Data.Medals.GetSample().Headers.Value
-            Seq.zip flds headers 
+            Seq.zip flds Data.headers 
             |> Seq.map (fun (fld, hdr) ->
                 hdr, 
                 if hdr = "Edition" then JsonValue.Number(decimal (fld :?> int))
-                elif hdr = "NOC" then JsonValue.String(Data.countries.[fld :?> string])
+                elif hdr = "Country" then JsonValue.String(Data.countries.[fld :?> string])
                 else JsonValue.String(string fld))
             |> Array.ofSeq
             |> JsonValue.Record )
@@ -207,12 +208,13 @@ let app =
     | Let false (nested, SplitBy "pick" (rest, path)) ->
         let prefix = if nested then "or " else ""
         match Data.findFacet path with
-        | Filter(multichoice, f) ->
+        | Filter(name, multichoice, f) ->
             let options = Data.olympics |> Seq.choose f |> Seq.distinctBy fst
             let andPickTy = 
               { kind="nested"; endpoint=(List.fold (</>) "" rest) </> "and-pick" </> (List.fold (</>) "" path) }
             let thenTy = 
               { kind="nested"; endpoint=(List.fold (</>) "" rest) </> List.head path }
+            let doc = { title="Select " + name; details="In the list below, you can choose an individual " + name + ":" }
 
             [ for (value, schema) in options do
                 let schema = 
@@ -221,20 +223,21 @@ let app =
 
                 let ty = if multichoice then andPickTy else thenTy
                 let trace = [| String.concat "/" path + "=" + System.Web.HttpUtility.UrlEncode value |]
-                yield { name=prefix + value; schema=schema; returns=ty; trace=trace }
+                yield { name=prefix + value; schema=schema; returns=ty; trace=trace; documentation=doc }
               if multichoice then 
-                yield { name="then"; returns=thenTy; schema=Data.noSchema; trace=[| |] } ]
+                yield { name="then"; returns=thenTy; schema=Data.noSchema; trace=[| |]; documentation=null } ]
             |> Array.ofSeq |> toJson |> Successful.OK 
 
-        | Choice(c) ->
+        | Choice(name, c) ->
+            let doc = { title="Select " + name; details="First, select a " + name + ". There are too many items, so " + name + " is used as a category to make finding individual items in the list easier. " }
             c
             |> Seq.map (fun (k, v, s, facet) ->
                 let schema = 
                   match facet with
-                  | Filter(true, _) -> Data.makeCreateSchema k |> box
+                  | Filter(_, true, _) -> Data.makeCreateSchema k |> box
                   | _ -> s |> box
                 { name=v; returns= {kind="nested"; endpoint= (List.fold (</>) "" selected) </> k }
-                  schema=schema; trace=[| |] })
+                  schema=schema; trace=[| |]; documentation=doc })
             |> Array.ofSeq |> toJson |> Successful.OK             
 
     | selected ->
@@ -244,14 +247,13 @@ let app =
         |> Seq.map (fun (facetKey, facet) ->
             let schema = 
               match facet with
-              | Filter(true, _) -> Data.makeCreateSchema facetKey |> box
+              | Filter(_, true, _) -> Data.makeCreateSchema facetKey |> box
               | _ -> Data.noSchema |> box
             { name="by " + facetKey; returns= {kind="nested"; endpoint=r.url.LocalPath </> "pick" </> facetKey}
-              schema=schema; trace=[| |] })
+              schema=schema; trace=[| |]; documentation=null })
         |> Seq.append [
-            ( let headers = Data.Medals.GetSample().Headers.Value
-              let flds = [| for h in headers -> { name=h; ``type``=if intFields.Contains h then "int" else "string" }  |]
+            ( let flds = [| for h in Data.headers -> { name=h; ``type``=if intFields.Contains h then "int" else "string" }  |]
               let typ = { name="seq"; ``params``=[| { name="record"; fields=flds } |] }
               { name="data"; returns= {kind="primitive"; ``type``=typ; endpoint="/data"}
-                schema=Data.noSchema; trace=[| |] } ) ]
+                schema=Data.noSchema; trace=[| |]; documentation=null } ) ]
         |> Array.ofSeq |> toJson |> Successful.OK )
